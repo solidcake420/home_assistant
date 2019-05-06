@@ -1,0 +1,46 @@
+living_room_lights:
+  name: Living Room Lights
+  view: true
+  icon: mdi:sofa
+  entities:
+  - light.living_room
+  - light.table_light
+  - light.hue_mini
+
+
+master_bedroom_lights:
+  name: Master Bedroom Lights
+  view: true
+  icon: mdi:hotel
+  entities:
+  - light.master_bedroom
+  - light.salt_lamp
+
+garmin:
+  name: Garmin
+  view: false
+  icon: mdi:watch
+  entities:
+  - switch.flat_pc
+  - light.master_bedroom
+  - light.salt_lamp
+  - switch.sonoff_th16_relay
+  - light.living_room
+  - light.entertainment_area
+  - light.hue_one
+  - switch.sonoff_s20_1_relay
+  - light.table_light
+  - fan.living_room
+  - switch.sonoff_s20_3_relay
+  - light.hallway
+  - switch.tv
+  - switch.stereo
+  - switch.stereo_vol_up
+  - switch.stereo_vol_down
+
+home_members:
+  name: Home members
+  view: false
+  entities:
+    - person.flat
+    - person.kamil

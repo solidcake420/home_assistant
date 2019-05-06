@@ -1,0 +1,352 @@
+light.a020a61d2d00_192_168_1_113:
+  friendly_name: Desk Lightstrip Old
+  icon: mdi:led-strip
+device_tracker.oneplus_5:
+  friendly_name: OnePlus 5 [Source]
+  icon: mdi:cellphone-android
+device_tracker.tl_wr702n:
+  friendly_name: TP-LINK ROUTER [Source]
+  icon: mdi:radar
+device_tracker.android_20952d776cd3cfc4:
+  friendly_name: LG V30 [Source]
+  icon: mdi:cellphone
+device_tracker.desktop_aom5e97:
+  friendly_name: KAMIL PC [Source]
+  icon: mdi:radar
+device_tracker.viviens_iphone:
+  friendly_name: Vivien
+  icon: mdi:account-multiple-plus
+device_tracker.flat_desktop:
+  friendly_name: FLAT PC [Source]
+  icon: mdi:radar
+sensor.flat:
+  friendly_name: LG V30
+  icon: mdi:cellphone
+sensor.kamil:
+  friendly_name: OnePlus 5
+  icon: mdi:cellphone-android
+sensor.tp_link:
+  friendly_name: TP-LINK ROUTER
+  icon: mdi:router-wireless
+switch.1000171778:
+  friendly_name: Salt Lamp [old]
+switch.10001c3636:
+  friendly_name: Water Destiller [old]
+  icon: mdi:cup-water
+switch.10001700e8:
+  friendly_name: Table Light Switch old
+  icon: mdi:ceiling-light
+switch.100018038f:
+  friendly_name: Living Room Heater
+  icon: mdi:radiator
+switch.100017fa7a:
+  friendly_name: Hue Mini Switch [old]
+  icon: mdi:light-switch
+device_tracker.hp2fef5f:
+  friendly_name: HP ENVY 5540 Printer
+  icon: mdi:printer
+fan.living_room:
+  friendly_name: Dyson Fan
+device_tracker.philips_hue:
+  friendly_name: Philips Hue Bridge
+  icon: mdi:bridge
+switch.0120026560019453f034:
+  friendly_name: Kettle
+  icon: mdi:kettle
+device_tracker.2c_cc_44_02_39_d2:
+  friendly_name: Playstation 4
+  icon: mdi:playstation
+device_tracker.04_03_d6_4a_0b_8a:
+  friendly_name: Nintendo Switch
+  icon: mdi:nintendo-switch
+device_tracker.steamlink_30ed:
+  friendly_name: Steam Link
+  icon: mdi:steam
+device_tracker.android_b6b8587c835df1a5:
+  friendly_name: Galaxy Tab Pro 10.1 SM-T520
+  icon: mdi:tablet-android
+device_tracker.android_72648d6e10da990c:
+  friendly_name: ASUS MeMO Pad 7 ME176C
+  icon: mdi:tablet
+device_tracker.esp_3bad3d:
+  friendly_name: Sonoff S20 Outlet 1 Heater
+  icon: mdi:power-socket-uk
+device_tracker.hassio:
+  friendly_name: Hass.IO Server
+  icon: mdi:home-assistant
+device_tracker.esp_53f034:
+  friendly_name: Smart Life Outlet
+  icon: mdi:power-socket-uk
+device_tracker.esp_9555ef:
+  friendly_name: Sonoff S20 Outlet 2 Water Distiller
+  icon: mdi:power-socket-uk
+device_tracker.google_home:
+  friendly_name: Google Home
+  icon: mdi:google-home
+switch.flat_pc:
+  assumed_state: true
+  friendly_name: BATTLESTATION
+  icon: mdi:desktop-tower
+switch.kamil_pc:
+  assumed_state: true
+  friendly_name: Kamil PC
+  icon: mdi:desktop-tower
+device_tracker.esp_3bb1ca:
+  friendly_name: Sonoff S20 Outlet 3 Hue Mini
+  icon: mdi:power-socket-uk
+device_tracker.android_29eed69aea1bfec5:
+  friendly_name: LG Nexus 5
+  icon: mdi:android
+device_tracker.chromecast:
+  icon: mdi:cast
+device_tracker.chromecast_audio:
+  icon: mdi:cast
+device_tracker.esp_811f17:
+  friendly_name: Sonoff Basic 1
+  icon: mdi:light-switch
+device_tracker.esp_811922:
+  friendly_name: Sonoff Basic 2
+  icon: mdi:light-switch
+device_tracker.google_home_mini:
+  friendly_name: Google Home Mini Bedroom
+  icon: mdi:dots-horizontal-circle
+device_tracker.google_home_mini_2:
+  friendly_name: Google Home Mini Living Room
+  icon: mdi:dots-horizontal-circle
+device_tracker.esp_1d2d00:
+  friendly_name: MagicLight LED Strip 1
+  icon: mdi:led-strip
+light.tv_lightstrip:
+  icon: bha:led-strip
+light.wall_lightstrip:
+  icon: bha:led-strip
+person.flat:
+  friendly_name: Mike
+person.kamil:
+  friendly_name: Kamil
+input_boolean.fan:
+  friendly_name: Oscillate
+  icon: mdi:rotate-orbit
+input_boolean.auto:
+  friendly_name: Auto Mode
+  icon: mdi:air-filter
+sensor.living_room_dust:
+  unit_of_measurement: units
+sensor.living_room_aqi:
+  unit_of_measurement: AQI
+group.all_lights: {}
+device_tracker.nc8_uk_jea1684a:
+  friendly_name: Dyson CoolLink
+  icon: mdi:fan
+sensor.bedroom_alarm:
+  friendly_name: Bedroom Home Mini Alarm
+  icon: mdi:alarm
+sensor.kitchen_timer:
+  friendly_name: Kitchen Home Timer
+  icon: mdi:timer
+sensor.home_mini_1:
+  friendly_name: Google Home Mini Bedroom
+  icon: mdi:dots-horizontal-circle
+device_tracker.galaxy_s8:
+  friendly_name: Lesiu
+  icon: mdi:account-multiple-plus
+light.deathstar:
+  icon: mdi:death-star-variant
+light.hue_one:
+  icon: bha:floor-lamp-dual
+light.hue_right:
+  icon: mdi:lava-lamp
+light.hue_left:
+  icon: mdi:lava-lamp
+device_tracker.android_fc4fb292b29f3673:
+  friendly_name: Grzesiek
+switch.10006d0b79:
+  friendly_name: Bedroom Heater [old]
+  icon: mdi:radiator
+sensor.sonoff_10006d0b79_humidity:
+  friendly_name: Bedroom humidity
+sensor.sonoff_10006d0b79_temperature:
+  friendly_name: Bedroom temperature
+device_tracker.esp_546563:
+  friendly_name: Sonoff TH16 Heater 2
+  icon: mdi:light-switch
+light.entertainment_area:
+  icon: mdi:filmstrip
+light.bedroom_2:
+  icon: mdi:death-star-variant
+media_player.kitchen_home:
+  friendly_name: Kitchen Google Home
+  icon: mdi:google-home
+media_player.living_room_home_mini:
+  icon: mdi:dots-horizontal-circle
+media_player.bedroom_home_mini:
+  icon: mdi:dots-horizontal-circle
+light.extended_color_light_1:
+  icon: bha:led-strip
+light.group_for_wakeup:
+  hidden: true
+device_tracker.larhendiel:
+  friendly_name: Larhendiel Laptop
+  icon: mdi:laptop
+sensor.battlestation:
+  friendly_name: BATTLESTATION
+  icon: mdi:desktop-tower
+sensor.home_mini_2:
+  friendly_name: Google Home Mini Living Room
+  icon: mdi:dots-horizontal-circle
+sensor.kamil_pc:
+  friendly_name: KAMIL'S PC
+  icon: mdi:desktop-tower-monitor
+media_player.bedroom_speakers:
+  icon: mdi:speaker-wireless
+binary_sensor.sonoff_s20_1_status:
+  friendly_name: Sonoff S20 1 [Heater]
+  icon: mdi:power-socket-uk
+switch.sonoff_s20_1_relay:
+  friendly_name: Fan
+  icon: mdi:fan
+switch.sonoff_basic_relay:
+  friendly_name: Salt Lamp
+  icon: mdi:lava-lamp
+switch.sonoff_basic_3_relay:
+  friendly_name: Salt Lamp Switch
+  icon: mdi:lava-lamp
+binary_sensor.sonoff_basic_3_status:
+  friendly_name: Sonoff Basic 3 [Salt Lamp]
+  icon: mdi:light-switch
+light.salt_lamp:
+  icon: mdi:lava-lamp
+light.table_light:
+  icon: mdi:ceiling-light
+light.hue_mini:
+  icon: mdi:spotlight-beam
+media_player.red_light_district:
+  icon: mdi:speaker-multiple
+media_player.my_group:
+  icon: mdi:speaker-multiple
+media_player.home_group:
+  icon: mdi:speaker-multiple
+light.hue_mike:
+  icon: bha:ceiling-lamp-round
+media_player.googlehome4940:
+  friendly_name: 'Bathroom Home Mini '
+  icon: mdi:dots-horizontal-circle
+device_tracker.google_home_2:
+  friendly_name: Google Home Mini Bathroom
+  icon: mdi:dots-horizontal-circle
+switch.sonoff_basic_2_relay:
+  friendly_name: Sonoff Basic 2 Relay
+binary_sensor.sonoff_basic_2_status:
+  friendly_name: Sonoff Basic 2
+  icon: mdi:light-switch
+switch.sonoff_s20_3_relay:
+  friendly_name: Water Distiller
+  icon: mdi:cup-water
+binary_sensor.sonoff_s20_3_status:
+  friendly_name: Sonoff S20 3 [Water Distiller]
+  icon: mdi:power-socket-uk
+binary_sensor.sonoff_s20_2_status:
+  friendly_name: Sonoff S20 2 [Hue Mini]
+  icon: mdi:power-socket-uk
+switch.sonoff_s20_2_relay:
+  friendly_name: Hue Mini Switch
+  icon: mdi:spotlight-beam
+switch.sonoff_th16_relay:
+  friendly_name: Bedroom Fan
+  icon: mdi:fan
+binary_sensor.sonoff_th16_status:
+  icon: mdi:light-switch
+media_player.living_room_tv: {}
+binary_sensor.smart_life_status:
+  device_class: connectivity
+  friendly_name: Smart Life [Kettle]
+  icon: mdi:power-socket-uk
+binary_sensor.smart_life_button:
+  friendly_name: Smart Life Button
+switch.smart_life_relay:
+  friendly_name: Kettle
+  icon: mdi:kettle
+switch.sonoff_basic_4_relay:
+  friendly_name: Table Light Switch
+  icon: mdi:ceiling-light
+binary_sensor.sonoff_basic_4_status:
+  device_class: connectivity
+  friendly_name: Sonoff Basic 4 [Table Light]
+  icon: mdi:light-switch
+media_player.googlehome9988:
+  friendly_name: Bedroom 2 Home Mini
+  icon: mdi:dots-horizontal-circle
+sensor.bedroom_2_home_mini_timer:
+  icon: mdi:timer
+sensor.bedroom_home_mini_timer:
+  icon: mdi:timer
+sensor.kitchen_home_timer:
+  icon: mdi:timer
+device_tracker.google_home_3:
+  friendly_name: Google Home Mini Bedroom 2
+  icon: mdi:dots-horizontal-circle
+sensor.hallway_sensor_light_level:
+  friendly_name: Hallway light level
+sensor.hallway_sensor_temperature:
+  friendly_name: Hallway temperature
+sensor.home_mini_3:
+  friendly_name: Google Home Mini Bedroom 2
+  icon: mdi:dots-horizontal-circle
+binary_sensor.hallway_sensor_motion:
+  friendly_name: Hallway motion sensor
+binary_sensor.battlestation_pc:
+  icon: mdi:desktop-tower
+binary_sensor.flat_phone:
+  icon: mdi:cellphone
+binary_sensor.kamil_phone:
+  icon: mdi:cellphone-android
+binary_sensor.kamil_pc:
+  icon: mdi:desktop-tower-monitor
+binary_sensor.tp_link_router:
+  icon: mdi:router-wireless
+binary_sensor.home_mini_1:
+  icon: mdi:dots-horizontal-circle
+binary_sensor.home_mini_3:
+  icon: mdi:dots-horizontal-circle
+binary_sensor.home_mini_2:
+  icon: mdi:dots-horizontal-circle
+binary_sensor.asus_tablet:
+  icon: mdi:tablet
+binary_sensor.dyson:
+  icon: mdi:fan
+binary_sensor.hassio:
+  icon: mdi:home-assistant
+binary_sensor.hp_printer:
+  icon: mdi:printer
+binary_sensor.hue:
+  icon: mdi:bridge
+binary_sensor.ps4:
+  icon: mdi:playstation
+binary_sensor.nexus_5:
+  icon: mdi:android
+binary_sensor.samsung_tablet:
+  icon: mdi:tablet-android
+binary_sensor.steamlink:
+  icon: mdi:steam
+binary_sensor.nintendo:
+  icon: mdi:nintendo-switch
+device_tracker.rmmini_16_da_64:
+  icon: mdi:alarm-light
+binary_sensor.rmmini:
+  icon: mdi:alarm-light
+switch.stereo:
+  icon: mdi:audio-video
+switch.tv:
+  icon: mdi:television-classic
+switch.hdmi1:
+  icon: mdi:video-input-hdmi
+switch.hdmi2:
+  icon: mdi:video-input-hdmi
+switch.hdmi3:
+  icon: mdi:video-input-hdmi
+switch.stereo_vol_up:
+  icon: mdi:volume-plus
+switch.stereo_vol_down:
+  icon: mdi:volume-minus
+device_tracker.galaxy_s8_2:
+  friendly_name: Dan

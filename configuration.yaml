@@ -1,0 +1,400 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 0
+  longitude: 0
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/London
+  # Customization file
+  customize: !include customize.yaml
+
+logbook:
+  exclude:
+    entities:
+    - switch.kamil_pc
+    - switch.flat_pc
+    - binary_sensor.hallway_sensor_motion
+    - group.garmin
+    - media_player.spotify
+    - switch.tv
+    - switch.stereo
+    - switch.stereo_vol_up
+    - switch.stereo_vol_down
+
+http:
+
+  api_password: !secret http_password
+  login_attempts_threshold: 5
+#  base_url: https://#####.duckdns.org:8123
+#  ssl_certificate: /ssl/fullchain.pem
+#  ssl_key: /ssl/privkey.pem
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+frontend:
+  themes: !include themes.yaml
+  extra_html_url:
+    - /local/hass-bha-icons.html
+
+# Show the introduction message on startup.
+#introduction:
+
+# Enables configuration UI
+config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Discover some devices automatically
+#discovery:
+
+# Text to speech
+tts:
+  - platform: google_translate
+    service_name: google_say
+
+# Notify
+
+notify:
+   - platform: html5
+     vapid_pub_key: !secret vapid_pub_key
+     vapid_prv_key: !secret vapid_prv_key
+     vapid_email: !secret mail_address
+
+# Weather
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api
+    mode: daily
+
+# Lights
+light:
+  - platform: switch
+    name: Salt Lamp
+    entity_id: switch.sonoff_basic_3_relay
+  - platform: switch
+    name: Table Light
+    entity_id: switch.sonoff_basic_4_relay
+  - platform: switch
+    name: Hue Mini
+    entity_id: switch.sonoff_s20_2_relay
+
+#  - platform: flux_led
+#    automatic_add: true
+
+# Dyson
+dyson:
+  username: !secret mail_address
+  password: !secret fan_password
+  language: GB
+  devices:
+    - device_id: NC8-UK-JEA1684A
+      device_ip: 192.168.1.109
+
+input_number:
+  dyson_fan_speed:
+    icon: mdi:fan
+    name: Speed
+    initial: 1
+    min: 1
+    max: 10
+    step: 1
+
+input_boolean:
+  fan:
+    name: Fan
+    initial: off
+  auto:
+    name: Auto
+    initial: on
+
+# Tracker
+
+device_tracker:
+  - platform: bt_smarthub
+
+#  - platform: nmap_tracker
+#    hosts: 192.168.1.142/24
+
+# Switches
+
+switch:
+  - platform: wake_on_lan
+    mac_address: "2C-56-DC-D4-92-C0"
+    name: 'FLAT PC'
+  - platform: wake_on_lan
+    mac_address: "AC:9E:17:86:5C:C2"
+    name: 'KAMIL PC'
+
+  - platform: broadlink
+    host: 192.168.1.161
+    mac: 'C8:F7:42:16:DA:64'
+    timeout: 15
+    switches:
+      tv:
+        friendly_name: "Samsung TV"
+        command_on: 'JgBGAJKVETkRORA6ERQRFBEUERQRFBE5ETkQOhAVEBUQFREUEBUQOhEUERQRORE5EBURFBA6EBUQOhE5EBUQFRA6EDoRFBEADQUAAA=='
+        command_off: 'JgBGAJOVEDoQOhA6DxYPFhAVEBUQFRA6ETkROREUERQRFBEUEBUQFREUERQRORE5EBUQFRE5ETkRORE5ERUQFRA6DzsPFhAADQUAAA=='
+       
+      stereo:
+        friendly_name: "Samsung Home Cinema"
+        command_on: 'JgAwApKVETkRORETExIRFBETETkRFBE5ETkRExEUEzcRExI4EhMROREUERMRFBMRERQRFBISExIRORE5ETkRORE5ETkROREABeKSlRM3EzcSExEUERMRFBE5ERMRORE5EhMRFBE5ERMROREUETkRExEUERQRExEUERMRFBETEjgTNxI5ETkRORE5ETkTAAXgkpUTNxE5ERQRExITExIRORETETkROREUERMSOBITETkTEhE5ExETEhMREhMRFBETExIRExE5ETkRORM3EjgSOBI5EQAF4JSVETkROREUERMRFBETEjkRExE5ETkRFBETETkRFBE5ERQRORETERQRExITERMSExEUERMTNxM3ETkRORE5EzcTNxEABeOSlRM3EzcRFBMRERQTERI4EhMRORE5ExITERE5ERQRORETEzcTEhMSERMRFBETERQRFBETETkTNxE5ETkTNxE5ETkRAAXjkpUTNxE5ERQRExEUERMTNxEUETkROREUERMTNxEUETkTERM3ExITERMSERQSEhEUERMRFBM3ETkRORE5ETkTNxE5EwAF4ZOUETkRORETEhMRFBETETkRFBE5ETkRExEUETkTEhE5EhITNxMSExERFBEUERMRFBETERQRORE5EzcTNxE5EzcTNxEABeKSlRI4EjgSExEUERMRFBE5ERMRORE5ExIRFBE5ERMRORMSETkRExITERMSExEUERMTEhETETkRORE5EzcRORM3EzcSAA0FERQRExI5ERM=='
+        command_off: 'JgAwApKVETkRORETExIRFBETETkRFBE5ETkRExEUEzcRExI4EhMROREUERMRFBMRERQRFBISExIRORE5ETkRORE5ETkROREABeKSlRM3EzcSExEUERMRFBE5ERMRORE5EhMRFBE5ERMROREUETkRExEUERQRExEUERMRFBETEjgTNxI5ETkRORE5ETkTAAXgkpUTNxE5ERQRExITExIRORETETkROREUERMSOBITETkTEhE5ExETEhMREhMRFBETExIRExE5ETkRORM3EjgSOBI5EQAF4JSVETkROREUERMRFBETEjkRExE5ETkRFBETETkRFBE5ERQRORETERQRExITERMSExEUERMTNxM3ETkRORE5EzcTNxEABeOSlRM3EzcRFBMRERQTERI4EhMRORE5ExITERE5ERQRORETEzcTEhMSERMRFBETERQRFBETETkTNxE5ETkTNxE5ETkRAAXjkpUTNxE5ERQRExEUERMTNxEUETkROREUERMTNxEUETkTERM3ExITERMSERQSEhEUERMRFBM3ETkRORE5ETkTNxE5EwAF4ZOUETkRORETEhMRFBETETkRFBE5ETkRExEUETkTEhE5EhITNxMSExERFBEUERMRFBETERQRORE5EzcTNxE5EzcTNxEABeKSlRI4EjgSExEUERMRFBE5ERMRORE5ExIRFBE5ERMRORMSETkRExITERMSExEUERMTEhETETkRORE5EzcRORM3EzcSAA0FERQRExI5ERM==' 
+      stereo_vol_up:
+        friendly_name: "Stereo Volume Up" 
+        command_on: 'JgDqAZSTEzcSORISExISEhMSEzcTERI4EzgSEhEUEjgSEhM3ExITNxE5ExISEhM3EzcTEhMRExITERM3EzcTEhMSETkSOBIABeGUkxM3EzcTEhMRExITEhI4EhITNxM3ExITERM3ExITNxMSEzcSOBMRExITNxM3ExETEhMSExETNxM3ExITERM3EzcTAAXhlJMTNxM3ExISEhMSExETNxMSEzcTNxMSEhITNxMSEzcTERM3EzcTEhMSEjcTOBISExITERMSEzcTNxMRExITNxM3EwAF4JSUEjgTNxMSEhITERMSEzcTEhI4EjgSEhMSEzcTERM3ExITNxM3ExISEhM3EzcTEhMRExITERM3EzcTEhMSEjgSOBIABeGUkxM3EzcTEhMRExITERM3ExITNxM3ExITERM3ExITNxMREzcTNxMSExITNxM3ExETEhMRExITNxM3ExISEhM3EzcTAAXglJQTNxM3ExETEhMSEhITNxMSEzcTNxMRExITNxMREzcTEhM3EzcTEhMREzcTNxMSExETEhMSEzcTNxMRExITNxM3EwAF4JSTEzcTNxMSExETEhMREzcTEhM3EzcTEhMREzcTEhM3ExETNxM3ExITEhM3EzcTERMSExETEhM3EzcTERMSEzcUNhMADQUTEhMSEjgSEhM3EzcTEg=='
+      stereo_vol_down:
+        friendly_name: "Stereo Volume Down"
+        command_off: 'JgCEAxETERQRORETETkRORITERQRORETETkRFBE5ETkRFBE4EjkRORETERQRExEUETkRExITERQRORE5EQAF4pKVETkROREUERMRFBETEjgSExE5ETkRFBETETkRFBE5ERMSOBI4EhMRORE5ETkRFBETERQRExE5ERQRExITETkROREABeKSlRE5ETkRFBETEhMRFBE5ERMRORE5ERQRExE5ERQRORETEjgSOBITETkRORE5ERQRExEUERMSOBITERQRExE5ETkRAAXikpURORE5ERQRFBETERQRORETETkROREUERMSOBITETkRFBE5ETkRExE5ETkROREUERMRFBEUETgSExEUERMRORE5EQAF4pKWETkRORETERQRFBETETkRFBE5ETkRExEUETkRExI4EhMRORE5ERQRORE5ETkRExEUERMSExE5ERQRExEUETkROREABeKSlRE5ETkRFBETERQRExE5ERQRORE5ERMSExE5ERQRORETETkROREUETkRORE5ERMSExEUERMROREUERMRFBE5ETkRAAXikpURORE5ERQRExITERQRORETETkROREUERMROREUETkRFBE5ETkRExE5ETkROREUERMRFBETEjgSExEUERMRORE5EQAF4pKVEjgSOBITERQRExEUETkRExI4EjgSExEUETkRExE5ERQRORE5ERMRORE5ETkSExEUERMRFBE5ERMRFBETEjgSOBIABeGTlRE5ETkRExEUERQRExE5ERQRORE5ERMRFBE5ERMROREUETkROREUETkROBI5ERMRFBETERQRORETERQRFBE4EjkRAAXikpURORE5ERMRFBEUERMROREUETkRORETERQRORETEjgSExE5ETkRFBE5ETkRORETERQRExEUETkRFBETERQRORE5EQAF4pKVETkROREUERMRFBETETkRFBE5ETkRExITETkRFBE5ERMRORE5ERQRORE5ETkRExITERQRExE5ERQRExEUETkROREABeKSlRE5ETkRFBETERQRExE5ERQRORE5ERQRExE5ERQRORETETkROREUETkRORE5ERQRExEUERMROREUERMRFBE5ETkRAAXikpURORE5ERQRExEUERQROBITETkROREUERMROREUETkRExI4EjgSExE5ETkROREUERMRFBETETkRFBETEhMRORE5EQANBQAAAAA=='
+      hdmi1:
+        friendly_name: "HDMI1 Chromecast" 
+        command_on: 'JgBGAJOSEjcUMxUzFQ4UDhEREREUDxMzETcSNxMQEw4UDhEREhAUMxUOERERNxQPEzMRNxI3ExATMxUzEhEUMxIRExATDhQADQUAAA='
+      hdmi2:
+        friendly_name: "HDMI2 PC" 
+        command_on: 'JgBGAJOUETkRORA6ERQQFRAVERQRFBA6ETkROhAVDxYQFQ8WEBUQFQ87EDoRORA6DzsQFRA6DzsPFhAVDxYQFRAVEDoQFRAADQUAAA='
+      hdmi3:
+        friendly_name: "HDMI3 Console" 
+        command_on: 'JgBGAJOUEDoRORE5ERQRFRAUERQRFBE5EDsQOhAVEBUPFg8WDxYPFhA6EBUPFg8WEBUROQ87EDoQFQ87EDoQOhA6EBUPFhAADQUAAA=='
+
+
+# Sensors
+
+sensor:
+  - platform: yr
+
+  - platform: template
+    sensors:
+      battlestation:
+        value_template: "{% if is_state('device_tracker.flat_desktop', 'home') %}Online{% else %}Offline{% endif %}"
+      kamil_pc:
+        value_template: "{% if is_state('device_tracker.desktop_aom5e97', 'home') %}Online{% else %}Offline{% endif %}"
+
+      ps4_game:
+        friendly_name: "Playstation 4 Now Playing"
+        value_template: "{{ state_attr('media_player.playstation_4', 'media_title') }}"
+
+#      kitchen_timer:
+#        value_template: "{% if is_state('sensor.kitchen_home_timer', 'unavailable') %}No timers set{% else %}{% endif %}"
+#      bedroom_alarm:
+#        value_template: "{% if is_state('sensor.bedroom_home_mini_timer', 'unavailable') %}No alarms set{% else %}{% endif %}"
+
+  - platform: systemmonitor
+    resources:
+      - type: disk_free
+        arg: /
+      - type: memory_free
+      - type: processor_use
+      - type: last_boot
+
+  - platform: fastdotcom
+
+  - platform: waqi
+    token: 64a6a7304b091fd1ffc32cb68d224f1cdc795f9d
+    locations:
+      - southampton
+
+  - platform: darksky
+    api_key: !secret darksky_api
+    monitored_conditions:
+      - precip_intensity
+
+  - platform: seventeentrack
+    username: !secret mail_address
+    password: !secret 17track
+
+binary_sensor:
+#  - platform: rpi_gpio
+#    ports:
+#      17: PIR Test
+
+  - platform: workday
+    country: UK
+    add_holidays: 
+      - '2019-04-05'
+      - '2019-04-04'
+      - '2019-04-15'
+
+  - platform: template
+    sensors:
+      flat_phone:
+        value_template: >-
+          {{ is_state('device_tracker.android_20952d776cd3cfc4', 'home') }}
+        device_class: connectivity
+        friendly_name: LG V30
+      kamil_phone:
+        value_template: >-
+          {{ is_state('device_tracker.oneplus_5', 'home') }}
+        device_class: connectivity
+        friendly_name: OnePlus 5
+      tp_link_router:
+        value_template: >-
+          {{ is_state('device_tracker.tl_wr702n', 'home') }}
+        device_class: connectivity
+        friendly_name: TP-LINK ROUTER
+      battlestation_pc:
+        value_template: >-
+          {{ is_state('device_tracker.flat_desktop', 'home') }}
+        device_class: connectivity
+        friendly_name: BATTLESTATION
+      kamil_pc:
+        value_template: >-
+          {{ is_state('device_tracker.desktop_aom5e97', 'home') }}
+        device_class: connectivity
+        friendly_name: KAMIL'S PC
+      asus_tablet:
+        value_template: >-
+          {{ is_state('device_tracker.android_72648d6e10da990c', 'home') }}
+        device_class: connectivity
+        friendly_name: ASUS MeMO Pad 7 ME176C
+      samsung_tablet:
+        value_template: >-
+          {{ is_state('device_tracker.android_b6b8587c835df1a5', 'home') }}
+        device_class: connectivity
+        friendly_name: Galaxy Tab Pro 10.1 SM-T520
+      nexus_5:
+        value_template: >-
+          {{ is_state('device_tracker.android_29eed69aea1bfec5', 'home') }}
+        device_class: connectivity
+        friendly_name: LG Nexus 5
+      ps4:
+        value_template: >-
+          {{ is_state('device_tracker.2c_cc_44_02_39_d2', 'home') }}
+        device_class: connectivity
+        friendly_name: PlayStation 4
+      nintendo:
+        value_template: >-
+          {{ is_state('device_tracker.04_03_d6_4a_0b_8a', 'home') }}
+        device_class: connectivity
+        friendly_name: Nintendo Switch
+      steamlink:
+        value_template: >-
+          {{ is_state('device_tracker.steamlink_30ed', 'home') }}
+        device_class: connectivity
+        friendly_name: Steam Link
+      hp_printer:
+        value_template: >-
+          {{ is_state('device_tracker.hp2fef5f', 'home') }}
+        device_class: connectivity
+        friendly_name: HP ENVY 5540 Printer
+      hue:
+        value_template: >-
+          {{ is_state('device_tracker.philips_hue', 'home') }}
+        device_class: connectivity
+        friendly_name: Philips Hue Bridge
+      dyson:
+        value_template: >-
+          {{ is_state('device_tracker.nc8_uk_jea1684a', 'home') }}
+        device_class: connectivity
+        friendly_name: Dyson CoolLink
+      hassio:
+        value_template: >-
+          {{ is_state('device_tracker.hassio', 'home') }}
+        device_class: connectivity
+        friendly_name: Hass.IO Server
+      rmmini:
+        value_template: >-
+          {{ is_state('device_tracker.rmmini_16_da-64', 'home') }}
+        device_class: connectivity
+        friendly_name: Broadlink RM Mini 3
+
+
+
+# Google
+
+cloud:
+  google_actions:
+    filter:
+      include_entities:
+        - fan.living_room
+        - script.1516402506314
+        - script.1516402701204
+        - script.auto1
+        - script.auto2
+        - script.speed3
+        - script.speed6
+        - script.speed8
+        - script.speed10
+        - switch.kamil_pc
+        - switch.flat_pc
+        - switch.sonoff_s20_1_relay
+        - switch.sonoff_s20_3_relay
+        - light.salt_lamp
+        - light.hue_mini
+        - light.table_light
+        - switch.sonoff_th16_relay
+        - switch.smart_life_relay
+        - switch.tv
+        - switch.stereo
+        - switch.hdmi1
+        - switch.hdmi2
+        - switch.hdmi3
+        - switch.stereo_vol_down
+        - switch.stereo_vol_up
+
+googlehome:
+  devices:
+    - host: 192.168.1.89
+      track_devices: false
+      track_alarms: true
+    - host: 192.168.1.147
+      track_devices: false
+      track_alarms: true
+    - host: 192.168.1.162
+      track_devices: false
+      track_alarms: true
+
+# Media
+
+media_player:
+  - platform: spotify
+    client_id: !secret spotify_id
+    client_secret: !secret spotify_api
+
+#camera:
+#  - platform: rpi_camera
+
+#OTHER
+
+fastdotcom:
+  scan_interval:
+      minutes: 30
+
+
+#DISABLED
+
+#sonoff:
+#  username: !secret mail_address
+#  password: !secret ewelink_password
+
+#tuya:
+#  username: !secret mail_address
+#  password: !secret smartlife_password
+#  country_code: UK
+#  platform: smart_life
+
+#  - platform: strava
+#    client_id: !secret strava_token
+#    client_secret: !secret strava_client_secret
+
+#shopping_list:
+
+#android_ip_webcam:
+#  - host: 192.168.1.100
+
+# Updater
+
+custom_updater:
+  card_urls:
+    - https://raw.githubusercontent.com/kalkih/mini-media-player/master/tracker.json
+    - https://raw.githubusercontent.com/kalkih/mini-graph-card/master/tracker.json
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml

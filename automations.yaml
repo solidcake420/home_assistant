@@ -1,0 +1,511 @@
+- id: dyson_fan_speed_1
+  alias: Dyson Fan Speed 1
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_number.dyson_fan_speed
+  condition:
+    condition: and
+    conditions:
+    - condition: template
+      value_template: '{{ (trigger.to_state.state | int) != (states.fan.living_room.attributes.speed|int)
+        }}'
+  action:
+  - service: fan.set_speed
+    entity_id: fan.living_room
+    data_template:
+      speed: '{{states.input_number.dyson_fan_speed.state|int}}'
+- id: dyson_fan_speed_2
+  alias: Dyson Fan Speed 2
+  initial_state: true
+  trigger:
+  - platform: template
+    value_template: '{% if (states.fan.living_room.attributes.speed|int) != (states.input_number.dyson_fan_speed.state|int)
+      %}true{%endif%}'
+  action:
+  - service: input_number.set_value
+    entity_id: input_number.dyson_fan_speed
+    data_template:
+      value: '{{states.fan.living_room.attributes.speed|int}}'
+- id: dyson_rotation_on
+  alias: Dyson Rotation On
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.fan
+    to: 'on'
+  action:
+  - service: script.turn_on
+    entity_id: script.1516402506314
+- id: dyson_rotation_off
+  alias: Dyson Rotation Off
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.fan
+    to: 'off'
+  action:
+  - service: script.turn_on
+    entity_id: script.1516402701204
+- id: dyson_auto_on
+  alias: Dyson Auto On
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.auto
+    to: 'on'
+  condition:
+    condition: and
+    conditions:
+    - condition: template
+      value_template: '{{ (trigger.to_state.state | int) != (states.fan.living_room.attributes.speed|int)
+        }}'
+  action:
+  - service: fan.set_speed
+    entity_id: fan.living_room
+    data_template:
+      speed: AUTO
+- id: dyson_auto_off
+  alias: Dyson Auto Off
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: input_boolean.auto
+    to: 'off'
+  condition:
+    condition: and
+    conditions:
+    - condition: template
+      value_template: '{{ (trigger.to_state.state | int) != (states.fan.living_room.attributes.speed|int)
+        }}'
+  action:
+  - service: fan.set_speed
+    entity_id: fan.living_room
+    data_template:
+      speed: 6
+- id: set_theme
+  alias: Set theme at startup
+  initial_state: true
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    service: frontend.set_theme
+    data:
+      name: Dark Green
+- id: '1554482619229'
+  alias: Dyson 420
+  trigger:
+  - above: '7'
+    entity_id: sensor.living_room_dust
+    platform: numeric_state
+  - above: '4'
+    entity_id: sensor.living_room_aqi
+    platform: numeric_state
+  condition: []
+  action:
+  - alias: ''
+    data:
+      group_name: Living room
+      scene_name: '420'
+    service: hue.hue_activate_scene
+- id: '1554483218832'
+  alias: Kamil Light On when home
+  trigger:
+  - entity_id: person.kamil
+    from: not_home
+    platform: state
+    to: home
+  condition:
+  - after: '18:00:00'
+    before: '23:45:00'
+    condition: time
+  action:
+  - data:
+      entity_id: light.bedroom_2, light.hallway, light.hue_mini, light.living_room
+    service: light.turn_on
+- id: '1554483302864'
+  alias: Mike Light On when home
+  trigger:
+  - entity_id: person.flat
+    from: not_home
+    platform: state
+    to: home
+  condition:
+  - after: '18:00:00'
+    before: '23:30:00'
+    condition: time
+  action:
+  - data:
+      entity_id: light.master_bedroom, light.hallway, light.salt_lamp, light.hue_mini,
+        light.living_room
+    service: light.turn_on
+- id: '1554484047407'
+  alias: Turn lights off when everyone is out
+  trigger:
+  - entity_id: group.home_members
+    for: 00:05:00
+    from: home
+    platform: state
+    to: not_home
+  condition: []
+  action:
+  - data:
+      entity_id: group.all_lights
+    service: light.turn_off
+  - data:
+      entity_id: switch.10001700e8
+    service: switch.turn_off
+- id: '1554486611632'
+  alias: Table Light Auto-On
+  trigger:
+  - at: '6:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+  - data:
+      entity_id: light.table_light
+    service: light.turn_on
+  initial_state: true
+- id: '1554486686805'
+  alias: Table light Auto-off
+  trigger:
+  - at: 07:00:00
+    platform: time
+  - at: 02:00:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: light.table_light
+    service: light.turn_off
+  initial_state: true
+- id: '1554486821208'
+  alias: Turn water destiller on
+  trigger:
+  - at: 02:05:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.10001c3636
+    service: switch.turn_on
+- id: '1554499708810'
+  alias: Dyson 420 off
+  trigger:
+  - below: '7'
+    entity_id: sensor.living_room_dust
+    platform: numeric_state
+  condition:
+  - after: '10:00:00'
+    before: 02:30:00
+    condition: time
+  action:
+  - data:
+      group_name: Living room
+      scene_name: Smooth
+    service: hue.hue_activate_scene
+- id: '1554544414902'
+  alias: Kamil Light off when out
+  trigger:
+  - entity_id: person.kamil
+    from: home
+    platform: state
+    to: not_home
+  condition: []
+  action:
+  - data:
+      entity_id: light.bedroom_2
+    service: light.turn_off
+- id: '1554544483294'
+  alias: Mike Light off when out
+  trigger:
+  - entity_id: person.flat
+    from: home
+    platform: state
+    to: not_home
+  condition: []
+  action:
+  - data:
+      entity_id: light.master_bedroom, light.salt_lamp
+    service: light.turn_off
+- id: '1554544866699'
+  alias: Hue Mini Auto-On
+  trigger:
+  - event: sunset
+    offset: -02:00:00
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id: light.hue_mini
+    service: light.turn_on
+  initial_state: true
+- id: '1554544943254'
+  alias: Hue Mini Auto-Off
+  trigger:
+  - at: 02:00:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: light.hue_mini
+    service: light.turn_off
+  initial_state: true
+- id: '1554549575738'
+  alias: Salt Lamp Auto-On Workday
+  trigger:
+  - at: 06:05:00
+    platform: time
+  - at: '16:00:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+  - data:
+      entity_id: light.salt_lamp
+    service: light.turn_on
+  initial_state: true
+- id: '1554549680381'
+  alias: Salt Lamp Auto-On Weekends
+  trigger:
+  - at: 08:00:00
+    platform: time
+  - at: '13:00:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'off'
+  action:
+  - data:
+      entity_id: light.salt_lamp
+    service: light.turn_on
+  initial_state: true
+- id: '1554549783057'
+  alias: Salt Lamp Auto-Off Workday
+  trigger:
+  - at: '9:00:00'
+    platform: time
+  - at: '23:30:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+  - data:
+      entity_id: light.salt_lamp
+    service: light.turn_off
+  initial_state: true
+- id: '1554549840529'
+  alias: Salt Lamp Auto-Off Weekends
+  trigger:
+  - at: '10:00:00'
+    platform: time
+  - at: '23:45:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'off'
+  action:
+  - data:
+      entity_id: light.salt_lamp
+    service: light.turn_off
+  initial_state: true
+- id: '1554597528041'
+  alias: Hue Lights off at Sunrise
+  initial_state: true
+  trigger:
+  - event: sunrise
+    offset: +01:00:00
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id: group.all_lights
+    service: light.turn_off
+- id: '1554715156977'
+  alias: Hue Lights on at Sunset
+  trigger:
+  - event: sunset
+    offset: -01:00:00
+    platform: sun
+  condition:
+  - condition: state
+    entity_id: group.home_members
+    state: home
+  action:
+  - data:
+      entity_id: light.living_room, light.master_bedroom
+    service: light.turn_on
+  initial_state: true
+- id: '1554715813085'
+  alias: Hue Lights Auto-Off
+  trigger:
+  - at: 02:00:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: light.living_room
+    service: light.turn_off
+  initial_state: true
+- id: '1554716154642'
+  alias: Wake-Up Mike
+  trigger:
+  - at: '6:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: person.flat
+    state: home
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+  - data:
+      entity_id: light.master_bedroom
+      transition: '900'
+    service: light.turn_on
+- id: '1555204955439'
+  alias: Rainy Day
+  trigger:
+  - entity_id: weather.dark_sky
+    for: 00:10:00
+    platform: state
+    to: rainy
+  condition:
+  - after: 09:00:00
+    before: '23:00:00'
+    condition: time
+  action:
+  - data:
+      group_name: Master Bedroom
+      scene_name: Rain
+    service: hue.hue_activate_scene
+  - data:
+      brightness: '100'
+      entity_id: light.master_bedroom
+    service: light.turn_on
+  - data:
+      brightness: '200'
+      entity_id: light.living_room
+    service: light.turn_on
+  - data:
+      group_name: Living room
+      scene_name: Rain
+    service: hue.hue_activate_scene
+- id: '1555250471496'
+  alias: Rain is over
+  trigger:
+  - entity_id: sensor.dark_sky_precip_intensity
+    platform: state
+    to: None
+  condition:
+  - after: 09:00:00
+    before: '23:00:00'
+    condition: time
+  action:
+  - data:
+      group_name: Master Bedroom
+      scene_name: Sunset
+    service: hue.hue_activate_scene
+  - data:
+      group_name: Living room
+      scene_name: Sunset
+    service: hue.hue_activate_scene
+- id: '1555434259111'
+  alias: Battlestation On when back home
+  trigger:
+  - entity_id: person.flat
+    from: not_home
+    platform: state
+    to: home
+  condition:
+  - after: '10:00:00'
+    before: '23:30:00'
+    condition: time
+  action:
+  - data:
+      entity_id: switch.flat_pc
+    service: switch.turn_on
+- id: '1555532783597'
+  alias: Notification when Kamil is home
+  trigger:
+  - entity_id: person.kamil
+    from: not_home
+    platform: state
+    to: home
+  condition: []
+  action:
+  - data:
+      message: Kamil is back home.
+    service: notify.html5_lg_v30
+- id: '1555533559627'
+  alias: Notification when Kamil is leaving
+  trigger:
+  - entity_id: person.kamil
+    from: home
+    platform: state
+    to: not_home
+  condition: []
+  action:
+  - data:
+      message: Kamil leaving home.
+    service: notify.html5_lg_v30
+- id: '1556383130395'
+  alias: Home Cinema On when casting
+  trigger:
+  - entity_id: media_player.living_room_tv
+    from: 'off'
+    platform: state
+  condition:
+  - after: 09:00:00
+    before: '23:45:00'
+    condition: time
+  action:
+  - data:
+      entity_id: switch.stereo
+    service: switch.turn_on
+- id: '1556383449258'
+  alias: Home Cinema Off when casting is over
+  trigger:
+  - entity_id: media_player.living_room_tv
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      entity_id: switch.stereo
+    service: switch.turn_off
+- id: '1557076627906'
+  alias: Spider-Man
+  trigger:
+  - entity_id: sensor.ps4_game
+    platform: state
+    to: Marvel's Spider-Man
+  condition: []
+  action:
+  - data:
+      group_name: Living room
+      scene_name: Spider-Man
+    service: hue.hue_activate_scene
+- id: '1557096189652'
+  alias: Red Dead Redemption 2
+  trigger:
+  - entity_id: sensor.ps4_game
+    platform: state
+    to: Red Dead Redemption 2
+  condition: []
+  action:
+  - data:
+      group_name: Living room
+      scene_name: RDR2
+    service: hue.hue_activate_scene
