@@ -4,6 +4,8 @@ Hi, I've been playing with Home Assistant for about a month now, please feel fre
 
 The setup is still a bit messy, as I have a lot of things WIP or pending for hardware.
 
+PS: lovelace-ui.yaml should be copied to Lovelace UI Raw Config Editor
+
 
 If you want to buy me a coffee, that would be much appreciated. :)
 
@@ -15,6 +17,8 @@ If you want to buy me a coffee, that would be much appreciated. :)
 # Mobile Lovelace
 ![mobile1](/example/example_lovelace_mobile1.gif "Lovelace example on mobile 1")
 ![mobile2](/example/example_lovelace_mobile2.gif "Lovelace example on mobile 2")
+
+[Screenshots](https://imgur.com/gallery/ALbkssC)
 
 
 ## Used Hardware
