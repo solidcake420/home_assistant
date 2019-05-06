@@ -18,7 +18,7 @@ If you want to buy me a coffee, that would be much appreciated. :)
 ![mobile1](/example/example_lovelace_mobile1.gif "Lovelace example on mobile 1")
 ![mobile2](/example/example_lovelace_mobile2.gif "Lovelace example on mobile 2")
 
-[Screenshots](https://imgur.com/gallery/ALbkssC)
+[Screenshots](https://imgur.com/a/ALbkssC)
 
 
 ## Used Hardware
