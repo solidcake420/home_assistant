@@ -1055,8 +1055,6 @@ views:
                   box-shadow: '3px 3px rgba(0,0,0,0.4)'
                   overflow: hidden
                 type: 'custom:card-modder'
-            type: horizontal-stack
-          - cards:
               - card:
                   entity: light.table_light
                   image: /local/assets/ceiling_lamp_1.png
@@ -1815,11 +1813,12 @@ views:
           - entity: automation.notification_when_kamil_is_leaving
         title: Notifications
         type: entities
-      - type: entities
-        entities:
+      - entities:
           - entity: automation.spider_man
           - entity: automation.red_dead_redemption_2
+          - entity: automation.god_of_war
         title: PlayStation 4 Games
+        type: entities
     title: Automations
   - badges: []
     cards:

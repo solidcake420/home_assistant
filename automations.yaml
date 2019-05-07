@@ -490,7 +490,7 @@
   trigger:
   - entity_id: sensor.ps4_game
     platform: state
-    to: Marvel's Spider-Man
+    to: "Marvel\u2019s Spider-Man"
   condition: []
   action:
   - data:
@@ -508,4 +508,16 @@
   - data:
       group_name: Living room
       scene_name: RDR2
+    service: hue.hue_activate_scene
+- id: '1557172759613'
+  alias: God of War
+  trigger:
+  - entity_id: sensor.ps4_game
+    platform: state
+    to: God of War
+  condition: []
+  action:
+  - data:
+      group_name: Living room
+      scene_name: God of War
     service: hue.hue_activate_scene
