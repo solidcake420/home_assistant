@@ -123,6 +123,7 @@ Custom Lovelace Cards:
 - [Card Tools](https://github.com/thomasloven/lovelace-card-tools)
 - [Card Modder](https://github.com/thomasloven/lovelace-card-modder)
 - [Button Card](https://github.com/custom-cards/button-card)
+- [Fold Entity Row](https://github.com/thomasloven/lovelace-fold-entity-row)
 
 
 Other:

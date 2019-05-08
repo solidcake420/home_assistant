@@ -1,6 +1,6 @@
 ## Todo - software
 
-- [ ] [fold-entity-row](https://github.com/thomasloven/lovelace-fold-entity-row)
+- [X] [fold-entity-row](https://github.com/thomasloven/lovelace-fold-entity-row)
 - [ ] Test Hue Transitions
 - [ ] [Compact header](https://github.com/maykar/compact-custom-header)
 - [ ] [Win10As](https://github.com/KjetilSv/Win10As)
@@ -48,4 +48,6 @@
 
 ## Other / future plans
 - [ ] [Awesome HA](https://www.awesome-ha.com/)
-- [ ] Better PC control (Unified Remote integration?)
+- [ ] [Share the love](https://sharethelove.io/) picture-elements, glance cards
+- [ ] [Custom-cards GitHub](https://github.com/custom-cards)
+- [ ] Better PC control ([Unified Remote integration](https://community.home-assistant.io/t/unified-remote-as-remote-control-for-home-assistant/1919))

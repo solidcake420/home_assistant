@@ -11,6 +11,8 @@ resources:
   - type: module
     url: /local/slider-entity-row.js
   - type: module
+    url: /local/fold-entity-row.js
+  - type: module
     url: /local/mini-graph-card-bundle.js?v=0.3.2
   - type: js
     url: /customcards/github/thomasloven/card-tools.js?track=true
@@ -281,7 +283,7 @@ views:
           - cards:
               - card:
                   entity: switch.sonoff_th16_relay
-                  image: /local/assets/fan_4.png
+                  image: /local/assets/heater_1.png
                   name: Bedroom
                   show_name: false
                   show_state: true
@@ -1272,7 +1274,7 @@ views:
           - cards:
               - card:
                   entity: switch.sonoff_th16_relay
-                  image: /local/assets/fan_4.png
+                  image: /local/assets/heater_1.png
                   show_name: false
                   show_state: true
                   state_image:
@@ -1957,93 +1959,6 @@ views:
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
           overflow: hidden
         type: 'custom:card-modder'
-      - entity: light.living_room
-        hold_action:
-          action: more-info
-        name: Rain Scene button test
-        show_icon: true
-        show_name: true
-        tap_action:
-          action: call-service
-          service: hue.hue_activate_scene
-          service_data:
-            group_name: Master Bedroom
-            scene_name: Rain
-        type: entity-button
-      - cards:
-          - cards:
-              - color: green
-                color_type: label-card
-                name: TV
-                type: 'custom:button-card'
-              - color: green
-                color_type: card
-                icon: 'mdi:power'
-                tap_action:
-                  action: call-service
-                  service: switch.turn_on
-                  service_data:
-                    entity_id: switch.tv
-                type: 'custom:button-card'
-              - color: darkred
-                color_type: card
-                icon: 'mdi:power'
-                tap_action:
-                  action: call-service
-                  service: switch.turn_off
-                  service_data:
-                    entity_id: switch.tv
-                type: 'custom:button-card'
-            type: vertical-stack
-          - cards:
-              - color: royalblue
-                color_type: label-card
-                name: Home Cinema
-                type: 'custom:button-card'
-              - color: royalblue
-                color_type: card
-                icon: 'mdi:power'
-                tap_action:
-                  action: call-service
-                  service: switch.turn_on
-                  service_data:
-                    entity_id: switch.stereo
-                type: 'custom:button-card'
-              - color: darkred
-                color_type: card
-                icon: 'mdi:power'
-                tap_action:
-                  action: call-service
-                  service: switch.turn_off
-                  service_data:
-                    entity_id: switch.stereo
-                type: 'custom:button-card'
-            type: vertical-stack
-          - cards:
-              - color: 'rgb(223, 255, 97)'
-                color_type: label-card
-                name: Volume
-                type: 'custom:button-card'
-              - color: 'rgb(223, 255, 97)'
-                color_type: card
-                icon: 'mdi:volume-plus'
-                tap_action:
-                  action: call-service
-                  service: switch.turn_on
-                  service_data:
-                    entity_id: switch.stereo_vol_up
-                type: 'custom:button-card'
-              - color: 'rgb(223, 255, 97)'
-                color_type: card
-                icon: 'mdi:volume-minus'
-                tap_action:
-                  action: call-service
-                  service: switch.turn_off
-                  service_data:
-                    entity_id: switch.stereo_vol_down
-                type: 'custom:button-card'
-            type: vertical-stack
-        type: horizontal-stack
       - entity: camera.raspberry_pi_camera
         type: picture-entity
     icon: ''
