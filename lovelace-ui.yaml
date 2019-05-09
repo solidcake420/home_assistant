@@ -348,17 +348,34 @@ views:
             type: horizontal-stack
         type: vertical-stack
       - card:
+          type: glance
           entities:
             - entity: switch.tv
+              name: TV
+              tap_action:
+                action: toggle
             - entity: switch.stereo
-          title: IR Remote
-          type: entities
+              name: Home Cinema
+              tap_action:
+                action: toggle
+            - entity: switch.stereo_vol_down
+              name: Vol Down
+              tap_action:
+                action: toggle
+            - entity: switch.stereo_vol_up
+              name: Vol Up
+              tap_action:
+                action: toggle
+          show_state: false
+          show_name: false
+          show_icon: true
+          columns: 4
         style:
           background: 'right / cover no-repeat url("#/local/assets/")'
           border: 'solid 1px rgba(100,100,100,0.3)'
           border-radius: 10px
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: hidden
+          overflow: 'hidden#'
         type: 'custom:card-modder'
       - card:
           artwork: cover
@@ -867,119 +884,147 @@ views:
                 type: 'custom:card-modder'
             type: horizontal-stack
         type: vertical-stack
-      - cards:
-          - cards:
-              - color: green
-                color_type: label-card
-                name: TV
-                type: 'custom:button-card'
-              - color: green
-                color_type: card
-                icon: 'mdi:power'
-                tap_action:
-                  action: call-service
-                  service: switch.turn_on
-                  service_data:
-                    entity_id: switch.tv
-                type: 'custom:button-card'
-              - color: darkred
-                color_type: card
-                icon: 'mdi:power'
-                tap_action:
-                  action: call-service
-                  service: switch.turn_off
-                  service_data:
-                    entity_id: switch.tv
-                type: 'custom:button-card'
-              - color: 'rgb(22, 41, 85)'
-                color_type: label-card
-                name: '-'
-                type: 'custom:button-card'
-              - color: 'rgb(22, 41, 85)'
-                color_type: card
-                icon: 'mdi:numeric-1-circle-outline'
-                tap_action:
-                  action: call-service
-                  service: switch.turn_on
-                  service_data:
-                    entity_id: switch.hdmi1
-                type: 'custom:button-card'
-            type: vertical-stack
-          - cards:
-              - color: 'rgb(43, 54, 164)'
-                color_type: label-card
-                name: Home Cinema
-                type: 'custom:button-card'
-              - color: 'rgb(43, 54, 164)'
-                color_type: card
-                icon: 'mdi:power'
-                tap_action:
-                  action: call-service
-                  service: switch.turn_on
-                  service_data:
-                    entity_id: switch.stereo
-                type: 'custom:button-card'
-              - color: darkred
-                color_type: card
-                icon: 'mdi:power'
-                tap_action:
-                  action: call-service
-                  service: switch.turn_off
-                  service_data:
-                    entity_id: switch.stereo
-                type: 'custom:button-card'
-              - color: 'rgb(22, 41, 85)'
-                color_type: label-card
-                name: Input
-                type: 'custom:button-card'
-              - color: 'rgb(22, 41, 85)'
-                color_type: card
-                icon: 'mdi:numeric-2-circle-outline'
-                tap_action:
-                  action: call-service
-                  service: switch.turn_on
-                  service_data:
-                    entity_id: switch.hdmi2
-                type: 'custom:button-card'
-            type: vertical-stack
-          - cards:
-              - color: 'rgb( 255, 195, 0 )'
-                color_type: label-card
-                name: Volume
-                type: 'custom:button-card'
-              - color: 'rgb( 255, 195, 0 )'
-                color_type: card
-                icon: 'mdi:volume-plus'
-                tap_action:
-                  action: call-service
-                  service: switch.turn_on
-                  service_data:
-                    entity_id: switch.stereo_vol_up
-                type: 'custom:button-card'
-              - color: 'rgb( 255, 195, 0 )'
-                color_type: card
-                icon: 'mdi:volume-minus'
-                tap_action:
-                  action: call-service
-                  service: switch.turn_off
-                  service_data:
-                    entity_id: switch.stereo_vol_down
-                type: 'custom:button-card'
-              - color: 'rgb(22, 41, 85)'
-                color_type: label-card
-                name: '-'
-                type: 'custom:button-card'
-              - color: 'rgb(22, 41, 85)'
-                color_type: card
-                icon: 'mdi:numeric-3-circle-outline'
-                tap_action:
-                  action: call-service
-                  service: switch.turn_on
-                  service_data:
-                    entity_id: switch.hdmi3
-                type: 'custom:button-card'
-            type: vertical-stack
-        type: horizontal-stack
+      - card:
+          type: picture-elements
+          image: /local/icons/media_icons/remote2.jpg
+          elements:
+            - type: image
+              image: /local/icons/media_icons/power-white.png
+              tap_action:
+                action: call-service
+                service: switch.turn_on
+                service_data:
+                  entity_id: switch.tv
+              style:
+                top: 5em
+                left: 15%
+                width: 48px
+                height: 48px
+                z-index: 2
+            - type: image
+              image: /local/icons/media_icons/power-off-white.png
+              tap_action:
+                action: call-service
+                service: switch.turn_off
+                service_data:
+                  entity_id: switch.tv
+              style:
+                top: 5em
+                left: 40%
+                width: 48px
+                height: 48px
+                z-index: 2
+            - type: image
+              image: /local/icons/media_icons/chromecast-white.png
+              tap_action:
+                action: call-service
+                service: switch.turn_on
+                service_data:
+                  entity_id: switch.hdmi1
+              style:
+                top: 10.5em
+                left: 15%
+                width: 48px
+                height: 48px
+                z-index: 2
+            - type: image
+              image: /local/icons/media_icons/pc-white.png
+              tap_action:
+                action: call-service
+                service: switch.turn_on
+                service_data:
+                  entity_id: switch.hdmi2
+              style:
+                top: 10.5em
+                left: 40%
+                width: 48px
+                height: 48px
+                z-index: 2
+            - type: image
+              image: /local/icons/media_icons/ps4-white.png
+              tap_action:
+                action: call-service
+                service: switch.turn_on
+                service_data:
+                  entity_id: switch.hdmi3
+              style:
+                top: 10.5em
+                left: 65%
+                width: 48px
+                height: 48px
+                z-index: 2
+            - type: image
+              image: /local/icons/media_icons/vol-white.png
+              tap_action:
+                action: call-service
+                service: switch.turn_off
+                service_data:
+                  entity_id: switch.stereo_vol_down
+              style:
+                top: 9.4em
+                left: 86%
+                width: 48px
+                height: 48px
+                z-index: 2
+            - type: image
+              image: /local/icons/media_icons/vol+white.png
+              tap_action:
+                action: call-service
+                service: switch.turn_on
+                service_data:
+                  entity_id: switch.stereo_vol_up
+              style:
+                top: 4em
+                left: 86%
+                width: 48px
+                height: 48px
+                z-index: 2
+            - type: image
+              image: /local/icons/media_icons/vol_btn_border-white.png
+              style:
+                top: 10.65em
+                left: 86%
+                width: 80px
+                height: 250px
+                z-index: 1
+            - type: image
+              image: /local/icons/media_icons/horizontal_Rule-white.png
+              style:
+                top: 8em
+                left: 40%
+                width: 60%
+                height: 2px
+                z-index: 1
+            - type: image
+              image: /local/icons/media_icons/power-logo-white.png
+              tap_action:
+                action: call-service
+                service: switch.toggle
+                service_data:
+                  entity_id: switch.stereo
+              style:
+                top: 5em
+                left: 65%
+                width: 48px
+                height: 48px
+                z-index: 2
+            - type: icon
+              icon: 'mdi:television-classic'
+              style:
+                top: 2em
+                left: 7%
+            - type: icon
+              icon: 'mdi:audio-video'
+              style:
+                top: 2em
+                left: 60%
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+          height: 180px
+        type: 'custom:card-modder'
       - card:
           entities:
             - entity: light.hue_left
@@ -1961,5 +2006,118 @@ views:
         type: 'custom:card-modder'
       - entity: camera.raspberry_pi_camera
         type: picture-entity
+      - cards:
+          - cards:
+              - color: green
+                color_type: label-card
+                name: TV
+                type: 'custom:button-card'
+              - color: green
+                color_type: card
+                icon: 'mdi:power'
+                tap_action:
+                  action: call-service
+                  service: switch.turn_on
+                  service_data:
+                    entity_id: switch.tv
+                type: 'custom:button-card'
+              - color: darkred
+                color_type: card
+                icon: 'mdi:power'
+                tap_action:
+                  action: call-service
+                  service: switch.turn_off
+                  service_data:
+                    entity_id: switch.tv
+                type: 'custom:button-card'
+              - color: 'rgb(22, 41, 85)'
+                color_type: label-card
+                name: '-'
+                type: 'custom:button-card'
+              - color: 'rgb(22, 41, 85)'
+                color_type: card
+                icon: 'mdi:numeric-1-circle-outline'
+                tap_action:
+                  action: call-service
+                  service: switch.turn_on
+                  service_data:
+                    entity_id: switch.hdmi1
+                type: 'custom:button-card'
+            type: vertical-stack
+          - cards:
+              - color: 'rgb(43, 54, 164)'
+                color_type: label-card
+                name: Home Cinema
+                type: 'custom:button-card'
+              - color: 'rgb(43, 54, 164)'
+                color_type: card
+                icon: 'mdi:power'
+                tap_action:
+                  action: call-service
+                  service: switch.turn_on
+                  service_data:
+                    entity_id: switch.stereo
+                type: 'custom:button-card'
+              - color: darkred
+                color_type: card
+                icon: 'mdi:power'
+                tap_action:
+                  action: call-service
+                  service: switch.turn_off
+                  service_data:
+                    entity_id: switch.stereo
+                type: 'custom:button-card'
+              - color: 'rgb(22, 41, 85)'
+                color_type: label-card
+                name: Input
+                type: 'custom:button-card'
+              - color: 'rgb(22, 41, 85)'
+                color_type: card
+                icon: 'mdi:numeric-2-circle-outline'
+                tap_action:
+                  action: call-service
+                  service: switch.turn_on
+                  service_data:
+                    entity_id: switch.hdmi2
+                type: 'custom:button-card'
+            type: vertical-stack
+          - cards:
+              - color: 'rgb( 255, 195, 0 )'
+                color_type: label-card
+                name: Volume
+                type: 'custom:button-card'
+              - color: 'rgb( 255, 195, 0 )'
+                color_type: card
+                icon: 'mdi:volume-plus'
+                tap_action:
+                  action: call-service
+                  service: switch.turn_on
+                  service_data:
+                    entity_id: switch.stereo_vol_up
+                type: 'custom:button-card'
+              - color: 'rgb( 255, 195, 0 )'
+                color_type: card
+                icon: 'mdi:volume-minus'
+                tap_action:
+                  action: call-service
+                  service: switch.turn_off
+                  service_data:
+                    entity_id: switch.stereo_vol_down
+                type: 'custom:button-card'
+              - color: 'rgb(22, 41, 85)'
+                color_type: label-card
+                name: '-'
+                type: 'custom:button-card'
+              - color: 'rgb(22, 41, 85)'
+                color_type: card
+                icon: 'mdi:numeric-3-circle-outline'
+                tap_action:
+                  action: call-service
+                  service: switch.turn_on
+                  service_data:
+                    entity_id: switch.hdmi3
+                type: 'custom:button-card'
+            type: vertical-stack
+        type: horizontal-stack
     icon: ''
     title: TEST
