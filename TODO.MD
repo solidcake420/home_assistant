@@ -1,8 +1,8 @@
 ## Todo - software
 
 - [X] [fold-entity-row](https://github.com/thomasloven/lovelace-fold-entity-row)
+- [X] [Compact header](https://github.com/maykar/compact-custom-header)
 - [ ] Test Hue Transitions
-- [ ] [Compact header](https://github.com/maykar/compact-custom-header)
 - [ ] [Win10As](https://github.com/KjetilSv/Win10As)
 - [ ] [Zigbee2mqtt](https://www.zigbee2mqtt.io/getting_started/running_zigbee2mqtt.html)
 - [ ] [Strava](https://community.home-assistant.io/t/strava-sensors/5506)
@@ -27,6 +27,7 @@
   - [ ] MagicLight LED
 - [ ] Pi Camera
 - [ ] Addressable LED strips
+- [ ] Android tablet as remote
 
 ## Todo - automations
 
