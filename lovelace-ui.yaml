@@ -28,56 +28,137 @@ views:
   - badges: []
     cards:
       - cards:
-          - cards:
-              - card:
-                  entity: person.flat
-                  show_name: false
-                  show_state: false
-                  state_image:
-                    home: /local/assets/ppl/mike_1.png
-                    not_home: /local/assets/ppl/mike_2.png
+          - card:
+              entity: person.flat
+              show_name: false
+              show_state: false
+              state_image:
+                home: /local/assets/ppl/mike_1.png
+                not_home: /local/assets/ppl/mike_2.png
+              tap_action:
+                action: none
+              type: picture-entity
+            style:
+              border: 'solid 5px #03B14B'
+              border-radius: 150px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              entity: person.kamil
+              show_name: false
+              show_state: false
+              state_image:
+                home: /local/assets/ppl/kamil_1.png
+                not_home: /local/assets/ppl/kamil_2.png
+              tap_action:
+                action: none
+              type: picture-entity
+            style:
+              border: 'solid 5px #03B14B'
+              border-radius: 150px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+        type: horizontal-stack
+      - cards:
+          - card:
+              type: picture-elements
+              image: /local/icons/media_icons/remote3.jpg
+              elements:
+                - type: image
+                  image: /local/icons/media_icons/power-logo-white.png
                   tap_action:
-                    action: none
-                  type: picture-entity
-                style:
-                  border: 'solid 5px #03B14B'
-                  border-radius: 150px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-              - card:
-                  entity: person.kamil
-                  show_name: false
-                  show_state: false
-                  state_image:
-                    home: /local/assets/ppl/kamil_1.png
-                    not_home: /local/assets/ppl/kamil_2.png
+                    action: call-service
+                    service: switch.toggle
+                    service_data:
+                      entity_id: switch.tv
+                  style:
+                    top: 4em
+                    left: 15%
+                    width: 48px
+                    height: 48px
+                    z-index: 2
+                - type: image
+                  image: /local/icons/media_icons/vol-white.png
                   tap_action:
-                    action: none
-                  type: picture-entity
-                style:
-                  border: 'solid 5px #03B14B'
-                  border-radius: 150px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-            type: horizontal-stack
+                    action: call-service
+                    service: switch.turn_off
+                    service_data:
+                      entity_id: switch.stereo_vol_down
+                  style:
+                    top: 4em
+                    left: 65%
+                    width: 48px
+                    height: 48px
+                    z-index: 2
+                - type: image
+                  image: /local/icons/media_icons/vol+white.png
+                  tap_action:
+                    action: call-service
+                    service: switch.turn_on
+                    service_data:
+                      entity_id: switch.stereo_vol_up
+                  style:
+                    top: 4em
+                    left: 85%
+                    width: 48px
+                    height: 48px
+                    z-index: 2
+                - type: image
+                  image: /local/icons/media_icons/power-logo-white.png
+                  tap_action:
+                    action: call-service
+                    service: switch.toggle
+                    service_data:
+                      entity_id: switch.stereo
+                  style:
+                    top: 4em
+                    left: 40%
+                    width: 48px
+                    height: 48px
+                    z-index: 2
+                - type: icon
+                  icon: 'mdi:television-classic'
+                  style:
+                    top: 1.5em
+                    left: 7%
+                    color: '#24E081'
+                - type: icon
+                  icon: 'mdi:audio-video'
+                  style:
+                    top: 1.5em
+                    left: 35%
+                    color: '#24E081'
+                - type: icon
+                  icon: 'mdi:volume-high'
+                  style:
+                    top: 1.5em
+                    left: 60%
+                    color: '#24E081'
+            style:
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 20px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+              height: 90px
+            type: 'custom:card-modder'
+          - card:
+              artwork: cover
+              entity: media_player.living_room_tv
+              hide:
+                icon: false
+                mute: true
+                power_state: false
+              info: short
+              type: 'custom:mini-media-player'
+            style:
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 10px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
         type: vertical-stack
-      - card:
-          artwork: cover
-          entity: media_player.living_room_tv
-          hide:
-            icon: false
-            mute: true
-            power_state: false
-          info: short
-          type: 'custom:mini-media-player'
-        style:
-          border: 'solid 1px rgba(100,100,100,0.3)'
-          border-radius: 10px
-          box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: hidden
-        type: 'custom:card-modder'
       - cards:
           - cards:
               - card:
@@ -121,8 +202,6 @@ views:
                   overflow: hidden
                 type: 'custom:card-modder'
             type: horizontal-stack
-        type: vertical-stack
-      - cards:
           - cards:
               - card:
                   artwork: null
@@ -347,36 +426,6 @@ views:
                 type: 'custom:card-modder'
             type: horizontal-stack
         type: vertical-stack
-      - card:
-          type: glance
-          entities:
-            - entity: switch.tv
-              name: TV
-              tap_action:
-                action: toggle
-            - entity: switch.stereo
-              name: Home Cinema
-              tap_action:
-                action: toggle
-            - entity: switch.stereo_vol_down
-              name: Vol Down
-              tap_action:
-                action: toggle
-            - entity: switch.stereo_vol_up
-              name: Vol Up
-              tap_action:
-                action: toggle
-          show_state: false
-          show_name: false
-          show_icon: true
-          columns: 4
-        style:
-          background: 'right / cover no-repeat url("#/local/assets/")'
-          border: 'solid 1px rgba(100,100,100,0.3)'
-          border-radius: 10px
-          box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: 'hidden#'
-        type: 'custom:card-modder'
       - card:
           artwork: cover
           entity: media_player.spotify
@@ -672,8 +721,19 @@ views:
             - entity: light.entertainment_area
               type: 'custom:slider-entity-row'
             - entity: light.wall_lightstrip
-              icon: 'bha:led-strip'
               type: 'custom:slider-entity-row'
+            - type: 'custom:fold-entity-row'
+              head:
+                type: section
+                label: MORE
+              items:
+                - entity: light.tv_lightstrip
+                  type: 'custom:slider-entity-row'
+                - type: divider
+                - entity: light.hue_left
+                  type: 'custom:slider-entity-row'
+                - entity: light.hue_right
+                  type: 'custom:slider-entity-row'
           title: Hue Lights
           type: entities
         style:
@@ -834,56 +894,54 @@ views:
             type: horizontal-stack
         type: vertical-stack
       - cards:
-          - cards:
-              - card:
-                  align_state: center
-                  animate: false
-                  color_thresholds:
-                    - color: '#f39c12'
-                      value: 16
-                    - color: '#d35400'
-                      value: 18
-                    - color: '#c0392b'
-                      value: 20
-                    - color: '#C61212'
-                      value: 22
-                  entities:
-                    - sensor.living_room_temperature
-                  font_size: 85
-                  height: 150
-                  line_color: red
-                  line_width: 10
-                  name: Temp.
-                  type: 'custom:mini-graph-card'
-                style:
-                  background: 'right / cover no-repeat url("#/local/assets/")'
-                  border: 'solid 1px rgba(100,100,100,0.3)'
-                  border-radius: 10px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-              - card:
-                  align_state: center
-                  animate: false
-                  entities:
-                    - sensor.living_room_humidity
-                  font_size: 85
-                  height: 150
-                  line_color: DodgerBlue
-                  line_width: 10
-                  name: Humidity
-                  show:
-                    labels: false
-                  type: 'custom:mini-graph-card'
-                style:
-                  background: 'right / cover no-repeat url("#/local/assets/")'
-                  border: 'solid 1px rgba(100,100,100,0.3)'
-                  border-radius: 10px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-            type: horizontal-stack
-        type: vertical-stack
+          - card:
+              align_state: center
+              animate: false
+              color_thresholds:
+                - color: '#f39c12'
+                  value: 16
+                - color: '#d35400'
+                  value: 18
+                - color: '#c0392b'
+                  value: 20
+                - color: '#C61212'
+                  value: 22
+              entities:
+                - sensor.living_room_temperature
+              font_size: 85
+              height: 150
+              line_color: red
+              line_width: 10
+              name: Temp.
+              type: 'custom:mini-graph-card'
+            style:
+              background: 'right / cover no-repeat url("#/local/assets/")'
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 10px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              align_state: center
+              animate: false
+              entities:
+                - sensor.living_room_humidity
+              font_size: 85
+              height: 150
+              line_color: DodgerBlue
+              line_width: 10
+              name: Humidity
+              show:
+                labels: false
+              type: 'custom:mini-graph-card'
+            style:
+              background: 'right / cover no-repeat url("#/local/assets/")'
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 10px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+        type: horizontal-stack
       - card:
           type: picture-elements
           image: /local/icons/media_icons/remote2.jpg
@@ -1013,11 +1071,13 @@ views:
               style:
                 top: 2em
                 left: 7%
+                color: '#24E081'
             - type: icon
               icon: 'mdi:audio-video'
               style:
                 top: 2em
                 left: 60%
+                color: '#24E081'
         style:
           border: 'solid 1px rgba(100,100,100,0.3)'
           border-radius: 20px
@@ -1025,25 +1085,72 @@ views:
           overflow: hidden
           height: 180px
         type: 'custom:card-modder'
-      - card:
-          entities:
-            - entity: light.hue_left
-              type: 'custom:slider-entity-row'
-            - entity: light.hue_right
-              type: 'custom:slider-entity-row'
-            - type: divider
-            - entity: light.tv_lightstrip
-              icon: 'bha:led-strip'
-              type: 'custom:slider-entity-row'
-          title: Single Lights
-          type: entities
-        style:
-          background: 'right / cover no-repeat url("#/local/assets/")'
-          border: 'solid 1px rgba(100,100,100,0.3)'
-          border-radius: 10px
-          box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: 'hidden#'
-        type: 'custom:card-modder'
+      - cards:
+          - card:
+              entity: switch.sonoff_s20_3_relay
+              image: /local/assets/megahome_1.png
+              show_name: false
+              show_state: true
+              state_image:
+                unavailable: /local/assets/offline.png
+              tap_action:
+                action: toggle
+              type: picture-entity
+            style:
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 15px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              entity: switch.sonoff_s20_1_relay
+              image: /local/assets/fan_2.png
+              show_name: false
+              show_state: true
+              state_image:
+                unavailable: /local/assets/offline.png
+              tap_action:
+                action: toggle
+              type: picture-entity
+            style:
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 15px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              entity: light.table_light
+              image: /local/assets/ceiling_lamp_1.png
+              show_name: false
+              show_state: true
+              state_image:
+                unavailable: /local/assets/offline.png
+              tap_action:
+                action: toggle
+              type: picture-entity
+            style:
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 15px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              entity: light.hue_mini
+              image: /local/assets/hue_mini_1.png
+              show_name: false
+              show_state: true
+              state_image:
+                unavailable: /local/assets/offline.png
+              tap_action:
+                action: toggle
+              type: picture-entity
+            style:
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 15px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+        type: horizontal-stack
       - card:
           align_state: center
           animate: true
@@ -1068,74 +1175,6 @@ views:
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
           overflow: 'hidden#'
         type: 'custom:card-modder'
-      - cards:
-          - cards:
-              - card:
-                  entity: switch.sonoff_s20_3_relay
-                  image: /local/assets/megahome_1.png
-                  show_name: false
-                  show_state: true
-                  state_image:
-                    unavailable: /local/assets/offline.png
-                  tap_action:
-                    action: toggle
-                  type: picture-entity
-                style:
-                  border: 'solid 1px rgba(100,100,100,0.3)'
-                  border-radius: 15px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-              - card:
-                  entity: switch.sonoff_s20_1_relay
-                  image: /local/assets/fan_2.png
-                  show_name: false
-                  show_state: true
-                  state_image:
-                    unavailable: /local/assets/offline.png
-                  tap_action:
-                    action: toggle
-                  type: picture-entity
-                style:
-                  border: 'solid 1px rgba(100,100,100,0.3)'
-                  border-radius: 15px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-              - card:
-                  entity: light.table_light
-                  image: /local/assets/ceiling_lamp_1.png
-                  show_name: false
-                  show_state: true
-                  state_image:
-                    unavailable: /local/assets/offline.png
-                  tap_action:
-                    action: toggle
-                  type: picture-entity
-                style:
-                  border: 'solid 1px rgba(100,100,100,0.3)'
-                  border-radius: 15px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-              - card:
-                  entity: light.hue_mini
-                  image: /local/assets/hue_mini_1.png
-                  show_name: false
-                  show_state: true
-                  state_image:
-                    unavailable: /local/assets/offline.png
-                  tap_action:
-                    action: toggle
-                  type: picture-entity
-                style:
-                  border: 'solid 1px rgba(100,100,100,0.3)'
-                  border-radius: 15px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-            type: horizontal-stack
-        type: vertical-stack
       - card:
           entities: null
           entity: media_player.playstation_4
@@ -1169,59 +1208,57 @@ views:
           overflow: 'hidden#'
         type: 'custom:card-modder'
       - cards:
-          - cards:
-              - card:
-                  align_state: center
-                  animate: true
-                  color_thresholds:
-                    - color: '#f39c12'
-                      value: 16
-                    - color: '#d35400'
-                      value: 18
-                    - color: '#c0392b'
-                      value: 20
-                    - color: '#C61212'
-                      value: 22
-                  decimals: 1
-                  entities:
-                    - sensor.sonoff_th16_temperature
-                  font_size: 85
-                  height: 150
-                  line_color: red
-                  line_width: 10
-                  name: Temp.
-                  show:
-                    labels: false
-                  type: 'custom:mini-graph-card'
-                style:
-                  background: 'right / cover no-repeat url("#/local/assets/")'
-                  border: 'solid 1px rgba(100,100,100,0.3)'
-                  border-radius: 15px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-              - card:
-                  align_state: center
-                  animate: true
-                  entities:
-                    - sensor.sonoff_th16_humidity
-                  font_size: 85
-                  height: 150
-                  line_color: DodgerBlue
-                  line_width: 10
-                  name: Humidity
-                  show:
-                    labels: false
-                  type: 'custom:mini-graph-card'
-                style:
-                  background: 'right / cover no-repeat url("#/local/assets/")'
-                  border: 'solid 1px rgba(100,100,100,0.3)'
-                  border-radius: 15px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-            type: horizontal-stack
-        type: vertical-stack
+          - card:
+              align_state: center
+              animate: true
+              color_thresholds:
+                - color: '#f39c12'
+                  value: 16
+                - color: '#d35400'
+                  value: 18
+                - color: '#c0392b'
+                  value: 20
+                - color: '#C61212'
+                  value: 22
+              decimals: 1
+              entities:
+                - sensor.sonoff_th16_temperature
+              font_size: 85
+              height: 150
+              line_color: red
+              line_width: 10
+              name: Temp.
+              show:
+                labels: false
+              type: 'custom:mini-graph-card'
+            style:
+              background: 'right / cover no-repeat url("#/local/assets/")'
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 15px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              align_state: center
+              animate: true
+              entities:
+                - sensor.sonoff_th16_humidity
+              font_size: 85
+              height: 150
+              line_color: DodgerBlue
+              line_width: 10
+              name: Humidity
+              show:
+                labels: false
+              type: 'custom:mini-graph-card'
+            style:
+              background: 'right / cover no-repeat url("#/local/assets/")'
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 15px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+        type: horizontal-stack
       - card:
           entities:
             - entity: light.hue_mike
@@ -1240,117 +1277,113 @@ views:
           overflow: 'hidden#'
         type: 'custom:card-modder'
       - cards:
-          - cards:
-              - card:
-                  entity: light.master_bedroom
-                  image: /local/assets/scenes/sunset.png
-                  show_name: false
-                  show_state: false
-                  tap_action:
-                    action: call-service
-                    service: hue.hue_activate_scene
-                    service_data:
-                      group_name: Master Bedroom
-                      scene_name: Sunset
-                  type: picture
-                style:
-                  border: 'solid 4px #03B14B'
-                  border-radius: 100px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-              - card:
-                  entity: light.master_bedroom
-                  image: /local/assets/scenes/spring.png
-                  show_name: false
-                  show_state: false
-                  tap_action:
-                    action: call-service
-                    service: hue.hue_activate_scene
-                    service_data:
-                      group_name: Master Bedroom
-                      scene_name: Spring
-                  type: picture
-                style:
-                  border: 'solid 4px #03B14B'
-                  border-radius: 100px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-              - card:
-                  entity: light.master_bedroom
-                  image: /local/assets/scenes/arctic.png
-                  show_name: false
-                  show_state: false
-                  tap_action:
-                    action: call-service
-                    service: hue.hue_activate_scene
-                    service_data:
-                      group_name: Master Bedroom
-                      scene_name: Arctic
-                  type: picture
-                style:
-                  border: 'solid 4px #03B14B'
-                  border-radius: 100px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-              - card:
-                  entity: light.master_bedroom
-                  image: /local/assets/scenes/420.png
-                  show_name: false
-                  show_state: false
-                  tap_action:
-                    action: call-service
-                    service: hue.hue_activate_scene
-                    service_data:
-                      group_name: Master Bedroom
-                      scene_name: 420
-                  type: picture
-                style:
-                  border: 'solid 4px #03B14B'
-                  border-radius: 100px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-            type: horizontal-stack
-        type: vertical-stack
+          - card:
+              entity: light.master_bedroom
+              image: /local/assets/scenes/sunset.png
+              show_name: false
+              show_state: false
+              tap_action:
+                action: call-service
+                service: hue.hue_activate_scene
+                service_data:
+                  group_name: Master Bedroom
+                  scene_name: Sunset
+              type: picture
+            style:
+              border: 'solid 4px #03B14B'
+              border-radius: 100px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              entity: light.master_bedroom
+              image: /local/assets/scenes/spring.png
+              show_name: false
+              show_state: false
+              tap_action:
+                action: call-service
+                service: hue.hue_activate_scene
+                service_data:
+                  group_name: Master Bedroom
+                  scene_name: Spring
+              type: picture
+            style:
+              border: 'solid 4px #03B14B'
+              border-radius: 100px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              entity: light.master_bedroom
+              image: /local/assets/scenes/arctic.png
+              show_name: false
+              show_state: false
+              tap_action:
+                action: call-service
+                service: hue.hue_activate_scene
+                service_data:
+                  group_name: Master Bedroom
+                  scene_name: Arctic
+              type: picture
+            style:
+              border: 'solid 4px #03B14B'
+              border-radius: 100px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              entity: light.master_bedroom
+              image: /local/assets/scenes/420.png
+              show_name: false
+              show_state: false
+              tap_action:
+                action: call-service
+                service: hue.hue_activate_scene
+                service_data:
+                  group_name: Master Bedroom
+                  scene_name: 420
+              type: picture
+            style:
+              border: 'solid 4px #03B14B'
+              border-radius: 100px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+        type: horizontal-stack
       - cards:
-          - cards:
-              - card:
-                  entity: switch.sonoff_th16_relay
-                  image: /local/assets/heater_1.png
-                  show_name: false
-                  show_state: true
-                  state_image:
-                    unavailable: /local/assets/offline.png
-                  tap_action:
-                    action: toggle
-                  type: picture-entity
-                style:
-                  border: 'solid 1px rgba(100,100,100,0.3)'
-                  border-radius: 15px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-              - card:
-                  entity: light.salt_lamp
-                  image: /local/assets/salt_lamp_1.png
-                  show_name: false
-                  show_state: true
-                  state_image:
-                    unavailable: /local/assets/offline.png
-                  tap_action:
-                    action: toggle
-                  type: picture-entity
-                style:
-                  border: 'solid 1px rgba(100,100,100,0.3)'
-                  border-radius: 15px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-            type: horizontal-stack
-        type: vertical-stack
+          - card:
+              entity: switch.sonoff_th16_relay
+              image: /local/assets/heater_1.png
+              show_name: false
+              show_state: true
+              state_image:
+                unavailable: /local/assets/offline.png
+              tap_action:
+                action: toggle
+              type: picture-entity
+            style:
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 15px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              entity: light.salt_lamp
+              image: /local/assets/salt_lamp_1.png
+              show_name: false
+              show_state: true
+              state_image:
+                unavailable: /local/assets/offline.png
+              tap_action:
+                action: toggle
+              type: picture-entity
+            style:
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 15px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+        type: horizontal-stack
       - card:
           entities:
             - entity: binary_sensor.battlestation_pc
@@ -1367,12 +1400,10 @@ views:
             - entity: sensor.bedroom_home_mini_alarm
           type: entities
         style:
-          background: right / cover no-repeat url("/local/assets/battlestation2.png")
+          background: 'right / cover no-repeat url("#/local/assets/battlestation2.png")'
           border: 'solid 1px rgba(100,100,100,0.3)'
           border-radius: 10px
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          font-size: 110%
-          font-weight: bold
           overflow: hidden
         type: 'custom:card-modder'
     icon: 'mdi:hotel'
@@ -1395,85 +1426,83 @@ views:
           overflow: 'hidden#'
         type: 'custom:card-modder'
       - cards:
-          - cards:
-              - card:
-                  entity: light.bedroom_2
-                  image: /local/assets/scenes/sunset.png
-                  show_name: false
-                  show_state: false
-                  tap_action:
-                    action: call-service
-                    service: hue.hue_activate_scene
-                    service_data:
-                      group_name: Bedroom 2
-                      scene_name: Sunset
-                  type: picture
-                style:
-                  border: 'solid 4px #03B14B'
-                  border-radius: 100px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-              - card:
-                  entity: light.bedroom_2
-                  image: /local/assets/scenes/spring.png
-                  show_name: false
-                  show_state: false
-                  tap_action:
-                    action: call-service
-                    service: hue.hue_activate_scene
-                    service_data:
-                      group_name: Bedroom 2
-                      scene_name: Spring
-                  type: picture
-                style:
-                  border: 'solid 4px #03B14B'
-                  border-radius: 100px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-              - card:
-                  entity: light.bedroom_2
-                  image: /local/assets/scenes/arctic.png
-                  show_name: false
-                  show_state: false
-                  tap_action:
-                    action: call-service
-                    service: hue.hue_activate_scene
-                    service_data:
-                      group_name: Bedroom 2
-                      scene_name: Arctic
-                  type: picture
-                style:
-                  border: 'solid 4px #03B14B'
-                  border-radius: 100px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-              - card:
-                  entity: light.bedroom_2
-                  image: /local/assets/scenes/420.png
-                  show_name: false
-                  show_state: false
-                  tap_action:
-                    action: call-service
-                    service: hue.hue_activate_scene
-                    service_data:
-                      group_name: Bedroom 2
-                      scene_name: 420
-                  type: picture
-                style:
-                  border: 'solid 4px #03B14B'
-                  border-radius: 100px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-            type: horizontal-stack
-        type: vertical-stack
+          - card:
+              entity: light.bedroom_2
+              image: /local/assets/scenes/sunset.png
+              show_name: false
+              show_state: false
+              tap_action:
+                action: call-service
+                service: hue.hue_activate_scene
+                service_data:
+                  group_name: Bedroom 2
+                  scene_name: Sunset
+              type: picture
+            style:
+              border: 'solid 4px #03B14B'
+              border-radius: 100px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              entity: light.bedroom_2
+              image: /local/assets/scenes/spring.png
+              show_name: false
+              show_state: false
+              tap_action:
+                action: call-service
+                service: hue.hue_activate_scene
+                service_data:
+                  group_name: Bedroom 2
+                  scene_name: Spring
+              type: picture
+            style:
+              border: 'solid 4px #03B14B'
+              border-radius: 100px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              entity: light.bedroom_2
+              image: /local/assets/scenes/arctic.png
+              show_name: false
+              show_state: false
+              tap_action:
+                action: call-service
+                service: hue.hue_activate_scene
+                service_data:
+                  group_name: Bedroom 2
+                  scene_name: Arctic
+              type: picture
+            style:
+              border: 'solid 4px #03B14B'
+              border-radius: 100px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              entity: light.bedroom_2
+              image: /local/assets/scenes/420.png
+              show_name: false
+              show_state: false
+              tap_action:
+                action: call-service
+                service: hue.hue_activate_scene
+                service_data:
+                  group_name: Bedroom 2
+                  scene_name: 420
+              type: picture
+            style:
+              border: 'solid 4px #03B14B'
+              border-radius: 100px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+        type: horizontal-stack
       - card:
           entities:
             - entity: light.deathstar
-              showColorPicker: true
+              showColorPicker: false
               showColorSliders: false
               type: 'custom:light-entity-row'
           image: /local/assets/bg/light.png
@@ -1494,12 +1523,10 @@ views:
               name: Wake-On-Lan
           type: entities
         style:
-          background: right / cover no-repeat url("/local/assets/pc2.png")
+          background: 'right / cover no-repeat url("#/local/assets/pc2.png")'
           border: 'solid 1px rgba(100,100,100,0.3)'
           border-radius: 10px
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          font-size: 110%
-          font-weight: bold
           overflow: hidden
         type: 'custom:card-modder'
       - card:
@@ -1685,46 +1712,43 @@ views:
   - badges: []
     cards:
       - cards:
-          - cards:
-              - entity: device_tracker.viviens_iphone
-                show_name: false
-                show_state: false
-                state_image:
-                  home: /local/assets/ppl/viv_1.png
-                  not_home: /local/assets/ppl/viv_2.png
-                tap_action:
-                  action: none
-                type: picture-entity
-              - entity: device_tracker.galaxy_s8
-                show_name: false
-                show_state: false
-                state_image:
-                  home: /local/assets/ppl/lesiu_1.png
-                  not_home: /local/assets/ppl/lesiu_2.png
-                tap_action:
-                  action: none
-                type: picture-entity
-              - entity: device_tracker.android_fc4fb292b29f3673
-                show_name: false
-                show_state: false
-                state_image:
-                  home: /local/assets/ppl/greg_1.png
-                  not_home: /local/assets/ppl/greg_2.png
-                tap_action:
-                  action: none
-                type: picture-entity
-              - entity: device_tracker.galaxy_s8_2
-                show_name: false
-                show_state: false
-                state_image:
-                  home: /local/assets/ppl/dan_01.png
-                  not_home: /local/assets/ppl/dan_2.png
-                tap_action:
-                  action: none
-                type: picture-entity
-            type: horizontal-stack
-        name: Guests
-        type: vertical-stack
+          - entity: device_tracker.viviens_iphone
+            show_name: false
+            show_state: false
+            state_image:
+              home: /local/assets/ppl/viv_1.png
+              not_home: /local/assets/ppl/viv_2.png
+            tap_action:
+              action: none
+            type: picture-entity
+          - entity: device_tracker.galaxy_s8
+            show_name: false
+            show_state: false
+            state_image:
+              home: /local/assets/ppl/lesiu_1.png
+              not_home: /local/assets/ppl/lesiu_2.png
+            tap_action:
+              action: none
+            type: picture-entity
+          - entity: device_tracker.android_fc4fb292b29f3673
+            show_name: false
+            show_state: false
+            state_image:
+              home: /local/assets/ppl/greg_1.png
+              not_home: /local/assets/ppl/greg_2.png
+            tap_action:
+              action: none
+            type: picture-entity
+          - entity: device_tracker.galaxy_s8_2
+            show_name: false
+            show_state: false
+            state_image:
+              home: /local/assets/ppl/dan_01.png
+              not_home: /local/assets/ppl/dan_2.png
+            tap_action:
+              action: none
+            type: picture-entity
+        type: horizontal-stack
       - entities:
           - entity: binary_sensor.hassio
           - entity: binary_sensor.remote_ui
@@ -1963,49 +1987,23 @@ views:
                 type: 'custom:mini-media-player'
             type: horizontal-stack
         type: vertical-stack
-    icon: 'mdi:delete-circle-outline'
-    title: Bin
-  - badges: []
-    cards:
-      - entities:
-          - entity: light.hue_one
-            icon: 'mdi:lamp'
-            type: 'custom:light-entity-row'
-          - type: divider
-          - entity: light.hue_right
-            showColorPicker: true
-            showColorSliders: true
-            type: 'custom:light-entity-row'
-          - type: divider
-          - buttons:
-              - name: Red
-                service_data:
-                  color_name: red
-              - name: Blue
-                service_data:
-                  color_name: blue
-            entity: light.hue_left
-            type: 'custom:light-entity-row'
-        title: Lights
-        type: entities
       - card:
-          elements:
+          entities:
             - entity: light.hue_left
-              style:
-                color: white
-                left: 143px
-                top: 30px
               type: 'custom:slider-entity-row'
-          image: /local/assets/bg/light.png
-          type: picture-elements
+            - entity: light.hue_right
+              type: 'custom:slider-entity-row'
+            - type: divider
+            - entity: light.tv_lightstrip
+              type: 'custom:slider-entity-row'
+          type: entities
         style:
+          background: 'right / cover no-repeat url("#/local/assets/")'
           border: 'solid 1px rgba(100,100,100,0.3)'
-          border-radius: 20px
+          border-radius: 10px
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: hidden
+          overflow: 'hidden#'
         type: 'custom:card-modder'
-      - entity: camera.raspberry_pi_camera
-        type: picture-entity
       - cards:
           - cards:
               - color: green
@@ -2119,5 +2117,66 @@ views:
                 type: 'custom:button-card'
             type: vertical-stack
         type: horizontal-stack
+    icon: 'mdi:delete-circle-outline'
+    title: Bin
+  - badges: []
+    cards:
+      - entities:
+          - entity: light.hue_one
+            icon: 'mdi:lamp'
+            type: 'custom:light-entity-row'
+          - type: divider
+          - entity: light.hue_right
+            showColorPicker: true
+            showColorSliders: true
+            type: 'custom:light-entity-row'
+          - type: divider
+          - buttons:
+              - name: Red
+                service_data:
+                  color_name: red
+              - name: Blue
+                service_data:
+                  color_name: blue
+            entity: light.hue_left
+            type: 'custom:light-entity-row'
+        title: Lights
+        type: entities
+      - card:
+          elements:
+            - entity: light.hue_left
+              style:
+                color: white
+                left: 143px
+                top: 30px
+              type: 'custom:slider-entity-row'
+          image: /local/assets/bg/light.png
+          type: picture-elements
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - entity: camera.raspberry_pi_camera
+        type: picture-entity
+      - type: entities
+        title: Folding entities
+        entities:
+          - type: 'custom:fold-entity-row'
+            head: sensor.yr_symbol
+            items:
+              - sensor.outside_humidity
+              - sensor.outside_temperature
+          - light.bed_light
+          - type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Single Lights
+            group_config: null
+            items:
+              - light.tv_lightstrip
+              - light.hue_left
+              - light.hue_right
     icon: ''
     title: TEST

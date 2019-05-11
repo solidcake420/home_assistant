@@ -7,14 +7,15 @@
 - [ ] [Zigbee2mqtt](https://www.zigbee2mqtt.io/getting_started/running_zigbee2mqtt.html)
 - [ ] [Strava](https://community.home-assistant.io/t/strava-sensors/5506)
 - [ ] Hide device trackers
-- [ ] Wrap a vertical-stack or horizontal-stack in card-modder - it will mod every card in the stack separately (new feature)
 - [ ] Home cinema discrete remote ([workaround](https://community.home-assistant.io/t/broadlink-rm-mini-3-code-database-samsung-tv-hdmi-selection/15612/93))
 
 ## Todo - style
 
 - [X] Redesign IR remotes
-- [ ] [Improve light cards](https://github.com/thomasloven/lovelace-fold-entity-row)
+- [X] [Improve light cards](https://github.com/thomasloven/lovelace-fold-entity-row)
 - [ ] [Improve Dyson Fan card](https://community.home-assistant.io/t/wifi-dyson-pure-cool-link-full-setup/40332)
+- [ ] Wrap a vertical-stack or horizontal-stack in card-modder - it will mod every card in the stack separately (new feature)
+- [ ] Make card stacks foldable
 
 ## Todo - hardware
 
