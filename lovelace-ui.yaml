@@ -28,6 +28,8 @@ views:
   - cards:
       - type: 'custom:compact-custom-header'
         main_config: true
+        notifications: overflow
+        voice: overflow
       - cards:
           - card:
               entity: person.flat
@@ -73,7 +75,7 @@ views:
                     action: call-service
                     service: switch.toggle
                     service_data:
-                      entity_id: switch.tv
+                      entity_id: switch.tv_toggle
                   style:
                     top: 4em
                     left: 15%
@@ -540,6 +542,10 @@ views:
   - cards:
       - type: 'custom:compact-custom-header'
         main_config: true
+        notifications: hide
+        voice: hide
+        clock_am_pm: false
+        clock_format: '24'
       - card:
           artwork: cover
           entity: media_player.kitchen_home
@@ -574,6 +580,7 @@ views:
           entities:
             - entity: binary_sensor.hallway_sensor_motion
               name: Motion sensor
+              secondary_info: last-changed
             - type: divider
             - entity: light.hue_hallway_1
               type: 'custom:slider-entity-row'
@@ -594,6 +601,7 @@ views:
       - card:
           entities:
             - entity: switch.smart_life_relay
+              secondary_info: last-changed
             - type: divider
             - entity: sensor.kitchen_home_timer
               name: Kitchen Timer
@@ -638,6 +646,8 @@ views:
     cards:
       - type: 'custom:compact-custom-header'
         main_config: true
+        notifications: hide
+        voice: hide
       - card:
           artwork: cover
           entity: media_player.living_room_tv
@@ -1155,6 +1165,8 @@ views:
     cards:
       - type: 'custom:compact-custom-header'
         main_config: true
+        notifications: hide
+        voice: hide
       - card:
           artwork: cover
           entity: media_player.bedroom_speakers
@@ -1378,6 +1390,8 @@ views:
     cards:
       - type: 'custom:compact-custom-header'
         main_config: true
+        notifications: hide
+        voice: hide
       - card:
           artwork: cover
           entity: media_player.googlehome9988
@@ -1520,6 +1534,8 @@ views:
     cards:
       - type: 'custom:compact-custom-header'
         main_config: true
+        voice: hide
+        notifications: hide
       - artwork: cover
         entity: media_player.living_room_tv
         hide:
@@ -1589,6 +1605,8 @@ views:
     cards:
       - type: 'custom:compact-custom-header'
         main_config: true
+        notifications: hide
+        voice: hide
       - entities:
           - entity: media_player.home_group
             group: true
@@ -1816,6 +1834,7 @@ views:
     cards:
       - type: 'custom:compact-custom-header'
         main_config: true
+        voice: hide
       - entities:
           - entity: automation.hue_lights_on_at_sunset
           - entity: automation.hue_lights_off_at_sunrise

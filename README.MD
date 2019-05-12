@@ -15,8 +15,7 @@ If you want to buy me a coffee, that would be much appreciated. :)
 ![desktop](/example/example_lovelace_pc.gif "Lovelace example on desktop")
 
 # Mobile Lovelace
-![mobile1](/example/example_lovelace_mobile1.gif "Lovelace example on mobile 1")
-![mobile2](/example/example_lovelace_mobile2.gif "Lovelace example on mobile 2")
+![mobile](/example/example_lovelace_mobile.gif "Lovelace example on mobile")
 
 [Screenshots](https://imgur.com/a/ALbkssC)
 
@@ -122,8 +121,9 @@ Custom Lovelace Cards:
 - [Slider Entity Row](https://github.com/thomasloven/lovelace-slider-entity-row)
 - [Card Tools](https://github.com/thomasloven/lovelace-card-tools)
 - [Card Modder](https://github.com/thomasloven/lovelace-card-modder)
-- [Button Card](https://github.com/custom-cards/button-card)
+- [Button Card](https://github.com/custom-cards/button-card) (currently not in use)
 - [Fold Entity Row](https://github.com/thomasloven/lovelace-fold-entity-row)
+- [Compact custom header](https://github.com/maykar/compact-custom-header)
 
 
 Other:
