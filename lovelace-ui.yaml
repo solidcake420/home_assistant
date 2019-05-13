@@ -23,6 +23,9 @@ resources:
       https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/weather-card/weather-card.min.js
   - type: module
     url: /customcards/github/maykar/compact-custom-header.js?track=true
+  - url: >-
+      https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/swipe-card/swipe-card.min.js
+    type: module
 title: Home
 views:
   - cards:
@@ -294,7 +297,7 @@ views:
           border: 'solid 1px rgba(100,100,100,0.3)'
           border-radius: 10px
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: 'hidden#'
+          overflow: hidden
         type: 'custom:card-modder'
       - cards:
           - cards:
@@ -615,28 +618,44 @@ views:
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
           overflow: hidden
         type: 'custom:card-modder'
-      - card:
-          align_state: center
-          animate: true
-          decimals: 1
-          entities:
-            - entity: sensor.hallway_sensor_temperature
-              name: Temperature
-            - entity: sensor.hallway_sensor_light_level
-              name: Light level
-          name: Hallway sensors
-          show:
-            extrema: false
-            labels: true
-            fill: fade
-          type: 'custom:mini-graph-card'
-        style:
-          background: 'right / cover no-repeat url("#/local/assets/")'
-          border: 'solid 1px rgba(100,100,100,0.3)'
-          border-radius: 10px
-          box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: hidden
-        type: 'custom:card-modder'
+      - type: 'custom:swipe-card'
+        cards:
+          - card:
+              align_state: center
+              animate: true
+              entities:
+                - sensor.hallway_sensor_temperature
+              line_color: red
+              name: Hallway Temperature
+              show:
+                labels: true
+                fill: fade
+              type: 'custom:mini-graph-card'
+            style:
+              background: 'right / cover no-repeat url("#/local/assets/")'
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 10px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              align_state: center
+              animate: true
+              entities:
+                - sensor.hallway_sensor_light_level
+              line_color: dodgerblue
+              name: Hallway Light level
+              show:
+                labels: true
+                fill: fade
+              type: 'custom:mini-graph-card'
+            style:
+              background: 'right / cover no-repeat url("#/local/assets/")'
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 10px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
     badges: []
     icon: 'mdi:glassdoor'
     path: ''

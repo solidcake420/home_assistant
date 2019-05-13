@@ -124,6 +124,7 @@ Custom Lovelace Cards:
 - [Button Card](https://github.com/custom-cards/button-card) (currently not in use)
 - [Fold Entity Row](https://github.com/thomasloven/lovelace-fold-entity-row)
 - [Compact custom header](https://github.com/maykar/compact-custom-header)
+- [Swipe Card](https://github.com/bramkragten/custom-ui/tree/master/swipe-card)
 
 
 Other:
