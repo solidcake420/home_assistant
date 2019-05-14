@@ -197,7 +197,7 @@ sensor:
       - type: processor_use
       - type: last_boot
 
-  - platform: fastdotcom
+#  - platform: fastdotcom
 
   - platform: waqi
     token: 64a6a7304b091fd1ffc32cb68d224f1cdc795f9d
@@ -209,9 +209,26 @@ sensor:
     monitored_conditions:
       - precip_intensity
 
-  - platform: seventeentrack
-    username: !secret mail_address
-    password: !secret 17track
+#  - platform: seventeentrack
+#    username: !secret mail_address
+#    password: !secret 17track
+
+  - platform: alpha_vantage
+    api_key: !secret alpha_api
+    symbols:
+      - symbol: GOOGL
+        name: 'Google'
+    foreign_exchange:
+      - name: 'GBP > EUR'
+        from: GBP
+        to: EUR
+      - name: 'EUR > GBP'
+        from: GBP
+        to: EUR
+      - name: 'Bitcoin'
+        from: BTC
+        to: GBP
+
 
 binary_sensor:
 #  - platform: rpi_gpio
@@ -366,9 +383,17 @@ media_player:
 
 #OTHER
 
-fastdotcom:
+#fastdotcom:
+#  scan_interval:
+#      minutes: 30
+      
+speedtestdotnet:
   scan_interval:
-      minutes: 30
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload
 
 
 #DISABLED

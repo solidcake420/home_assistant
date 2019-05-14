@@ -99,12 +99,12 @@ Official components:
 - [Dyson Air Purifier](https://www.home-assistant.io/components/dyson/)
 - [BT Smart Hub Device tracker](https://www.home-assistant.io/components/bt_smarthub/)
 - [System Monitor](https://www.home-assistant.io/components/openhardwaremonitor/)
-- [Fast.com](https://www.home-assistant.io/components/fastdotcom/)
 - [World Air Quality Index](https://www.home-assistant.io/components/waqi/)
 - [Workday Binary Sensor](https://www.home-assistant.io/components/workday/)
 - [Spotify](https://www.home-assistant.io/components/spotify/)
-- [17track.net](https://www.home-assistant.io/components/seventeentrack/)
 - [Broadlink](https://www.home-assistant.io/components/broadlink/)
+- [Alpha Vantage](https://www.home-assistant.io/components/alpha_vantage/)
+- [Speedtest.net](https://www.home-assistant.io/components/speedtestdotnet/)
 
 
 Unofficial/custom components:
@@ -122,7 +122,7 @@ Custom Lovelace Cards:
 - [Card Tools](https://github.com/thomasloven/lovelace-card-tools)
 - [Card Modder](https://github.com/thomasloven/lovelace-card-modder)
 - [Button Card](https://github.com/custom-cards/button-card) (currently not in use)
-- [Fold Entity Row](https://github.com/thomasloven/lovelace-fold-entity-row)
+- [Fold Entity Row](https://github.com/thomasloven/lovelace-fold-entity-row) (currently not in use)
 - [Compact custom header](https://github.com/maykar/compact-custom-header)
 - [Swipe Card](https://github.com/bramkragten/custom-ui/tree/master/swipe-card)
 

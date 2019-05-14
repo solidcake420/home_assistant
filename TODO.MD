@@ -13,6 +13,8 @@
 
 - [X] Redesign IR remotes
 - [X] [Improve light cards](https://github.com/thomasloven/lovelace-fold-entity-row)
+- [ ] More sliders
+- [ ] Bedroom Battlestation State image
 - [ ] [Improve Dyson Fan card](https://community.home-assistant.io/t/wifi-dyson-pure-cool-link-full-setup/40332)
 - [ ] Wrap a vertical-stack or horizontal-stack in card-modder - it will mod every card in the stack separately (new feature)
 - [ ] Make card stacks foldable

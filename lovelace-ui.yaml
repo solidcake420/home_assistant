@@ -23,15 +23,16 @@ resources:
       https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/weather-card/weather-card.min.js
   - type: module
     url: /customcards/github/maykar/compact-custom-header.js?track=true
-  - url: >-
+  - type: module
+    url: >-
       https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/swipe-card/swipe-card.min.js
-    type: module
 title: Home
 views:
-  - cards:
-      - type: 'custom:compact-custom-header'
-        main_config: true
+  - badges: []
+    cards:
+      - main_config: true
         notifications: overflow
+        type: 'custom:compact-custom-header'
         voice: overflow
       - cards:
           - card:
@@ -67,88 +68,88 @@ views:
               overflow: hidden
             type: 'custom:card-modder'
         type: horizontal-stack
+      - card:
+          elements:
+            - image: /local/icons/media_icons/power-logo-white.png
+              style:
+                height: 48px
+                left: 15%
+                top: 4em
+                width: 48px
+                z-index: 2
+              tap_action:
+                action: call-service
+                service: switch.toggle
+                service_data:
+                  entity_id: switch.tv_toggle
+              type: image
+            - image: /local/icons/media_icons/vol-white.png
+              style:
+                height: 48px
+                left: 65%
+                top: 4em
+                width: 48px
+                z-index: 2
+              tap_action:
+                action: call-service
+                service: switch.turn_off
+                service_data:
+                  entity_id: switch.stereo_vol_down
+              type: image
+            - image: /local/icons/media_icons/vol+white.png
+              style:
+                height: 48px
+                left: 85%
+                top: 4em
+                width: 48px
+                z-index: 2
+              tap_action:
+                action: call-service
+                service: switch.turn_on
+                service_data:
+                  entity_id: switch.stereo_vol_up
+              type: image
+            - image: /local/icons/media_icons/power-logo-white.png
+              style:
+                height: 48px
+                left: 40%
+                top: 4em
+                width: 48px
+                z-index: 2
+              tap_action:
+                action: call-service
+                service: switch.toggle
+                service_data:
+                  entity_id: switch.stereo
+              type: image
+            - icon: 'mdi:television-classic'
+              style:
+                color: '#24E081'
+                left: 7%
+                top: 1.5em
+              type: icon
+            - icon: 'mdi:audio-video'
+              style:
+                color: '#24E081'
+                left: 35%
+                top: 1.5em
+              type: icon
+            - icon: 'mdi:volume-high'
+              style:
+                color: '#24E081'
+                left: 60%
+                top: 1.5em
+              type: icon
+          image: /local/icons/media_icons/remote3.jpg
+          type: picture-elements
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          height: 90px
+          overflow: hidden
+        type: 'custom:card-modder'
       - cards:
-          - card:
-              type: picture-elements
-              image: /local/icons/media_icons/remote3.jpg
-              elements:
-                - type: image
-                  image: /local/icons/media_icons/power-logo-white.png
-                  tap_action:
-                    action: call-service
-                    service: switch.toggle
-                    service_data:
-                      entity_id: switch.tv_toggle
-                  style:
-                    top: 4em
-                    left: 15%
-                    width: 48px
-                    height: 48px
-                    z-index: 2
-                - type: image
-                  image: /local/icons/media_icons/vol-white.png
-                  tap_action:
-                    action: call-service
-                    service: switch.turn_off
-                    service_data:
-                      entity_id: switch.stereo_vol_down
-                  style:
-                    top: 4em
-                    left: 65%
-                    width: 48px
-                    height: 48px
-                    z-index: 2
-                - type: image
-                  image: /local/icons/media_icons/vol+white.png
-                  tap_action:
-                    action: call-service
-                    service: switch.turn_on
-                    service_data:
-                      entity_id: switch.stereo_vol_up
-                  style:
-                    top: 4em
-                    left: 85%
-                    width: 48px
-                    height: 48px
-                    z-index: 2
-                - type: image
-                  image: /local/icons/media_icons/power-logo-white.png
-                  tap_action:
-                    action: call-service
-                    service: switch.toggle
-                    service_data:
-                      entity_id: switch.stereo
-                  style:
-                    top: 4em
-                    left: 40%
-                    width: 48px
-                    height: 48px
-                    z-index: 2
-                - type: icon
-                  icon: 'mdi:television-classic'
-                  style:
-                    top: 1.5em
-                    left: 7%
-                    color: '#24E081'
-                - type: icon
-                  icon: 'mdi:audio-video'
-                  style:
-                    top: 1.5em
-                    left: 35%
-                    color: '#24E081'
-                - type: icon
-                  icon: 'mdi:volume-high'
-                  style:
-                    top: 1.5em
-                    left: 60%
-                    color: '#24E081'
-            style:
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 20px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-              height: 90px
-            type: 'custom:card-modder'
           - card:
               artwork: cover
               entity: media_player.living_room_tv
@@ -164,91 +165,67 @@ views:
               box-shadow: '3px 3px rgba(0,0,0,0.4)'
               overflow: hidden
             type: 'custom:card-modder'
-        type: vertical-stack
-      - cards:
-          - cards:
-              - card:
-                  artwork: null
-                  entity: media_player.kitchen_home
-                  hide:
-                    icon: false
-                    mute: true
-                    power_state: false
-                    progress: true
-                    volume: true
-                  icon: 'mdi:google-home'
-                  info: short
-                  name: Kitchen
-                  type: 'custom:mini-media-player'
-                style:
-                  background: 'right / cover no-repeat url("#/local/assets/")'
-                  border: 'solid 1px rgba(100,100,100,0.3)'
-                  border-radius: 10px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-              - card:
-                  artwork: cover
-                  entity: media_player.bedroom_speakers
-                  hide:
-                    icon: false
-                    mute: true
-                    power_state: false
-                    progress: true
-                    volume: true
-                  icon: 'mdi:speaker-wireless'
-                  info: short
-                  name: Master Bedroom
-                  type: 'custom:mini-media-player'
-                style:
-                  background: 'right / cover no-repeat url("#/local/assets/")'
-                  border: 'solid 1px rgba(100,100,100,0.3)'
-                  border-radius: 10px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-            type: horizontal-stack
-          - cards:
-              - card:
-                  artwork: null
-                  entity: media_player.googlehome4940
-                  hide:
-                    icon: false
-                    mute: true
-                    power_state: false
-                    progress: true
-                    volume: true
-                  info: short
-                  name: Bathroom
-                  type: 'custom:mini-media-player'
-                style:
-                  background: 'right / cover no-repeat url("#/local/assets/")'
-                  border: 'solid 1px rgba(100,100,100,0.3)'
-                  border-radius: 10px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-              - card:
-                  artwork: cover
-                  entity: media_player.googlehome9988
-                  hide:
-                    icon: false
-                    mute: true
-                    power_state: false
-                    progress: true
-                    volume: true
-                  info: short
-                  name: Bedroom 2
-                  type: 'custom:mini-media-player'
-                style:
-                  background: 'right / cover no-repeat url("#/local/assets/")'
-                  border: 'solid 1px rgba(100,100,100,0.3)'
-                  border-radius: 10px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-            type: horizontal-stack
-        type: vertical-stack
+          - card:
+              artwork: cover
+              entity: media_player.kitchen_home
+              hide:
+                icon: false
+                mute: true
+                power_state: false
+              info: short
+              type: 'custom:mini-media-player'
+            style:
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 10px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              artwork: cover
+              entity: media_player.bedroom_speakers
+              hide:
+                icon: false
+                mute: true
+                power_state: false
+              info: short
+              type: 'custom:mini-media-player'
+            style:
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 10px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              artwork: cover
+              entity: media_player.googlehome4940
+              hide:
+                icon: false
+                mute: true
+                power_state: false
+              info: short
+              type: 'custom:mini-media-player'
+            style:
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 10px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              artwork: cover
+              entity: media_player.googlehome9988
+              hide:
+                icon: false
+                mute: true
+                power_state: false
+              info: short
+              type: 'custom:mini-media-player'
+            style:
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 10px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+        type: 'custom:swipe-card'
       - card:
           entities:
             - entity: light.living_room
@@ -289,8 +266,8 @@ views:
           name: Temperature
           show:
             extrema: false
-            labels: true
             fill: fade
+            labels: true
           type: 'custom:mini-graph-card'
         style:
           background: 'right / cover no-repeat url("#/local/assets/")'
@@ -434,21 +411,6 @@ views:
             type: horizontal-stack
         type: vertical-stack
       - card:
-          artwork: cover
-          entity: media_player.spotify
-          hide:
-            source: true
-            volume: true
-          name: Mike's Spotify
-          source: icon
-          type: 'custom:mini-media-player'
-        style:
-          border: 'solid 1px rgba(100,100,100,0.3)'
-          border-radius: 10px
-          box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: hidden
-        type: 'custom:card-modder'
-      - card:
           entity: weather.dark_sky
           type: 'custom:weather-card'
         style:
@@ -467,8 +429,8 @@ views:
           name: Southampton Air Quality
           show:
             extrema: true
-            labels: false
             fill: fade
+            labels: false
           type: 'custom:mini-graph-card'
         style:
           background: 'right / cover no-repeat url("#/local/assets/")'
@@ -522,33 +484,19 @@ views:
                   overflow: hidden
                 type: 'custom:card-modder'
             type: horizontal-stack
-          - cards:
-              - card:
-                  entities:
-                    - entity: binary_sensor.tp_link_router
-                    - entity: binary_sensor.remote_ui
-                  type: entities
-                style:
-                  background: 'right / cover no-repeat url("#/local/assets/pc2.png")'
-                  border: 'solid 1px rgba(100,100,100,0.3)'
-                  border-radius: 15px
-                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
-                  overflow: hidden
-                type: 'custom:card-modder'
-            type: horizontal-stack
         type: vertical-stack
-    badges: []
     icon: 'mdi:home-assistant'
+    panel: false
     path: default_view
     title: Home
-    panel: false
-  - cards:
-      - type: 'custom:compact-custom-header'
+  - badges: []
+    cards:
+      - clock_am_pm: false
+        clock_format: '24'
         main_config: true
         notifications: hide
+        type: 'custom:compact-custom-header'
         voice: hide
-        clock_am_pm: false
-        clock_format: '24'
       - card:
           artwork: cover
           entity: media_player.kitchen_home
@@ -586,11 +534,11 @@ views:
               secondary_info: last-changed
             - type: divider
             - entity: light.hue_hallway_1
-              type: 'custom:slider-entity-row'
               name: Light 1
-            - entity: light.hue_hallway_2
               type: 'custom:slider-entity-row'
+            - entity: light.hue_hallway_2
               name: Light 2
+              type: 'custom:slider-entity-row'
           show_header_toggle: true
           title: Hallway
           type: entities
@@ -618,8 +566,7 @@ views:
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
           overflow: hidden
         type: 'custom:card-modder'
-      - type: 'custom:swipe-card'
-        cards:
+      - cards:
           - card:
               align_state: center
               animate: true
@@ -628,8 +575,8 @@ views:
               line_color: red
               name: Hallway Temperature
               show:
-                labels: true
                 fill: fade
+                labels: true
               type: 'custom:mini-graph-card'
             style:
               background: 'right / cover no-repeat url("#/local/assets/")'
@@ -646,8 +593,8 @@ views:
               line_color: dodgerblue
               name: Hallway Light level
               show:
-                labels: true
                 fill: fade
+                labels: true
               type: 'custom:mini-graph-card'
             style:
               background: 'right / cover no-repeat url("#/local/assets/")'
@@ -656,16 +603,16 @@ views:
               box-shadow: '3px 3px rgba(0,0,0,0.4)'
               overflow: hidden
             type: 'custom:card-modder'
-    badges: []
+        type: 'custom:swipe-card'
     icon: 'mdi:glassdoor'
     path: ''
     theme: Backend-selected
     title: 'Hallway, Kitchen, Bathroom'
   - badges: []
     cards:
-      - type: 'custom:compact-custom-header'
-        main_config: true
+      - main_config: true
         notifications: hide
+        type: 'custom:compact-custom-header'
         voice: hide
       - card:
           artwork: cover
@@ -690,7 +637,6 @@ views:
             - entity: input_number.dyson_fan_speed
             - type: divider
             - entity: sensor.living_room_filter_life
-          theme: null
           title: Dyson PureCool™
           type: entities
         style:
@@ -698,38 +644,45 @@ views:
           border: 'solid 1px rgba(100,100,100,0.3)'
           border-radius: 10px
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: 'hidden#'
+          overflow: hidden
         type: 'custom:card-modder'
-      - card:
-          entities:
-            - entity: light.hue_one
-              type: 'custom:slider-entity-row'
-            - type: divider
-            - entity: light.entertainment_area
-              type: 'custom:slider-entity-row'
-            - entity: light.wall_lightstrip
-              type: 'custom:slider-entity-row'
-            - type: 'custom:fold-entity-row'
-              head:
-                type: section
-                label: MORE
-              items:
-                - entity: light.tv_lightstrip
+      - cards:
+          - card:
+              entities:
+                - entity: light.hue_one
                   type: 'custom:slider-entity-row'
                 - type: divider
+                - entity: light.entertainment_area
+                  type: 'custom:slider-entity-row'
+                - entity: light.wall_lightstrip
+                  type: 'custom:slider-entity-row'
+              title: Hue Lights
+              type: entities
+            style:
+              background: 'right / cover no-repeat url("#/local/assets/")'
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 10px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: 'hidden#'
+            type: 'custom:card-modder'
+          - card:
+              entities:
                 - entity: light.hue_left
                   type: 'custom:slider-entity-row'
                 - entity: light.hue_right
                   type: 'custom:slider-entity-row'
-          title: Hue Lights
-          type: entities
-        style:
-          background: 'right / cover no-repeat url("#/local/assets/")'
-          border: 'solid 1px rgba(100,100,100,0.3)'
-          border-radius: 10px
-          box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: 'hidden#'
-        type: 'custom:card-modder'
+                - type: divider
+                - entity: light.tv_lightstrip
+                  type: 'custom:slider-entity-row'
+              type: entities
+            style:
+              background: 'right / cover no-repeat url("#/local/assets/")'
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 10px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: 'hidden#'
+            type: 'custom:card-modder'
+        type: 'custom:swipe-card'
       - cards:
           - cards:
               - card:
@@ -899,9 +852,9 @@ views:
               height: 150
               line_color: red
               line_width: 10
+              name: Temp.
               show:
                 fill: fade
-              name: Temp.
               type: 'custom:mini-graph-card'
             style:
               background: 'right / cover no-repeat url("#/local/assets/")'
@@ -921,8 +874,8 @@ views:
               line_width: 10
               name: Humidity
               show:
-                labels: false
                 fill: fade
+                labels: false
               type: 'custom:mini-graph-card'
             style:
               background: 'right / cover no-repeat url("#/local/assets/")'
@@ -933,147 +886,147 @@ views:
             type: 'custom:card-modder'
         type: horizontal-stack
       - card:
-          type: picture-elements
-          image: /local/icons/media_icons/remote2.jpg
           elements:
-            - type: image
-              image: /local/icons/media_icons/power-white.png
+            - image: /local/icons/media_icons/power-white.png
+              style:
+                height: 48px
+                left: 15%
+                top: 5em
+                width: 48px
+                z-index: 2
               tap_action:
                 action: call-service
                 service: switch.turn_on
                 service_data:
                   entity_id: switch.tv
+              type: image
+            - image: /local/icons/media_icons/power-off-white.png
               style:
-                top: 5em
-                left: 15%
-                width: 48px
                 height: 48px
+                left: 40%
+                top: 5em
+                width: 48px
                 z-index: 2
-            - type: image
-              image: /local/icons/media_icons/power-off-white.png
               tap_action:
                 action: call-service
                 service: switch.turn_off
                 service_data:
                   entity_id: switch.tv
+              type: image
+            - image: /local/icons/media_icons/chromecast-white.png
               style:
-                top: 5em
-                left: 40%
-                width: 48px
                 height: 48px
+                left: 15%
+                top: 10.5em
+                width: 48px
                 z-index: 2
-            - type: image
-              image: /local/icons/media_icons/chromecast-white.png
               tap_action:
                 action: call-service
                 service: switch.turn_on
                 service_data:
                   entity_id: switch.hdmi1
+              type: image
+            - image: /local/icons/media_icons/pc-white.png
               style:
-                top: 10.5em
-                left: 15%
-                width: 48px
                 height: 48px
+                left: 40%
+                top: 10.5em
+                width: 48px
                 z-index: 2
-            - type: image
-              image: /local/icons/media_icons/pc-white.png
               tap_action:
                 action: call-service
                 service: switch.turn_on
                 service_data:
                   entity_id: switch.hdmi2
+              type: image
+            - image: /local/icons/media_icons/ps4-white.png
               style:
-                top: 10.5em
-                left: 40%
-                width: 48px
                 height: 48px
+                left: 65%
+                top: 10.5em
+                width: 48px
                 z-index: 2
-            - type: image
-              image: /local/icons/media_icons/ps4-white.png
               tap_action:
                 action: call-service
                 service: switch.turn_on
                 service_data:
                   entity_id: switch.hdmi3
+              type: image
+            - image: /local/icons/media_icons/vol-white.png
               style:
-                top: 10.5em
-                left: 65%
-                width: 48px
                 height: 48px
+                left: 86%
+                top: 9.4em
+                width: 48px
                 z-index: 2
-            - type: image
-              image: /local/icons/media_icons/vol-white.png
               tap_action:
                 action: call-service
                 service: switch.turn_off
                 service_data:
                   entity_id: switch.stereo_vol_down
+              type: image
+            - image: /local/icons/media_icons/vol+white.png
               style:
-                top: 9.4em
-                left: 86%
-                width: 48px
                 height: 48px
+                left: 86%
+                top: 4em
+                width: 48px
                 z-index: 2
-            - type: image
-              image: /local/icons/media_icons/vol+white.png
               tap_action:
                 action: call-service
                 service: switch.turn_on
                 service_data:
                   entity_id: switch.stereo_vol_up
+              type: image
+            - image: /local/icons/media_icons/vol_btn_border-white.png
               style:
-                top: 4em
-                left: 86%
-                width: 48px
-                height: 48px
-                z-index: 2
-            - type: image
-              image: /local/icons/media_icons/vol_btn_border-white.png
-              style:
-                top: 10.65em
-                left: 86%
-                width: 80px
                 height: 250px
+                left: 86%
+                top: 10.65em
+                width: 80px
                 z-index: 1
-            - type: image
-              image: /local/icons/media_icons/horizontal_Rule-white.png
+              type: image
+            - image: /local/icons/media_icons/horizontal_Rule-white.png
               style:
-                top: 8em
-                left: 40%
-                width: 60%
                 height: 2px
+                left: 40%
+                top: 8em
+                width: 60%
                 z-index: 1
-            - type: image
-              image: /local/icons/media_icons/power-logo-white.png
+              type: image
+            - image: /local/icons/media_icons/power-logo-white.png
+              style:
+                height: 48px
+                left: 65%
+                top: 5em
+                width: 48px
+                z-index: 2
               tap_action:
                 action: call-service
                 service: switch.toggle
                 service_data:
                   entity_id: switch.stereo
+              type: image
+            - icon: 'mdi:television-classic'
               style:
-                top: 5em
-                left: 65%
-                width: 48px
-                height: 48px
-                z-index: 2
-            - type: icon
-              icon: 'mdi:television-classic'
-              style:
-                top: 2em
+                color: '#24E081'
                 left: 7%
-                color: '#24E081'
-            - type: icon
-              icon: 'mdi:audio-video'
-              style:
                 top: 2em
-                left: 60%
+              type: icon
+            - icon: 'mdi:audio-video'
+              style:
                 color: '#24E081'
+                left: 60%
+                top: 2em
+              type: icon
+          image: /local/icons/media_icons/remote2.jpg
+          type: picture-elements
         style:
           border: 'solid 1px rgba(100,100,100,0.3)'
           border-radius: 20px
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: hidden
           height: 180px
+          overflow: hidden
         type: 'custom:card-modder'
       - cards:
           - card:
@@ -1156,8 +1109,8 @@ views:
           name: Air quality
           show:
             extrema: false
-            labels: true
             fill: fade
+            labels: true
           type: 'custom:mini-graph-card'
         style:
           background: 'right / cover no-repeat url("#/local/assets/")'
@@ -1182,9 +1135,9 @@ views:
     title: Living room
   - badges: []
     cards:
-      - type: 'custom:compact-custom-header'
-        main_config: true
+      - main_config: true
         notifications: hide
+        type: 'custom:compact-custom-header'
         voice: hide
       - card:
           artwork: cover
@@ -1224,8 +1177,8 @@ views:
               line_width: 10
               name: Temp.
               show:
-                labels: false
                 fill: fade
+                labels: false
               type: 'custom:mini-graph-card'
             style:
               background: 'right / cover no-repeat url("#/local/assets/")'
@@ -1245,8 +1198,8 @@ views:
               line_width: 10
               name: Humidity
               show:
-                labels: false
                 fill: fade
+                labels: false
               type: 'custom:mini-graph-card'
             style:
               background: 'right / cover no-repeat url("#/local/assets/")'
@@ -1382,6 +1335,21 @@ views:
             type: 'custom:card-modder'
         type: horizontal-stack
       - card:
+          artwork: cover
+          entity: media_player.spotify
+          hide:
+            source: true
+            volume: true
+          name: Mike's Spotify
+          source: icon
+          type: 'custom:mini-media-player'
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 10px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
           entities:
             - entity: binary_sensor.battlestation_pc
             - entity: binary_sensor.flat_phone
@@ -1407,9 +1375,9 @@ views:
     title: Master Bedroom
   - badges: []
     cards:
-      - type: 'custom:compact-custom-header'
-        main_config: true
+      - main_config: true
         notifications: hide
+        type: 'custom:compact-custom-header'
         voice: hide
       - card:
           artwork: cover
@@ -1551,10 +1519,10 @@ views:
     title: BEDROOM 2
   - badges: []
     cards:
-      - type: 'custom:compact-custom-header'
-        main_config: true
-        voice: hide
+      - main_config: true
         notifications: hide
+        type: 'custom:compact-custom-header'
+        voice: hide
       - artwork: cover
         entity: media_player.living_room_tv
         hide:
@@ -1622,9 +1590,9 @@ views:
     title: Multiroom
   - badges: []
     cards:
-      - type: 'custom:compact-custom-header'
-        main_config: true
+      - main_config: true
         notifications: hide
+        type: 'custom:compact-custom-header'
         voice: hide
       - entities:
           - entity: media_player.home_group
@@ -1720,8 +1688,8 @@ views:
     title: Multiroom
   - badges: []
     cards:
-      - type: 'custom:compact-custom-header'
-        main_config: true
+      - main_config: true
+        type: 'custom:compact-custom-header'
       - cards:
           - entity: device_tracker.viviens_iphone
             show_name: false
@@ -1827,32 +1795,16 @@ views:
         line_color: DodgerBlue
         show:
           extrema: true
-          labels: false
           fill: fade
+          labels: false
         type: 'custom:mini-graph-card'
-      - entities:
-          - entity: sensor.seventeentrack_packages_not_found
-            icon: 'mdi:timer-sand'
-            name: Processing
-          - entity: sensor.seventeentrack_packages_in_transit
-            icon: 'mdi:truck-delivery'
-            name: In transit
-          - entity: sensor.seventeentrack_packages_ready_to_be_picked_up
-            icon: 'mdi:package-variant'
-            name: Ready to be picked up
-          - entity: sensor.seventeentrack_packages_delivered
-            icon: 'mdi:checkbox-multiple-marked-circle'
-            name: Delivered
-        show_header_toggle: false
-        title: Parcel Tracking
-        type: entities
       - type: 'custom:tracker-card'
     icon: 'mdi:wan'
     title: Connections
   - badges: []
     cards:
-      - type: 'custom:compact-custom-header'
-        main_config: true
+      - main_config: true
+        type: 'custom:compact-custom-header'
         voice: hide
       - entities:
           - entity: automation.hue_lights_on_at_sunset
@@ -1908,8 +1860,8 @@ views:
     title: Automations
   - badges: []
     cards:
-      - type: 'custom:compact-custom-header'
-        main_config: true
+      - main_config: true
+        type: 'custom:compact-custom-header'
       - cards:
           - cards:
               - entity: group.living_room_lights
@@ -1969,58 +1921,6 @@ views:
                 type: light
             type: horizontal-stack
         type: vertical-stack
-      - cards:
-          - cards:
-              - artwork: cover
-                entity: media_player.living_room_tv
-                hide:
-                  icon: false
-                  mute: true
-                  power_state: false
-                info: short
-                type: 'custom:mini-media-player'
-            type: horizontal-stack
-          - cards:
-              - artwork: null
-                entity: media_player.kitchen_home
-                hide:
-                  icon: false
-                  mute: true
-                  power_state: false
-                  volume: true
-                icon: 'mdi:google-home'
-                info: short
-                type: 'custom:mini-media-player'
-              - artwork: cover
-                entity: media_player.bedroom_speakers
-                hide:
-                  icon: false
-                  mute: true
-                  power_state: false
-                  progress: false
-                  volume: true
-                icon: 'mdi:speaker-wireless'
-                info: short
-                type: 'custom:mini-media-player'
-            type: horizontal-stack
-        type: vertical-stack
-      - card:
-          entities:
-            - entity: light.hue_left
-              type: 'custom:slider-entity-row'
-            - entity: light.hue_right
-              type: 'custom:slider-entity-row'
-            - type: divider
-            - entity: light.tv_lightstrip
-              type: 'custom:slider-entity-row'
-          type: entities
-        style:
-          background: 'right / cover no-repeat url("#/local/assets/")'
-          border: 'solid 1px rgba(100,100,100,0.3)'
-          border-radius: 10px
-          box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: 'hidden#'
-        type: 'custom:card-modder'
       - cards:
           - cards:
               - color: green
@@ -2150,12 +2050,126 @@ views:
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
           overflow: hidden
         type: 'custom:card-modder'
+      - card:
+          entities:
+            - entity: light.hue_one
+              type: 'custom:slider-entity-row'
+            - type: divider
+            - entity: light.entertainment_area
+              type: 'custom:slider-entity-row'
+            - entity: light.wall_lightstrip
+              type: 'custom:slider-entity-row'
+            - head:
+                label: MORE
+                type: section
+              items:
+                - entity: light.tv_lightstrip
+                  type: 'custom:slider-entity-row'
+                - type: divider
+                - entity: light.hue_left
+                  type: 'custom:slider-entity-row'
+                - entity: light.hue_right
+                  type: 'custom:slider-entity-row'
+              type: 'custom:fold-entity-row'
+          title: Hue Lights
+          type: entities
+        style:
+          background: 'right / cover no-repeat url("#/local/assets/")'
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 10px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: 'hidden#'
+        type: 'custom:card-modder'
+      - cards:
+          - cards:
+              - card:
+                  artwork: null
+                  entity: media_player.kitchen_home
+                  hide:
+                    icon: false
+                    mute: true
+                    power_state: false
+                    progress: true
+                    volume: true
+                  icon: 'mdi:google-home'
+                  info: short
+                  name: Kitchen
+                  type: 'custom:mini-media-player'
+                style:
+                  background: 'right / cover no-repeat url("#/local/assets/")'
+                  border: 'solid 1px rgba(100,100,100,0.3)'
+                  border-radius: 10px
+                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
+                  overflow: hidden
+                type: 'custom:card-modder'
+              - card:
+                  artwork: cover
+                  entity: media_player.bedroom_speakers
+                  hide:
+                    icon: false
+                    mute: true
+                    power_state: false
+                    progress: true
+                    volume: true
+                  icon: 'mdi:speaker-wireless'
+                  info: short
+                  name: Master Bedroom
+                  type: 'custom:mini-media-player'
+                style:
+                  background: 'right / cover no-repeat url("#/local/assets/")'
+                  border: 'solid 1px rgba(100,100,100,0.3)'
+                  border-radius: 10px
+                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
+                  overflow: hidden
+                type: 'custom:card-modder'
+            type: horizontal-stack
+          - cards:
+              - card:
+                  artwork: null
+                  entity: media_player.googlehome4940
+                  hide:
+                    icon: false
+                    mute: true
+                    power_state: false
+                    progress: true
+                    volume: true
+                  info: short
+                  name: Bathroom
+                  type: 'custom:mini-media-player'
+                style:
+                  background: 'right / cover no-repeat url("#/local/assets/")'
+                  border: 'solid 1px rgba(100,100,100,0.3)'
+                  border-radius: 10px
+                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
+                  overflow: hidden
+                type: 'custom:card-modder'
+              - card:
+                  artwork: cover
+                  entity: media_player.googlehome9988
+                  hide:
+                    icon: false
+                    mute: true
+                    power_state: false
+                    progress: true
+                    volume: true
+                  info: short
+                  name: Bedroom 2
+                  type: 'custom:mini-media-player'
+                style:
+                  background: 'right / cover no-repeat url("#/local/assets/")'
+                  border: 'solid 1px rgba(100,100,100,0.3)'
+                  border-radius: 10px
+                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
+                  overflow: hidden
+                type: 'custom:card-modder'
+            type: horizontal-stack
+        type: vertical-stack
     icon: 'mdi:delete-circle-outline'
     title: Bin
   - badges: []
     cards:
-      - type: 'custom:compact-custom-header'
-        main_config: true
+      - main_config: true
+        type: 'custom:compact-custom-header'
       - entities:
           - entity: light.hue_one
             icon: 'mdi:lamp'
@@ -2195,12 +2209,71 @@ views:
         type: 'custom:card-modder'
       - entity: camera.raspberry_pi_camera
         type: picture-entity
-      - type: entities
-        title: Folding entities
-        entities:
-          - type: 'custom:fold-entity-row'
-            head: sensor.yr_symbol
+      - entities:
+          - head: sensor.yr_symbol
             items:
               - sensor.sonoff_th16_humidity
+            type: 'custom:fold-entity-row'
+        title: Folding entities
+        type: entities
+      - align_state: center
+        name: Speedtest.net
+        animate: false
+        hour24: true
+        decimals: 2
+        entities:
+          - entity: sensor.speedtest_download
+            name: Download
+            color: limegreen
+          - entity: sensor.speedtest_upload
+            name: Upload
+            color: YellowGreen
+          - entity: sensor.speedtest_ping
+            name: Ping
+            color: LightSeaGreen
+        show:
+          extrema: true
+          fill: fade
+          labels: true
+        type: 'custom:mini-graph-card'
+      - cards:
+          - card: null
+            align_state: center
+            animate: false
+            decimals: 3
+            hours_to_show: 24
+            hour24: true
+            entities:
+              - sensor.eur_gbp
+              - sensor.gbp_eur
+            show:
+              extrema: false
+              fill: fade
+              labels: false
+              graph: bar
+            type: 'custom:mini-graph-card'
+          - card: null
+            align_state: center
+            animate: false
+            decimals: 2
+            entities:
+              - sensor.bitcoin
+            show:
+              extrema: false
+              fill: fade
+              labels: true
+            type: 'custom:mini-graph-card'
+          - card: null
+            align_state: center
+            animate: false
+            decimals: 2
+            entities:
+              - sensor.google
+            show:
+              extrema: false
+              fill: fade
+              labels: false
+            type: 'custom:mini-graph-card'
+        type: 'custom:swipe-card'
     icon: ''
     title: TEST
