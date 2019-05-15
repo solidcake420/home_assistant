@@ -112,7 +112,7 @@ Unofficial/custom components:
 - [Custom Updater](https://github.com/custom-components/custom_updater)
 
 
-Custom Lovelace Cards:
+Custom Lovelace components:
 
 - [Weather Card](https://github.com/bramkragten/custom-ui/tree/master/weather-card)
 - [Mini Graph Card](https://github.com/kalkih/mini-graph-card)
@@ -125,7 +125,7 @@ Custom Lovelace Cards:
 - [Fold Entity Row](https://github.com/thomasloven/lovelace-fold-entity-row) (currently not in use)
 - [Compact custom header](https://github.com/maykar/compact-custom-header)
 - [Swipe Card](https://github.com/bramkragten/custom-ui/tree/master/swipe-card)
-
+- [Lovelace Swipe Navigation](https://github.com/maykar/lovelace-swipe-navigation)
 
 Other:
 

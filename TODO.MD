@@ -56,4 +56,4 @@
 - [ ] [Share the love](https://sharethelove.io/) picture-elements, glance cards
 - [ ] [Custom-cards GitHub](https://github.com/custom-cards)
 - [ ] Better PC control ([Unified Remote integration](https://community.home-assistant.io/t/unified-remote-as-remote-control-for-home-assistant/1919))
-- [ ] Picture-elements Floor Plan using [FloorPlanner](https://floorplanner.com/)
+- [ ] Picture-elements Floor Plan using [FloorPlanner](https://floorplanner.com/) [Reddit](https://www.reddit.com/r/homeassistant/comments/bommbe/finally_got_my_floorplan_working_properly_with/)

@@ -26,6 +26,8 @@ resources:
   - type: module
     url: >-
       https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/swipe-card/swipe-card.min.js
+  - type: js
+    url: /customcards/github/maykar/lovelace-swipe-navigation.js?track=true
 title: Home
 views:
   - badges: []
@@ -499,21 +501,6 @@ views:
         voice: hide
       - card:
           artwork: cover
-          entity: media_player.kitchen_home
-          hide:
-            power_state: false
-            source: true
-            volume: false
-          type: 'custom:mini-media-player'
-        style:
-          background: 'right / cover no-repeat url("#/local/assets/")'
-          border: 'solid 1px rgba(100,100,100,0.3)'
-          border-radius: 10px
-          box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: 'hidden#'
-        type: 'custom:card-modder'
-      - card:
-          artwork: cover
           entity: media_player.googlehome4940
           hide:
             power_state: false
@@ -542,6 +529,21 @@ views:
           show_header_toggle: true
           title: Hallway
           type: entities
+        style:
+          background: 'right / cover no-repeat url("#/local/assets/")'
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 10px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: 'hidden#'
+        type: 'custom:card-modder'
+      - card:
+          artwork: cover
+          entity: media_player.kitchen_home
+          hide:
+            power_state: false
+            source: true
+            volume: false
+          type: 'custom:mini-media-player'
         style:
           background: 'right / cover no-repeat url("#/local/assets/")'
           border: 'solid 1px rgba(100,100,100,0.3)'
@@ -1788,15 +1790,25 @@ views:
         title: Other
         type: entities
       - align_state: center
-        animate: true
+        animate: false
         decimals: 2
+        lower_bound: 0
         entities:
-          - sensor.fast_com_download
-        line_color: DodgerBlue
+          - color: limegreen
+            entity: sensor.speedtest_download
+            name: Download
+          - color: YellowGreen
+            entity: sensor.speedtest_upload
+            name: Upload
+          - color: LightSeaGreen
+            entity: sensor.speedtest_ping
+            name: Ping
+        hour24: true
+        name: Speedtest.net
         show:
           extrema: true
           fill: fade
-          labels: false
+          labels: true
         type: 'custom:mini-graph-card'
       - type: 'custom:tracker-card'
     icon: 'mdi:wan'
@@ -2216,45 +2228,25 @@ views:
             type: 'custom:fold-entity-row'
         title: Folding entities
         type: entities
-      - align_state: center
-        name: Speedtest.net
-        animate: false
-        hour24: true
-        decimals: 2
-        entities:
-          - entity: sensor.speedtest_download
-            name: Download
-            color: limegreen
-          - entity: sensor.speedtest_upload
-            name: Upload
-            color: YellowGreen
-          - entity: sensor.speedtest_ping
-            name: Ping
-            color: LightSeaGreen
-        show:
-          extrema: true
-          fill: fade
-          labels: true
-        type: 'custom:mini-graph-card'
       - cards:
-          - card: null
-            align_state: center
+          - align_state: center
             animate: false
+            card: null
             decimals: 3
-            hours_to_show: 24
-            hour24: true
             entities:
               - sensor.eur_gbp
               - sensor.gbp_eur
+            hour24: true
+            hours_to_show: 24
             show:
               extrema: false
               fill: fade
-              labels: false
               graph: bar
+              labels: false
             type: 'custom:mini-graph-card'
-          - card: null
-            align_state: center
+          - align_state: center
             animate: false
+            card: null
             decimals: 2
             entities:
               - sensor.bitcoin
@@ -2263,9 +2255,9 @@ views:
               fill: fade
               labels: true
             type: 'custom:mini-graph-card'
-          - card: null
-            align_state: center
+          - align_state: center
             animate: false
+            card: null
             decimals: 2
             entities:
               - sensor.google

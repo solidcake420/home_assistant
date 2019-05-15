@@ -209,10 +209,6 @@ sensor:
     monitored_conditions:
       - precip_intensity
 
-#  - platform: seventeentrack
-#    username: !secret mail_address
-#    password: !secret 17track
-
   - platform: alpha_vantage
     api_key: !secret alpha_api
     symbols:
@@ -383,10 +379,6 @@ media_player:
 
 #OTHER
 
-#fastdotcom:
-#  scan_interval:
-#      minutes: 30
-      
 speedtestdotnet:
   scan_interval:
     minutes: 30
@@ -395,24 +387,11 @@ speedtestdotnet:
     - download
     - upload
 
-
 #DISABLED
-
-#sonoff:
-#  username: !secret mail_address
-#  password: !secret ewelink_password
-
-#tuya:
-#  username: !secret mail_address
-#  password: !secret smartlife_password
-#  country_code: UK
-#  platform: smart_life
 
 #  - platform: strava
 #    client_id: !secret strava_token
 #    client_secret: !secret strava_client_secret
-
-#shopping_list:
 
 #android_ip_webcam:
 #  - host: 192.168.1.100
