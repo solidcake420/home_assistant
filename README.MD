@@ -1,11 +1,19 @@
 # SolidCake420 Home Assistant Configuration
 
-Hi, I've been playing with Home Assistant for about a month now, please feel free to use any of my stuff.
+Welcome to my Home Assistant!
 
-The setup is still a bit messy, as I have a lot of things WIP or pending for hardware.
+Please understand, that the config is very much a work-in-progress - I'm still quite new to Home Assistant and have a lot of pending hardware and UI changes planned (please check TO-DO.MD for future plans).
+I live in the U.K., keep that in mind as some of the integrations/devices might not be available in other countries. 
 
-PS: lovelace-ui.yaml should be copied to Lovelace UI Raw Config Editor
+#### Navigation:
 
+* lovelace-ui.yaml should be copied to Lovelace UI Raw Config Editor
+* screenshots/gifs are in examples folder and don't get updated with every commit
+
+![shield1](https://img.shields.io/badge/Home%20Assistant-0.92.2-green.svg "HA version")
+![shield2](https://img.shields.io/github/commit-activity/m/solidcake420/home_assistant.svg "commit-activity")
+![shield3](https://img.shields.io/github/last-commit/solidcake420/home_assistant.svg "last-commit")
+![shield4](https://img.shields.io/github/stars/solidcake420/home_assistant.svg "stars")
 
 If you want to buy me a coffee, that would be much appreciated. :)
 
@@ -103,7 +111,6 @@ Official components:
 - [Workday Binary Sensor](https://www.home-assistant.io/components/workday/)
 - [Spotify](https://www.home-assistant.io/components/spotify/)
 - [Broadlink](https://www.home-assistant.io/components/broadlink/)
-- [Alpha Vantage](https://www.home-assistant.io/components/alpha_vantage/)
 - [Speedtest.net](https://www.home-assistant.io/components/speedtestdotnet/)
 
 
@@ -122,7 +129,7 @@ Custom Lovelace components:
 - [Card Tools](https://github.com/thomasloven/lovelace-card-tools)
 - [Card Modder](https://github.com/thomasloven/lovelace-card-modder)
 - [Button Card](https://github.com/custom-cards/button-card) (currently not in use)
-- [Fold Entity Row](https://github.com/thomasloven/lovelace-fold-entity-row) (currently not in use)
+- [Fold Entity Row](https://github.com/thomasloven/lovelace-fold-entity-row)
 - [Compact custom header](https://github.com/maykar/compact-custom-header)
 - [Swipe Card](https://github.com/bramkragten/custom-ui/tree/master/swipe-card)
 - [Lovelace Swipe Navigation](https://github.com/maykar/lovelace-swipe-navigation)

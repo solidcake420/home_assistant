@@ -8,7 +8,7 @@ let prevent_default = false; // Prevent browsers swipe action for back/forward.
 // EXPERIMENTAL OPTIONS //////////////////////////////////////////////////////
 // These options may not work as expected. ///////////////////////////////////
 
-let animate = "flip"; // none, swipe, fade, or flip. Must be in quotes.
+let animate = "swipe"; // none, swipe, fade, or flip. Must be in quotes.
 // In between each transition your theme's background-color will be shown.
 
 // CONFIG END ////////////////////////////////////////////////////////////////
@@ -28,6 +28,7 @@ function handleTouchStart(event) {
   if (typeof event.path == "object") {
     for (let element of event.path) {
       if (element.nodeName == "SWIPE-CARD") return;
+      else if (element.nodeName == "APP-HEADER") return;
       else if (element.nodeName == "HUI-VIEW") break;
     }
   }

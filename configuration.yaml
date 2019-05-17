@@ -209,21 +209,21 @@ sensor:
     monitored_conditions:
       - precip_intensity
 
-  - platform: alpha_vantage
-    api_key: !secret alpha_api
-    symbols:
-      - symbol: GOOGL
-        name: 'Google'
-    foreign_exchange:
-      - name: 'GBP > EUR'
-        from: GBP
-        to: EUR
-      - name: 'EUR > GBP'
-        from: GBP
-        to: EUR
-      - name: 'Bitcoin'
-        from: BTC
-        to: GBP
+#  - platform: alpha_vantage
+#    api_key: !secret alpha_api
+#    symbols:
+#      - symbol: GOOGL
+#        name: 'Google'
+#    foreign_exchange:
+#      - name: 'GBP > EUR'
+#        from: GBP
+#        to: EUR
+#      - name: 'EUR > GBP'
+#        from: GBP
+#        to: EUR
+#      - name: 'Bitcoin'
+#        from: BTC
+#        to: GBP
 
 
 binary_sensor:

@@ -1,12 +1,12 @@
 ## Todo - software
 
+- [x] fix compact-custom-header
 - [X] [fold-entity-row](https://github.com/thomasloven/lovelace-fold-entity-row)
 - [X] [Compact header](https://github.com/maykar/compact-custom-header)
 - [ ] Test Hue Transitions
 - [ ] [Win10As](https://github.com/KjetilSv/Win10As)
 - [ ] [Zigbee2mqtt](https://www.zigbee2mqtt.io/getting_started/running_zigbee2mqtt.html)
 - [ ] [Strava](https://community.home-assistant.io/t/strava-sensors/5506)
-- [ ] Hide device trackers
 - [ ] Home cinema discrete remote ([workaround](https://community.home-assistant.io/t/broadlink-rm-mini-3-code-database-samsung-tv-hdmi-selection/15612/93))
 
 ## Todo - style
@@ -17,7 +17,7 @@
 - [ ] Bedroom Battlestation State image
 - [ ] [Improve Dyson Fan card](https://community.home-assistant.io/t/wifi-dyson-pure-cool-link-full-setup/40332)
 - [ ] Wrap a vertical-stack or horizontal-stack in card-modder - it will mod every card in the stack separately (new feature)
-- [ ] Make card stacks foldable
+- [ ] Make card stacks foldable 
 
 ## Todo - hardware
 
@@ -57,3 +57,4 @@
 - [ ] [Custom-cards GitHub](https://github.com/custom-cards)
 - [ ] Better PC control ([Unified Remote integration](https://community.home-assistant.io/t/unified-remote-as-remote-control-for-home-assistant/1919))
 - [ ] Picture-elements Floor Plan using [FloorPlanner](https://floorplanner.com/) [Reddit](https://www.reddit.com/r/homeassistant/comments/bommbe/finally_got_my_floorplan_working_properly_with/)
+- [ ] Integrate some basic security features
