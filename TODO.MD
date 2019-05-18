@@ -3,7 +3,6 @@
 - [x] fix compact-custom-header
 - [X] [fold-entity-row](https://github.com/thomasloven/lovelace-fold-entity-row)
 - [X] [Compact header](https://github.com/maykar/compact-custom-header)
-- [ ] Test Hue Transitions
 - [ ] [Win10As](https://github.com/KjetilSv/Win10As)
 - [ ] [Zigbee2mqtt](https://www.zigbee2mqtt.io/getting_started/running_zigbee2mqtt.html)
 - [ ] [Strava](https://community.home-assistant.io/t/strava-sensors/5506)
@@ -13,18 +12,19 @@
 
 - [X] Redesign IR remotes
 - [X] [Improve light cards](https://github.com/thomasloven/lovelace-fold-entity-row)
-- [ ] More sliders
-- [ ] Bedroom Battlestation State image
+- [X] Bedroom PC's State state-images/wake-on-lan
+- [X] More sliders
 - [ ] [Improve Dyson Fan card](https://community.home-assistant.io/t/wifi-dyson-pure-cool-link-full-setup/40332)
 - [ ] Wrap a vertical-stack or horizontal-stack in card-modder - it will mod every card in the stack separately (new feature)
-- [ ] Make card stacks foldable 
+- [X] Make card stacks foldable 
 
 ## Todo - hardware
 
 - [ ] ESP8266 Sensor Tests
-  - [ ] [Motion/PIR](https://esphome.io/cookbook/pir.html)
+  - [X] [Motion/PIR](https://esphome.io/cookbook/pir.html)
   - [ ] Temperature/humidity
 - [ ] ZigBee Adapter flash
+- [ ] [HC-SR501 PIR Motion Sensor](https://amazon.co.uk/HALJIA-Pyroelectric-Infrared-Detector-Raspberry/dp/B01DM8MX6A)
 - [ ] Migrate to ESPHome
   - [ ] MagicLight LED
 - [ ] Pi Camera

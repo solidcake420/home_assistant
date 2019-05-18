@@ -63,7 +63,7 @@ ESP8266: [WiFi, all running ESPHome firmware]
 - 3x [Sonoff S20](https://sonoff.itead.cc/en/products/residential/s20-socket)
 - 2x [Sonoff Basic](https://sonoff.itead.cc/en/products/sonoff/sonoff-basic)
 - 1x [Sonoff TH16](https://sonoff.itead.cc/en/products/sonoff/sonoff-th) + [AM2301 sensor](https://sonoff.itead.cc/en/products/accessories/am2301)
-- 1x [Generic GMYLE Tuya plug](https://www.amazon.co.uk/gp/product/B074SXKQRZ/ref=ppx_yo_dt_b_search_asin_title)
+- 1x [Generic GMYLE Tuya plug](https://www.amazon.co.uk/gp/product/B074SXKQRZ)
 
 OTHER:
 
@@ -133,6 +133,7 @@ Custom Lovelace components:
 - [Compact custom header](https://github.com/maykar/compact-custom-header)
 - [Swipe Card](https://github.com/bramkragten/custom-ui/tree/master/swipe-card)
 - [Lovelace Swipe Navigation](https://github.com/maykar/lovelace-swipe-navigation)
+- [Vertical Stack In Card](https://github.com/custom-cards/vertical-stack-in-card)
 
 Other:
 

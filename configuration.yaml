@@ -227,9 +227,10 @@ sensor:
 
 
 binary_sensor:
+
 #  - platform: rpi_gpio
 #    ports:
-#      17: PIR Test
+#      17: Living Room Motion Sensor
 
   - platform: workday
     country: UK
