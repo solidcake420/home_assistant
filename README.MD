@@ -117,6 +117,7 @@ Official components:
 Unofficial/custom components:
 
 - [Custom Updater](https://github.com/custom-components/custom_updater)
+- [Breaking Changes](https://github.com/custom-components/breaking_changes)
 
 
 Custom Lovelace components:

@@ -391,14 +391,6 @@
       scene_name: Rain
     service: hue.hue_activate_scene
   - data:
-      brightness: '100'
-      entity_id: light.master_bedroom
-    service: light.turn_on
-  - data:
-      brightness: '200'
-      entity_id: light.living_room
-    service: light.turn_on
-  - data:
       group_name: Living room
       scene_name: Rain
     service: hue.hue_activate_scene
@@ -490,7 +482,7 @@
   trigger:
   - entity_id: sensor.ps4_game
     platform: state
-    to: "Marvel\u2019s Spider-Man"
+    to: Marvel’s Spider-Man
   condition: []
   action:
   - data:
@@ -514,7 +506,19 @@
   trigger:
   - entity_id: sensor.ps4_game
     platform: state
-    to: God of War
+    to: God of War\u2122 Digital Deluxe Edition
+  condition: []
+  action:
+  - data:
+      group_name: Living room
+      scene_name: God of War
+    service: hue.hue_activate_scene
+- id: '1558262373882'
+  alias: 'Detroit: Become Human'
+  trigger:
+  - entity_id: sensor.ps4_game
+    platform: state
+    to: 'Detroit: Become Human Digital Deluxe Edition'
   condition: []
   action:
   - data:

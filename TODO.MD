@@ -17,9 +17,12 @@
 - [ ] [Improve Dyson Fan card](https://community.home-assistant.io/t/wifi-dyson-pure-cool-link-full-setup/40332)
 - [ ] Wrap a vertical-stack or horizontal-stack in card-modder - it will mod every card in the stack separately (new feature)
 - [X] Make card stacks foldable 
+- [ ] More themes
 
 ## Todo - hardware
 
+- [ ] tuya-convert [LINGANZH Smart Power Strip](https://smile.amazon.co.uk/gp/product/B07FT8TH3W)
+  - [ ] Flash ESPHome
 - [ ] ESP8266 Sensor Tests
   - [X] [Motion/PIR](https://esphome.io/cookbook/pir.html)
   - [ ] Temperature/humidity

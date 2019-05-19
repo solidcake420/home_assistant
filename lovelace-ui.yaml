@@ -28,8 +28,8 @@ resources:
       https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/swipe-card/swipe-card.min.js
   - type: js
     url: /customcards/github/maykar/lovelace-swipe-navigation.js?track=true
-  - url: /local/vertical-stack-in-card.js?v=0.1.2
-    type: js
+  - type: js
+    url: /local/vertical-stack-in-card.js?v=0.1.2
 title: Home
 views:
   - badges: []
@@ -272,8 +272,8 @@ views:
                   type: 'custom:slider-entity-row'
               type: 'custom:fold-entity-row'
             - entity: light.bedroom_2
-              toggle: true
               icon: 'mdi:death-star-variant'
+              toggle: true
               type: 'custom:slider-entity-row'
           title: Lights
           type: entities
@@ -287,8 +287,6 @@ views:
       - card:
           align_state: center
           animate: true
-          hours_to_show: 24
-          points_per_hour: 1
           decimals: 1
           entities:
             - entity: sensor.living_room_temperature
@@ -297,7 +295,9 @@ views:
               name: Hallway
             - entity: sensor.sonoff_th16_temperature
               name: Bedroom
+          hours_to_show: 24
           name: Temperature
+          points_per_hour: 1
           show:
             extrema: false
             fill: fade
@@ -458,15 +458,15 @@ views:
           - card:
               align_state: center
               animate: true
-              hours_to_show: 48
-              points_per_hour: 1
               entities:
                 - sensor.waqi_southampton_centre_united_kingdom
+              hours_to_show: 48
               line_color: MediumSeaGreen
               name: Air Quality Outside
+              points_per_hour: 1
               show:
-                fill: fade
                 extrema: true
+                fill: fade
                 labels: false
               type: 'custom:mini-graph-card'
             style:
@@ -479,15 +479,15 @@ views:
           - card:
               align_state: center
               animate: true
-              hours_to_show: 24
-              points_per_hour: 1
               decimals: 1
               entities:
                 - color: green
                   entity: sensor.living_room_aqi
                   name: AQI
+              hours_to_show: 24
               icon: 'mdi:air-purifier'
               name: Air quality Inside
+              points_per_hour: 1
               show:
                 extrema: true
                 fill: fade
@@ -551,12 +551,13 @@ views:
     panel: false
     path: default_view
     title: Home
-  - cards:
+  - badges: []
+    cards:
       - clock_am_pm: false
         clock_format: '24'
         main_config: true
-        type: 'custom:compact-custom-header'
         notifications: overflow
+        type: 'custom:compact-custom-header'
         voice: overflow
       - card:
           artwork: cover
@@ -631,12 +632,12 @@ views:
           - card:
               align_state: center
               animate: true
-              hours_to_show: 24
-              points_per_hour: 1
               entities:
                 - sensor.hallway_sensor_temperature
+              hours_to_show: 24
               line_color: red
               name: Hallway Temperature
+              points_per_hour: 1
               show:
                 fill: fade
                 labels: true
@@ -651,12 +652,12 @@ views:
           - card:
               align_state: center
               animate: false
-              hours_to_show: 24
-              points_per_hour: 1
               entities:
                 - sensor.hallway_sensor_light_level
+              hours_to_show: 24
               line_color: dodgerblue
               name: Hallway Light level
+              points_per_hour: 1
               show:
                 fill: fade
                 labels: true
@@ -669,17 +670,16 @@ views:
               overflow: hidden
             type: 'custom:card-modder'
         type: 'custom:swipe-card'
-    badges: []
     icon: 'mdi:glassdoor'
+    panel: false
     path: ''
     theme: default
     title: 'Hallway, Kitchen, Bathroom'
-    panel: false
   - badges: []
     cards:
       - main_config: true
-        type: 'custom:compact-custom-header'
         notifications: overflow
+        type: 'custom:compact-custom-header'
         voice: overflow
       - card:
           artwork: cover
@@ -733,10 +733,9 @@ views:
               type: 'custom:fold-entity-row'
             - entity: light.wall_lightstrip
               type: 'custom:slider-entity-row'
-            - type: 'custom:fold-entity-row'
-              head:
-                type: section
+            - head:
                 label: SHOW SCENES
+                type: section
               items:
                 - cards:
                     - cards:
@@ -888,6 +887,7 @@ views:
                           type: 'custom:card-modder'
                       type: horizontal-stack
                   type: 'custom:vertical-stack-in-card'
+              type: 'custom:fold-entity-row'
           title: Hue Lights
           type: entities
         style:
@@ -1044,8 +1044,6 @@ views:
           - card:
               align_state: center
               animate: false
-              hours_to_show: 24
-              points_per_hour: 1
               color_thresholds:
                 - color: '#f39c12'
                   value: 16
@@ -1059,9 +1057,11 @@ views:
                 - sensor.living_room_temperature
               font_size: 85
               height: 150
+              hours_to_show: 24
               line_color: red
               line_width: 10
               name: Temp.
+              points_per_hour: 1
               show:
                 fill: fade
               type: 'custom:mini-graph-card'
@@ -1075,15 +1075,15 @@ views:
           - card:
               align_state: center
               animate: false
-              hours_to_show: 24
-              points_per_hour: 1
               entities:
                 - sensor.living_room_humidity
               font_size: 85
               height: 150
+              hours_to_show: 24
               line_color: DodgerBlue
               line_width: 10
               name: Humidity
+              points_per_hour: 1
               show:
                 fill: fade
                 labels: false
@@ -1165,8 +1165,6 @@ views:
       - card:
           align_state: center
           animate: true
-          hours_to_show: 24
-          points_per_hour: 1
           decimals: 1
           entities:
             - color: green
@@ -1175,8 +1173,10 @@ views:
             - color: CADETBLUE
               entity: sensor.living_room_dust
               name: Dust
+          hours_to_show: 24
           icon: 'mdi:air-purifier'
           name: Air quality
+          points_per_hour: 1
           show:
             extrema: false
             fill: fade
@@ -1190,9 +1190,10 @@ views:
           overflow: hidden
         type: 'custom:card-modder'
       - card:
-          entity: media_player.playstation_4
           artwork: cover
+          entity: media_player.playstation_4
           hide:
+            controls: true
             power_state: false
             source: true
             volume: true
@@ -1209,8 +1210,8 @@ views:
   - badges: []
     cards:
       - main_config: true
-        type: 'custom:compact-custom-header'
         notifications: overflow
+        type: 'custom:compact-custom-header'
         voice: overflow
       - card:
           artwork: cover
@@ -1232,8 +1233,6 @@ views:
           - card:
               align_state: center
               animate: true
-              hours_to_show: 24
-              points_per_hour: 1
               color_thresholds:
                 - color: '#f39c12'
                   value: 16
@@ -1248,9 +1247,11 @@ views:
                 - sensor.sonoff_th16_temperature
               font_size: 85
               height: 150
+              hours_to_show: 24
               line_color: red
               line_width: 10
               name: Temp.
+              points_per_hour: 1
               show:
                 fill: fade
                 labels: false
@@ -1265,15 +1266,15 @@ views:
           - card:
               align_state: center
               animate: true
-              hours_to_show: 24
-              points_per_hour: 1
               entities:
                 - sensor.sonoff_th16_humidity
               font_size: 85
               height: 150
+              hours_to_show: 24
               line_color: DodgerBlue
               line_width: 10
               name: Humidity
+              points_per_hour: 1
               show:
                 fill: fade
                 labels: false
@@ -1293,10 +1294,9 @@ views:
             - type: divider
             - entity: light.extended_color_light_1
               type: 'custom:slider-entity-row'
-            - type: 'custom:fold-entity-row'
-              head:
-                type: section
+            - head:
                 label: SHOW SCENES
+                type: section
               items:
                 - cards:
                     - cards:
@@ -1374,6 +1374,7 @@ views:
                           type: 'custom:card-modder'
                       type: horizontal-stack
                   type: 'custom:vertical-stack-in-card'
+              type: 'custom:fold-entity-row'
           title: Lights
           type: entities
         style:
@@ -1482,8 +1483,8 @@ views:
   - badges: []
     cards:
       - main_config: true
-        type: 'custom:compact-custom-header'
         notifications: overflow
+        type: 'custom:compact-custom-header'
         voice: overflow
       - card:
           artwork: cover
@@ -1506,10 +1507,9 @@ views:
               label: Deathstar
               toggle: true
               type: 'custom:slider-entity-row'
-            - type: 'custom:fold-entity-row'
-              head:
-                type: section
+            - head:
                 label: SHOW SCENES
+                type: section
               items:
                 - cards:
                     - cards:
@@ -1587,6 +1587,7 @@ views:
                           type: 'custom:card-modder'
                       type: horizontal-stack
                   type: 'custom:vertical-stack-in-card'
+              type: 'custom:fold-entity-row'
           type: entities
         style:
           background: 'right / cover no-repeat url("#/local/assets/")'
@@ -1654,8 +1655,8 @@ views:
   - badges: []
     cards:
       - main_config: true
-        type: 'custom:compact-custom-header'
         notifications: overflow
+        type: 'custom:compact-custom-header'
         voice: overflow
       - artwork: cover
         entity: media_player.living_room_tv
@@ -1725,8 +1726,8 @@ views:
   - badges: []
     cards:
       - main_config: true
-        type: 'custom:compact-custom-header'
         notifications: overflow
+        type: 'custom:compact-custom-header'
         voice: overflow
       - entities:
           - entity: media_player.home_group
@@ -1823,8 +1824,8 @@ views:
   - badges: []
     cards:
       - main_config: true
-        type: 'custom:compact-custom-header'
         notifications: overflow
+        type: 'custom:compact-custom-header'
         voice: overflow
       - cards:
           - entity: device_tracker.viviens_iphone
@@ -1871,6 +1872,7 @@ views:
           - entity: sensor.memory_free
           - entity: sensor.processor_use
           - entity: sensor.last_boot
+          - entity: sensor.potential_breaking_changes
         show_header_toggle: false
         title: Hass.IO Status
         type: entities
@@ -1926,9 +1928,9 @@ views:
         title: Other
         type: entities
       - cards:
-          - card: null
-            align_state: center
+          - align_state: center
             animate: false
+            card: null
             decimals: 2
             entities:
               - color: limegreen
@@ -1939,36 +1941,36 @@ views:
                 name: Upload
             hour24: true
             hours_to_show: 48
-            points_per_hour: 1
             lower_bound: 0
             name: Speedtest.net
+            points_per_hour: 1
             show:
               extrema: true
               fill: fade
               labels: true
             type: 'custom:mini-graph-card'
-          - card: null
-            align_state: center
+          - align_state: center
             animate: false
-            icon: 'mdi:lan-connect'
+            card: null
             decimals: 2
-            height: 50
             entities:
               - color: LightSeaGreen
                 entity: sensor.speedtest_ping
                 name: Ping
+            height: 50
             hour24: true
             hours_to_show: 48
-            points_per_hour: 1
+            icon: 'mdi:lan-connect'
             name: Ping
+            points_per_hour: 1
             show:
-              name: true
-              icon: true
-              state: true
               extrema: false
               fill: fade
-              labels: false
               graph: bar
+              icon: true
+              labels: false
+              name: true
+              state: true
             type: 'custom:mini-graph-card'
         type: vertical-stack
       - type: 'custom:tracker-card'
@@ -1977,8 +1979,8 @@ views:
   - badges: []
     cards:
       - main_config: true
-        type: 'custom:compact-custom-header'
         notifications: overflow
+        type: 'custom:compact-custom-header'
         voice: overflow
       - entities:
           - entity: automation.hue_lights_on_at_sunset
@@ -2029,14 +2031,15 @@ views:
           - entity: automation.spider_man
           - entity: automation.red_dead_redemption_2
           - entity: automation.god_of_war
+          - entity: automation.detroit_become_human
         title: PlayStation 4 Games
         type: entities
     title: Automations
   - badges: []
     cards:
       - main_config: true
-        type: 'custom:compact-custom-header'
         notifications: overflow
+        type: 'custom:compact-custom-header'
         voice: overflow
       - cards:
           - cards:
@@ -2465,8 +2468,8 @@ views:
   - badges: []
     cards:
       - main_config: true
-        type: 'custom:compact-custom-header'
         notifications: overflow
+        type: 'custom:compact-custom-header'
         voice: overflow
       - entities:
           - entity: light.hue_one
