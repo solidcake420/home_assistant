@@ -725,7 +725,6 @@ views:
               items:
                 - entity: light.tv_lightstrip
                   type: 'custom:slider-entity-row'
-                - type: divider
                 - entity: light.hue_left
                   type: 'custom:slider-entity-row'
                 - entity: light.hue_right
@@ -1441,6 +1440,74 @@ views:
                   box-shadow: '3px 3px rgba(0,0,0,0.4)'
                   overflow: hidden
                 type: 'custom:card-modder'
+              - cards:
+                  - card:
+                      entity: switch.power_strip_relay_1
+                      image: /local/assets/monitor1.png
+                      show_name: false
+                      show_state: true
+                      state_image:
+                        unavailable: /local/assets/offline.png
+                      tap_action:
+                        action: toggle
+                      type: picture-entity
+                    style:
+                      border: 'solid 1px rgba(100,100,100,0.3)'
+                      border-radius: 15px
+                      box-shadow: '3px 3px rgba(0,0,0,0.4)'
+                      overflow: hidden
+                    type: 'custom:card-modder'
+                  - card:
+                      entity: switch.power_strip_relay_2
+                      image: /local/assets/monitor2.png
+                      show_name: false
+                      show_state: true
+                      state_image:
+                        unavailable: /local/assets/offline.png
+                      tap_action:
+                        action: toggle
+                      type: picture-entity
+                    style:
+                      border: 'solid 1px rgba(100,100,100,0.3)'
+                      border-radius: 15px
+                      box-shadow: '3px 3px rgba(0,0,0,0.4)'
+                      overflow: hidden
+                    type: 'custom:card-modder'
+                type: 'custom:swipe-card'
+              - cards:
+                  - card:
+                      entity: switch.power_strip_relay_3
+                      image: /local/assets/power_strip_1.png
+                      show_name: false
+                      show_state: true
+                      state_image:
+                        unavailable: /local/assets/offline.png
+                      tap_action:
+                        action: toggle
+                      type: picture-entity
+                    style:
+                      border: 'solid 1px rgba(100,100,100,0.3)'
+                      border-radius: 15px
+                      box-shadow: '3px 3px rgba(0,0,0,0.4)'
+                      overflow: hidden
+                    type: 'custom:card-modder'
+                  - card:
+                      entity: switch.power_strip_relay_usb
+                      image: /local/assets/power_strip_2.png
+                      show_name: false
+                      show_state: true
+                      state_image:
+                        unavailable: /local/assets/offline.png
+                      tap_action:
+                        action: toggle
+                      type: picture-entity
+                    style:
+                      border: 'solid 1px rgba(100,100,100,0.3)'
+                      border-radius: 15px
+                      box-shadow: '3px 3px rgba(0,0,0,0.4)'
+                      overflow: hidden
+                    type: 'custom:card-modder'
+                type: 'custom:swipe-card'
             type: horizontal-stack
         type: vertical-stack
       - card:
@@ -1909,6 +1976,7 @@ views:
           - entity: binary_sensor.sonoff_th16_status
           - entity: binary_sensor.smart_life_status
           - entity: binary_sensor.rmmini
+          - entity: binary_sensor.power_strip_status
         show_header_toggle: false
         title: Smart Devices
         type: entities
@@ -2574,6 +2642,98 @@ views:
                   box-shadow: '3px 3px rgba(0,0,0,0.4)'
                   overflow: hidden
                 type: 'custom:card-modder'
+              - card:
+                  elements:
+                    - icon: 'mdi:numeric-1-circle-outline'
+                      style:
+                        color: var(--primary-color)
+                        left: 25%
+                        top: 25%
+                      entity: switch.power_strip_relay_1
+                      tap_action:
+                        action: call-service
+                        service: switch.toggle
+                        service_data:
+                          entity_id: switch.power_strip_relay_1
+                      type: state-icon
+                    - icon: 'mdi:numeric-2-circle-outline'
+                      style:
+                        color: var(--primary-color)
+                        left: 75%
+                        top: 25%
+                      entity: switch.power_strip_relay_2
+                      tap_action:
+                        action: call-service
+                        service: switch.toggle
+                        service_data:
+                          entity_id: switch.power_strip_relay_2
+                      type: state-icon
+                    - icon: 'mdi:numeric-3-circle-outline'
+                      style:
+                        color: var(--primary-color)
+                        left: 25%
+                        top: 75%
+                      entity: switch.power_strip_relay_3
+                      tap_action:
+                        action: call-service
+                        service: switch.toggle
+                        service_data:
+                          entity_id: switch.power_strip_relay_3
+                      type: state-icon
+                    - icon: 'mdi:usb'
+                      style:
+                        color: var(--primary-color)
+                        left: 75%
+                        top: 75%
+                      entity: switch.power_strip_relay_usb
+                      tap_action:
+                        action: call-service
+                        service: switch.toggle
+                        service_data:
+                          entity_id: switch.power_strip_relay_usb
+                      type: state-icon
+                  image: /local/assets/power_strip_2.png
+                  type: picture-elements
+                style:
+                  border: 'solid 1px rgba(100,100,100,0.3)'
+                  border-radius: 15px
+                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
+                  overflow: hidden
+                type: 'custom:card-modder'
+              - cards:
+                  - card:
+                      entity: switch.power_strip_relay_1
+                      image: /local/assets/monitor1.png
+                      show_name: false
+                      show_state: true
+                      state_image:
+                        unavailable: /local/assets/offline.png
+                      tap_action:
+                        action: toggle
+                      type: picture-entity
+                    style:
+                      border: 'solid 1px rgba(100,100,100,0.3)'
+                      border-radius: 15px
+                      box-shadow: '3px 3px rgba(0,0,0,0.4)'
+                      overflow: hidden
+                    type: 'custom:card-modder'
+                  - card:
+                      entity: switch.power_strip_relay_2
+                      image: /local/assets/monitor2.png
+                      show_name: false
+                      show_state: true
+                      state_image:
+                        unavailable: /local/assets/offline.png
+                      tap_action:
+                        action: toggle
+                      type: picture-entity
+                    style:
+                      border: 'solid 1px rgba(100,100,100,0.3)'
+                      border-radius: 15px
+                      box-shadow: '3px 3px rgba(0,0,0,0.4)'
+                      overflow: hidden
+                    type: 'custom:card-modder'
+                type: 'custom:swipe-card'
             type: horizontal-stack
         type: vertical-stack
     icon: ''

@@ -64,6 +64,7 @@ ESP8266: [WiFi, all running ESPHome firmware]
 - 2x [Sonoff Basic](https://sonoff.itead.cc/en/products/sonoff/sonoff-basic)
 - 1x [Sonoff TH16](https://sonoff.itead.cc/en/products/sonoff/sonoff-th) + [AM2301 sensor](https://sonoff.itead.cc/en/products/accessories/am2301)
 - 1x [Generic GMYLE Tuya plug](https://www.amazon.co.uk/gp/product/B074SXKQRZ)
+- 1x [LINGANZH SWB1 Smart Power Strip](https://amazon.co.uk/gp/product/B07FT8TH3W)
 
 OTHER:
 

@@ -21,8 +21,8 @@
 
 ## Todo - hardware
 
-- [ ] tuya-convert [LINGANZH Smart Power Strip](https://smile.amazon.co.uk/gp/product/B07FT8TH3W)
-  - [ ] Flash ESPHome
+- [X] tuya-convert [LINGANZH Smart Power Strip](https://smile.amazon.co.uk/gp/product/B07FT8TH3W)
+  - [X] Flash [ESPHome](https://github.com/arendst/Sonoff-Tasmota/wiki/SWB1-Smart-Power-Strip)
 - [ ] ESP8266 Sensor Tests
   - [X] [Motion/PIR](https://esphome.io/cookbook/pir.html)
   - [ ] Temperature/humidity
@@ -55,9 +55,10 @@
 
 
 ## Other / future plans
+- [ ] Publish ESPHome configs
 - [ ] [Awesome HA](https://www.awesome-ha.com/)
 - [ ] [Share the love](https://sharethelove.io/) picture-elements, glance cards
 - [ ] [Custom-cards GitHub](https://github.com/custom-cards)
-- [ ] Better PC control ([Unified Remote integration](https://community.home-assistant.io/t/unified-remote-as-remote-control-for-home-assistant/1919))
+- [ ] Better PC control ([Unified Remote integration](https://community.home-assistant.io/t/unified-remote-integration-possible/35927/5))
 - [ ] Picture-elements Floor Plan using [FloorPlanner](https://floorplanner.com/) [Reddit](https://www.reddit.com/r/homeassistant/comments/bommbe/finally_got_my_floorplan_working_properly_with/)
 - [ ] Integrate some basic security features
