@@ -78,13 +78,19 @@ weather:
 light:
   - platform: switch
     name: Salt Lamp
-    entity_id: switch.sonoff_basic_3_relay
+    entity_id: switch.salt_lamp_switch
   - platform: switch
     name: Table Light
     entity_id: switch.sonoff_basic_4_relay
   - platform: switch
     name: Hue Mini
     entity_id: switch.sonoff_s20_2_relay
+  - platform: switch
+    name: Desk Lamp
+    entity_id: switch.power_strip_relay_3
+  - platform: switch
+    name: Kitchen
+    entity_id: switch.aqara
 
 #  - platform: flux_led
 #    automatic_add: true
@@ -114,6 +120,11 @@ input_boolean:
   auto:
     name: Auto
     initial: on
+
+  zigbee_permit_join:
+    name: Allow devices to join
+    initial: off
+    icon: mdi:cellphone-wireless
 
 # Tracker
 
@@ -167,7 +178,6 @@ switch:
         friendly_name: "HDMI3 Console" 
         command_on: 'JgBGAJOUEDoRORE5ERQRFRAUERQRFBE5EDsQOhAVEBUPFg8WDxYPFhA6EBUPFg8WEBUROQ87EDoQFQ87EDoQOhA6EBUPFhAADQUAAA=='
 
-
 # Sensors
 
 sensor:
@@ -197,8 +207,6 @@ sensor:
       - type: processor_use
       - type: last_boot
 
-#  - platform: fastdotcom
-
   - platform: waqi
     token: 64a6a7304b091fd1ffc32cb68d224f1cdc795f9d
     locations:
@@ -225,6 +233,11 @@ sensor:
 #        from: BTC
 #        to: GBP
 
+  - platform: mqtt
+    name: Bridge state
+    state_topic: "zigbee2mqtt/bridge/state"
+    icon: mdi:router-wireless
+
 
 binary_sensor:
 
@@ -238,6 +251,7 @@ binary_sensor:
       - '2019-04-05'
       - '2019-04-04'
       - '2019-04-15'
+      - '2019-05-28'
 
   - platform: template
     sensors:
@@ -318,11 +332,9 @@ binary_sensor:
         friendly_name: Hass.IO Server
       rmmini:
         value_template: >-
-          {{ is_state('device_tracker.rmmini_16_da-64', 'home') }}
+          {{ is_state('device_tracker.rmmini_16_da_64', 'home') }}
         device_class: connectivity
         friendly_name: Broadlink RM Mini 3
-
-
 
 # Google
 
@@ -355,6 +367,11 @@ cloud:
         - switch.hdmi3
         - switch.stereo_vol_down
         - switch.stereo_vol_up
+        - switch.power_strip_relay_1
+        - switch.power_strip_relay_2
+        - light.desk_lamp
+        - switch.power_strip_relay_usb
+        - light.kitchen
 
 googlehome:
   devices:
@@ -387,6 +404,11 @@ speedtestdotnet:
     - ping
     - download
     - upload
+
+timer:
+  zigbee_permit_join:
+    name: Time remaining
+    duration: 600 # Updated this to the number of seconds you wish
 
 breaking_changes:
 

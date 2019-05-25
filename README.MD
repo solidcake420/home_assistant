@@ -22,15 +22,12 @@ If you want to buy me a coffee, that would be much appreciated. :)
 # Desktop Lovelace
 ![desktop](/example/example_lovelace_pc.gif "Lovelace example on desktop")
 
-# Mobile Lovelace
-![mobile](/example/example_lovelace_mobile.gif "Lovelace example on mobile")
-
-[Screenshots](https://imgur.com/a/ALbkssC)
+## [Screenshots](https://imgur.com/a/ALbkssC)
 
 
 ## Used Hardware
 
-- [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/), running Hass.IO 2.11, Home Assistant 0.92.2
+- [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/), running Hass.IO 2.11, Home Assistant 0.93.1
  
 Network:
 
@@ -57,17 +54,23 @@ Hue: [ZigBee]
 - 2x [INNR E27 RB 285 C 3rd party Bulbs](https://shop.innrlighting.com/en/shop/143/smart-bulb-colour-e27-z3.0)
 - 2x [GLEDOPTO RGB+CCT 3rd party LED Controllers](https://www.aliexpress.com/store/product/gledopto-1ID-2ID-rgb-cct-led-controller-ZIGBEE-ZLL-DC12-24V-strip-light-controller-rgbw-cw/3685003_32969239825.html)
 
+ZigBee2MQTT [ZigBee]
+
+- [CC2531 ZigBee USB Stick](https://www.amazon.co.uk/s?k=cc2531)
+- [Xiaomi Aqara Single Light Wall Switch](https://xiaomi-mi.com/sockets-and-sensors/aqara-smart-light-wall-switch-zigbee-version-single-key/)
+- [Xiaomi Aqara Window Door Sensor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-aqara-window-door-sensor/)
+- [Xiaomi Aqara Temperature and Humidity Sensor](https://xiaomi-mi.com/sockets-and-sensors/aqara-temperature-and-humidity-sensor/)
+- [Ksentry Electronics ZigBee Switch](https://ksentry.manufacturer.globalsources.com/si/6008837134660/pdtl/ZigBee-module/1162731630/zigbee-on-off-controller-modules.htm)
 
 ESP8266: [WiFi, all running ESPHome firmware]
 
 - 3x [Sonoff S20](https://sonoff.itead.cc/en/products/residential/s20-socket)
-- 2x [Sonoff Basic](https://sonoff.itead.cc/en/products/sonoff/sonoff-basic)
+- 1x [Sonoff Basic](https://sonoff.itead.cc/en/products/sonoff/sonoff-basic)
 - 1x [Sonoff TH16](https://sonoff.itead.cc/en/products/sonoff/sonoff-th) + [AM2301 sensor](https://sonoff.itead.cc/en/products/accessories/am2301)
 - 1x [Generic GMYLE Tuya plug](https://www.amazon.co.uk/gp/product/B074SXKQRZ)
 - 1x [LINGANZH SWB1 Smart Power Strip](https://amazon.co.uk/gp/product/B07FT8TH3W)
 
 OTHER:
-
 - [Dyson DP01 Pure Cool Link Desk Fan](https://www.dyson.com/purifiers/dyson-dp01-pure-cool-link-desk-white-silver.html)
 - [SONY PlayStation 4](https://www.sony.co.uk/electronics/playstation-systems/playstation-4)
 - [Broadlink RM Mini 3](http://www.ibroadlink.com/rmMini3/)
@@ -84,6 +87,7 @@ Add-Ons:
 - [SSH server](https://www.home-assistant.io/addons/ssh/)
 - [Check HA configuration](https://www.home-assistant.io/addons/check_config/)
 - [Samba share](https://www.home-assistant.io/addons/samba/)
+- [zigbee2mqtt](https://github.com/danielwelch/hassio-zigbee2mqtt)
 
 
 Integrated through [Home Assistant Cloud](https://www.home-assistant.io/cloud/):
@@ -94,7 +98,7 @@ Integrated through [Home Assistant Cloud](https://www.home-assistant.io/cloud/):
 
 Official integrations:
 
-- [MQTT](https://www.home-assistant.io/components/mqtt/) (currently not in use)
+- [MQTT](https://www.home-assistant.io/components/mqtt/)
 - [Google Cast](https://www.home-assistant.io/components/cast/)
 - [Phillips Hue](https://www.home-assistant.io/components/hue/)
 - [PlayStation 4](https://www.home-assistant.io/components/ps4/)

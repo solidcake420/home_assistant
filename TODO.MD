@@ -4,7 +4,7 @@
 - [X] [fold-entity-row](https://github.com/thomasloven/lovelace-fold-entity-row)
 - [X] [Compact header](https://github.com/maykar/compact-custom-header)
 - [ ] [Win10As](https://github.com/KjetilSv/Win10As)
-- [ ] [Zigbee2mqtt](https://www.zigbee2mqtt.io/getting_started/running_zigbee2mqtt.html)
+- [X] [Zigbee2mqtt](https://www.zigbee2mqtt.io/getting_started/running_zigbee2mqtt.html)
 - [ ] [Strava](https://community.home-assistant.io/t/strava-sensors/5506)
 - [ ] Home cinema discrete remote ([workaround](https://community.home-assistant.io/t/broadlink-rm-mini-3-code-database-samsung-tv-hdmi-selection/15612/93))
 
@@ -18,6 +18,7 @@
 - [ ] Wrap a vertical-stack or horizontal-stack in card-modder - it will mod every card in the stack separately (new feature)
 - [X] Make card stacks foldable 
 - [ ] More themes
+- [ ] Guests conditional card
 
 ## Todo - hardware
 
@@ -26,7 +27,7 @@
 - [ ] ESP8266 Sensor Tests
   - [X] [Motion/PIR](https://esphome.io/cookbook/pir.html)
   - [ ] Temperature/humidity
-- [ ] ZigBee Adapter flash
+- [X] ZigBee Adapter flash
 - [ ] [HC-SR501 PIR Motion Sensor](https://amazon.co.uk/HALJIA-Pyroelectric-Infrared-Detector-Raspberry/dp/B01DM8MX6A)
 - [ ] Migrate to ESPHome
   - [ ] MagicLight LED
@@ -39,6 +40,7 @@
 - [ ] [Welcome home automation](https://www.reddit.com/r/homeassistant/comments/bi2klv/playing_specific_song_via_spotify_on_alexa/)
   - [ ] Welcome home themes for guests
 - [ ] Notifications
+  - [X] for washing machine
   - [ ] for guests
   - [ ] for Google Home timers
 - [ ] Lights blink when timer is over

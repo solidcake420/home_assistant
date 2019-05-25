@@ -44,3 +44,10 @@ home_members:
   entities:
     - person.flat
     - person.kamil
+
+monitors:
+  name: Monitors
+  icon: mdi:monitor
+  entities:
+    - switch.power_strip_relay_1
+    - switch.power_strip_relay_2

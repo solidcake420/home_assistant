@@ -209,15 +209,14 @@ switch.sonoff_basic_relay:
   friendly_name: Salt Lamp
   icon: mdi:lava-lamp
 switch.sonoff_basic_3_relay:
-  friendly_name: Salt Lamp Switch
-  icon: mdi:lava-lamp
+  friendly_name: Sonoff Basic 3
 binary_sensor.sonoff_basic_3_status:
   friendly_name: Sonoff Basic 3 [Salt Lamp]
   icon: mdi:light-switch
 light.salt_lamp:
   icon: mdi:lava-lamp
 light.table_light:
-  icon: mdi:ceiling-light
+  icon: bha:ceiling-lamp
 light.hue_mini:
   icon: mdi:spotlight-beam
 media_player.red_light_district:
@@ -350,3 +349,51 @@ switch.stereo_vol_down:
   icon: mdi:volume-minus
 device_tracker.galaxy_s8_2:
   friendly_name: Dan
+sensor.ps4_game:
+  icon: mdi:playstation
+switch.tv_toggle:
+  icon: mdi:television
+binary_sensor.living_room_motion_sensor:
+  device_class: motion
+binary_sensor.power_strip_status:
+  friendly_name: Power Strip
+  icon: mdi:led-strip
+switch.power_strip_relay_1:
+  friendly_name: Monitor 1
+  icon: mdi:monitor
+switch.power_strip_relay_2:
+  friendly_name: Monitor 2
+  icon: mdi:monitor
+switch.power_strip_relay_usb:
+  friendly_name: Power Strip USB Hub
+  icon: mdi:usb
+switch.power_strip_relay_3:
+  friendly_name: Desk Lamp Switch
+  icon: mdi:desk-lamp
+light.desk_lamp:
+  icon: mdi:desk-lamp
+light.kitchen:
+  friendly_name: Kitchen Light
+  icon: mdi:ceiling-light
+binary_sensor.aqara_door:
+  device_class: opening
+  icon: mdi:washing-machine
+switch.salt_lamp_switch:
+  icon: mdi:lava-lamp
+switch.aqara:
+  icon: mdi:ceiling-light
+sensor.aqara_switch_signal:
+  device_class: signal_strength
+  unit_of_measurement: dBm
+sensor.aqara_temp_signal:
+  device_class: signal_strength
+  unit_of_measurement: dBm
+sensor.aqara_door_signal:
+  device_class: signal_strength
+  unit_of_measurement: dBm
+sensor.salt_lamp_linkquality:
+  device_class: signal_strength
+  unit_of_measurement: dBm
+sensor.bridge_state:
+  friendly_name: Bridge State
+  icon: mdi:zigbee

@@ -321,7 +321,6 @@
   initial_state: true
 - id: '1554597528041'
   alias: Hue Lights off at Sunrise
-  initial_state: true
   trigger:
   - event: sunrise
     offset: +01:00:00
@@ -339,13 +338,12 @@
     platform: sun
   condition:
   - condition: state
-    entity_id: group.home_members
+    entity_id: person.flat
     state: home
   action:
   - data:
       entity_id: light.living_room, light.master_bedroom
     service: light.turn_on
-  initial_state: true
 - id: '1554715813085'
   alias: Hue Lights Auto-Off
   trigger:
@@ -525,3 +523,65 @@
       group_name: Living room
       scene_name: God of War
     service: hue.hue_activate_scene
+- id: enable_zigbee_join
+  alias: Enable Zigbee joining
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: input_boolean.zigbee_permit_join
+    to: 'on'
+  action:
+  - service: mqtt.publish
+    data:
+      topic: zigbee2mqtt/bridge/config/permit_join
+      payload: 'true'
+  - service: timer.start
+    data:
+      entity_id: timer.zigbee_permit_join
+- id: disable_zigbee_join
+  alias: Disable Zigbee joining
+  trigger:
+  - entity_id: input_boolean.zigbee_permit_join
+    platform: state
+    to: 'off'
+  action:
+  - data:
+      payload: 'false'
+      topic: zigbee2mqtt/bridge/config/permit_join
+    service: mqtt.publish
+  - data:
+      entity_id: timer.zigbee_permit_join
+    service: timer.cancel
+  hide_entity: true
+- id: disable_zigbee_join_timer
+  alias: Disable Zigbee joining by timer
+  hide_entity: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.zigbee_permit_join
+  action:
+  - service: mqtt.publish
+    data:
+      topic: zigbee2mqtt/bridge/config/permit_join
+      payload: 'false'
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.zigbee_permit_join
+- id: '1558787125885'
+  alias: Notification when laundry is ready
+  trigger:
+  - entity_id: binary_sensor.aqara_door
+    for: 01:30:00
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      message: Laundry is ready!
+    service: notify.html5_lg_v30
+  - data:
+      message: Laundry is ready!
+    service: notify.html5_oneplus
