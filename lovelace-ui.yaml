@@ -405,7 +405,7 @@ views:
           - cards:
               - card:
                   entity: switch.sonoff_th16_relay
-                  image: /local/assets/heater_1.png
+                  image: /local/assets/fan_3.png
                   name: Bedroom
                   show_name: false
                   show_state: true
@@ -717,12 +717,14 @@ views:
         type: 'custom:card-modder'
       - card:
           entities:
+            - entity: binary_sensor.nodemcu_motion_sensor
+              name: Motion sensor
+              secondary_info: last-changed
             - entity: light.kitchen
               name: Light
             - type: divider
             - entity: switch.smart_life_relay
               secondary_info: last-changed
-            - type: divider
             - entity: sensor.kitchen_home_timer
               name: Timer
           show_header_toggle: false
@@ -1571,7 +1573,7 @@ views:
           - cards:
               - card:
                   entity: switch.sonoff_th16_relay
-                  image: /local/assets/heater_1.png
+                  image: /local/assets/fan_3.png
                   show_name: false
                   show_state: true
                   state_image:
@@ -2192,8 +2194,7 @@ views:
       - type: 'custom:tracker-card'
     icon: 'mdi:wan'
     title: Connections
-  - badges: []
-    cards:
+  - cards:
       - main_config: true
         notifications: overflow
         type: 'custom:compact-custom-header'
@@ -2251,7 +2252,9 @@ views:
           - entity: automation.detroit_become_human
         title: PlayStation 4 Games
         type: entities
+    badges: []
     title: Automations
+    icon: 'mdi:home-automation'
   - badges: []
     cards:
       - main_config: true
@@ -2682,33 +2685,11 @@ views:
         type: vertical-stack
     icon: 'mdi:delete-circle-outline'
     title: Bin
-  - badges: []
-    cards:
+  - cards:
       - main_config: true
         notifications: overflow
         type: 'custom:compact-custom-header'
         voice: overflow
-      - entities:
-          - entity: light.hue_one
-            icon: 'mdi:lamp'
-            type: 'custom:light-entity-row'
-          - type: divider
-          - entity: light.hue_right
-            showColorPicker: true
-            showColorSliders: true
-            type: 'custom:light-entity-row'
-          - type: divider
-          - buttons:
-              - name: Red
-                service_data:
-                  color_name: red
-              - name: Blue
-                service_data:
-                  color_name: blue
-            entity: light.hue_left
-            type: 'custom:light-entity-row'
-        title: Lights
-        type: entities
       - card:
           elements:
             - entity: light.hue_left
@@ -2876,5 +2857,6 @@ views:
                 type: 'custom:swipe-card'
             type: horizontal-stack
         type: vertical-stack
-    icon: ''
+    badges: []
+    icon: 'mdi:widgets'
     title: TEST

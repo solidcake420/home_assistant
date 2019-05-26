@@ -64,6 +64,7 @@ ZigBee2MQTT [ZigBee]
 
 ESP8266: [WiFi, all running ESPHome firmware]
 
+- [NodeMCU v2 ESP8266](https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20190525164833&SearchText=esp8266+nodemcu+v2) + [HC-SR501 PIR Motion Sensor](https://www.aliexpress.com/item/1pcs-HC-SR501-Adjust-IR-Pyroelectric-Infrared-PIR-Motion-Sensor-Detector-Module-for-arduino-for-raspberry/32733268757.html)
 - 3x [Sonoff S20](https://sonoff.itead.cc/en/products/residential/s20-socket)
 - 1x [Sonoff Basic](https://sonoff.itead.cc/en/products/sonoff/sonoff-basic)
 - 1x [Sonoff TH16](https://sonoff.itead.cc/en/products/sonoff/sonoff-th) + [AM2301 sensor](https://sonoff.itead.cc/en/products/accessories/am2301)

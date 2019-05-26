@@ -25,6 +25,7 @@ logbook:
     - switch.stereo
     - switch.stereo_vol_up
     - switch.stereo_vol_down
+    - binary_sensor.nodemcu_motion_sensor
 
 http:
 
@@ -249,9 +250,6 @@ binary_sensor:
     country: UK
     add_holidays: 
       - '2019-04-05'
-      - '2019-04-04'
-      - '2019-04-15'
-      - '2019-05-28'
 
   - platform: template
     sensors:

@@ -24,11 +24,11 @@
 
 - [X] tuya-convert [LINGANZH Smart Power Strip](https://smile.amazon.co.uk/gp/product/B07FT8TH3W)
   - [X] Flash [ESPHome](https://github.com/arendst/Sonoff-Tasmota/wiki/SWB1-Smart-Power-Strip)
-- [ ] ESP8266 Sensor Tests
+- [ ] ESP8266 Sensors
   - [X] [Motion/PIR](https://esphome.io/cookbook/pir.html)
   - [ ] Temperature/humidity
+  - [ ] Light level
 - [X] ZigBee Adapter flash
-- [ ] [HC-SR501 PIR Motion Sensor](https://amazon.co.uk/HALJIA-Pyroelectric-Infrared-Detector-Raspberry/dp/B01DM8MX6A)
 - [ ] Migrate to ESPHome
   - [ ] MagicLight LED
 - [ ] Pi Camera
