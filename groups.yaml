@@ -22,21 +22,16 @@ garmin:
   icon: mdi:watch
   entities:
   - switch.flat_pc
+  - group.monitors
   - light.master_bedroom
   - light.salt_lamp
   - switch.sonoff_th16_relay
   - light.living_room
-  - light.entertainment_area
-  - light.hue_one
-  - switch.sonoff_s20_1_relay
   - light.table_light
-  - fan.living_room
   - switch.sonoff_s20_3_relay
   - light.hallway
   - switch.tv
   - switch.stereo
-  - switch.stereo_vol_up
-  - switch.stereo_vol_down
 
 home_members:
   name: Home members

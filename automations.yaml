@@ -117,12 +117,13 @@
     platform: state
     to: home
   condition:
-  - after: '18:00:00'
+  - after: '20:00:00'
     before: '23:45:00'
     condition: time
   action:
   - data:
-      entity_id: light.bedroom_2, light.hallway, light.hue_mini, light.living_room
+      entity_id: light.bedroom_2, light.hallway, light.hue_mini, light.living_room,
+        light.kitchen
     service: light.turn_on
 - id: '1554483302864'
   alias: Mike Light On when home
@@ -132,13 +133,13 @@
     platform: state
     to: home
   condition:
-  - after: '18:00:00'
+  - after: '20:00:00'
     before: '23:30:00'
     condition: time
   action:
   - data:
       entity_id: light.master_bedroom, light.hallway, light.salt_lamp, light.hue_mini,
-        light.living_room
+        light.living_room, light.kichen
     service: light.turn_on
 - id: '1554484047407'
   alias: Turn lights off when everyone is out
@@ -585,3 +586,32 @@
   - data:
       message: Laundry is ready!
     service: notify.html5_oneplus
+- id: '1558903740184'
+  alias: Kitchen Light Motion On
+  trigger:
+  - entity_id: binary_sensor.nodemcu_motion_sensor
+    platform: state
+    to: 'on'
+  condition:
+  - after: sunset
+    condition: sun
+  action:
+  - data:
+      entity_id: light.kitchen
+    service: light.turn_on
+- id: '1558903857754'
+  alias: Kitchen Light Motion Off
+  trigger:
+  - entity_id: binary_sensor.nodemcu_motion_sensor
+    for: 00:03:00
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: light.kitchen
+    state: 'on'
+  action:
+  - data:
+      entity_id: light.kitchen
+    service: light.turn_off

@@ -1,10 +1,9 @@
 ## Todo - software
 
-- [x] fix compact-custom-header
 - [X] [fold-entity-row](https://github.com/thomasloven/lovelace-fold-entity-row)
 - [X] [Compact header](https://github.com/maykar/compact-custom-header)
-- [ ] [Win10As](https://github.com/KjetilSv/Win10As)
 - [X] [Zigbee2mqtt](https://www.zigbee2mqtt.io/getting_started/running_zigbee2mqtt.html)
+- [ ] [Win10As](https://github.com/KjetilSv/Win10As)
 - [ ] [Strava](https://community.home-assistant.io/t/strava-sensors/5506)
 - [ ] Home cinema discrete remote ([workaround](https://community.home-assistant.io/t/broadlink-rm-mini-3-code-database-samsung-tv-hdmi-selection/15612/93))
 
@@ -14,11 +13,11 @@
 - [X] [Improve light cards](https://github.com/thomasloven/lovelace-fold-entity-row)
 - [X] Bedroom PC's State state-images/wake-on-lan
 - [X] More sliders
+- [X] Make card stacks foldable
+- [ ] Guests conditional card
 - [ ] [Improve Dyson Fan card](https://community.home-assistant.io/t/wifi-dyson-pure-cool-link-full-setup/40332)
 - [ ] Wrap a vertical-stack or horizontal-stack in card-modder - it will mod every card in the stack separately (new feature)
-- [X] Make card stacks foldable 
 - [ ] More themes
-- [ ] Guests conditional card
 
 ## Todo - hardware
 
@@ -31,6 +30,7 @@
 - [X] ZigBee Adapter flash
 - [ ] Migrate to ESPHome
   - [ ] MagicLight LED
+- [ ] [USB Camera](https://blog.kalavala.net/camera/diy/webcam/usbcam/homeassistant/motion/jpeg/binary_sensor/mqtt/raspberrypi/2018/01/11/diy-camera.html)
 - [ ] Pi Camera
 - [ ] Addressable LED strips
 - [ ] Android tablet as remote

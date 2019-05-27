@@ -76,7 +76,7 @@ views:
           card:
             entity: binary_sensor.aqara_door
             image: /local/assets/washing_machine_2.png
-            show_name: false
+            show_name: true
             show_state: true
             state_image:
               'off': /local/assets/washing_machine_closed_2.png
@@ -665,7 +665,7 @@ views:
               entities:
                 - sensor.hallway_sensor_temperature
               hours_to_show: 24
-              line_color: red
+              line_color: TURQUOISE
               name: Hallway Temperature
               points_per_hour: 1
               show:
@@ -754,51 +754,69 @@ views:
           overflow: hidden
         type: 'custom:card-modder'
       - cards:
-          - card:
-              align_state: center
-              animate: true
-              entities:
-                - sensor.aqara_temperature
-              hours_to_show: 24
-              line_color: MEDIUMPURPLE
-              name: Bathroom Temperature
-              points_per_hour: 1
-              show:
-                fill: fade
-                labels: true
-              type: 'custom:mini-graph-card'
-            style:
-              background: 'right / cover no-repeat url("#/local/assets/")'
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 10px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-          - card:
-              align_state: center
-              animate: false
-              entities:
-                - sensor.aqara_humidity
-              hours_to_show: 24
-              line_color: STEELBLUE
-              name: Bathroom Humidity
-              points_per_hour: 1
-              show:
-                fill: fade
-                labels: true
-              type: 'custom:mini-graph-card'
-            style:
-              background: 'right / cover no-repeat url("#/local/assets/")'
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 10px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
+          - cards:
+              - card:
+                  align_state: center
+                  animate: false
+                  color_thresholds:
+                    - color: '#f39c12'
+                      value: 18
+                    - color: '#d35400'
+                      value: 20
+                    - color: '#c0392b'
+                      value: 22
+                    - color: '#C61212'
+                      value: 24
+                  entities:
+                    - sensor.aqara_temperature
+                  font_size: 85
+                  height: 150
+                  hours_to_show: 24
+                  line_width: 10
+                  name: Bathroom Temp.
+                  points_per_hour: 1
+                  show:
+                    fill: fade
+                    labels: true
+                  type: 'custom:mini-graph-card'
+                style:
+                  background: 'right / cover no-repeat url("#/local/assets/")'
+                  border: 'solid 1px rgba(100,100,100,0.3)'
+                  border-radius: 10px
+                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
+                  overflow: hidden
+                type: 'custom:card-modder'
+              - card:
+                  align_state: center
+                  animate: false
+                  entities:
+                    - sensor.aqara_humidity
+                  font_size: 85
+                  height: 150
+                  hours_to_show: 24
+                  line_color: STEELBLUE
+                  line_width: 10
+                  name: Humidity
+                  points_per_hour: 1
+                  show:
+                    fill: fade
+                    labels: true
+                  type: 'custom:mini-graph-card'
+                style:
+                  background: 'right / cover no-repeat url("#/local/assets/")'
+                  border: 'solid 1px rgba(100,100,100,0.3)'
+                  border-radius: 10px
+                  box-shadow: '3px 3px rgba(0,0,0,0.4)'
+                  overflow: hidden
+                type: 'custom:card-modder'
+            type: horizontal-stack
           - card:
               align_state: center
               animate: false
               entities:
                 - sensor.aqara_pressure
+              font_size: 85
+              height: 75
               hours_to_show: 24
               line_color: TEAL
               name: Bathroom Pressure
@@ -1190,13 +1208,13 @@ views:
               animate: false
               color_thresholds:
                 - color: '#f39c12'
-                  value: 16
-                - color: '#d35400'
-                  value: 18
-                - color: '#c0392b'
                   value: 20
-                - color: '#C61212'
+                - color: '#d35400'
                   value: 22
+                - color: '#c0392b'
+                  value: 24
+                - color: '#C61212'
+                  value: 26
               entities:
                 - sensor.living_room_temperature
               font_size: 85
@@ -2098,11 +2116,12 @@ views:
           - entity: binary_sensor.sonoff_s20_1_status
           - entity: binary_sensor.sonoff_s20_2_status
           - entity: binary_sensor.sonoff_s20_3_status
+          - entity: binary_sensor.smart_life_status
           - entity: binary_sensor.sonoff_basic_4_status
           - entity: binary_sensor.sonoff_th16_status
-          - entity: binary_sensor.smart_life_status
-          - entity: binary_sensor.rmmini
           - entity: binary_sensor.power_strip_status
+          - entity: binary_sensor.nodemcu_status
+          - entity: binary_sensor.rmmini
         show_header_toggle: false
         title: Smart Devices
         type: entities
@@ -2194,7 +2213,8 @@ views:
       - type: 'custom:tracker-card'
     icon: 'mdi:wan'
     title: Connections
-  - cards:
+  - badges: []
+    cards:
       - main_config: true
         notifications: overflow
         type: 'custom:compact-custom-header'
@@ -2252,9 +2272,13 @@ views:
           - entity: automation.detroit_become_human
         title: PlayStation 4 Games
         type: entities
-    badges: []
-    title: Automations
+      - entities:
+          - entity: automation.kitchen_light_motion_on
+          - entity: automation.kitchen_light_motion_off
+        title: Motion Based
+        type: entities
     icon: 'mdi:home-automation'
+    title: Automations
   - badges: []
     cards:
       - main_config: true
@@ -2685,7 +2709,8 @@ views:
         type: vertical-stack
     icon: 'mdi:delete-circle-outline'
     title: Bin
-  - cards:
+  - badges: []
+    cards:
       - main_config: true
         notifications: overflow
         type: 'custom:compact-custom-header'
@@ -2857,6 +2882,5 @@ views:
                 type: 'custom:swipe-card'
             type: horizontal-stack
         type: vertical-stack
-    badges: []
     icon: 'mdi:widgets'
     title: TEST

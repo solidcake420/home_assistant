@@ -10,7 +10,7 @@ I live in the U.K., keep that in mind as some of the integrations/devices might 
 * lovelace-ui.yaml should be copied to Lovelace UI Raw Config Editor
 * screenshots/gifs are in examples folder and don't get updated with every commit
 
-![shield1](https://img.shields.io/badge/Home%20Assistant-0.93.1-green.svg "HA version")
+![shield1](https://img.shields.io/badge/Home%20Assistant-0.93.2-green.svg "HA version")
 ![shield2](https://img.shields.io/github/commit-activity/m/solidcake420/home_assistant.svg "commit-activity")
 ![shield3](https://img.shields.io/github/last-commit/solidcake420/home_assistant.svg "last-commit")
 ![shield4](https://img.shields.io/github/stars/solidcake420/home_assistant.svg "stars")
@@ -27,7 +27,7 @@ If you want to buy me a coffee, that would be much appreciated. :)
 
 ## Used Hardware
 
-- [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/), running Hass.IO 2.11, Home Assistant 0.93.1
+- [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/), running Hass.IO 2.11, Home Assistant 0.93.2
  
 Network:
 
