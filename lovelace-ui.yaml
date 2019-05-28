@@ -30,6 +30,8 @@ resources:
     url: /customcards/github/maykar/lovelace-swipe-navigation.js?track=true
   - type: js
     url: /local/vertical-stack-in-card.js?v=0.1.2
+  - url: /local/text-divider-row.js
+    type: module
 title: Home
 views:
   - badges: []
@@ -86,6 +88,355 @@ views:
           conditions:
             - entity: binary_sensor.aqara_door
               state: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            entities:
+              - entity: media_player.home_group
+                group: true
+                hide:
+                  power: false
+                  power_state: false
+                  volume: false
+                  artwork_border: false
+                  icon: false
+                icon: 'mdi:animation-play'
+                info: short
+                source: icon
+                artwork: cover
+                type: 'custom:mini-media-player'
+              - entity: media_player.living_room_tv
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                type: 'custom:mini-media-player'
+              - entity: media_player.bedroom_speakers
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                icon: 'mdi:speaker-wireless'
+                type: 'custom:mini-media-player'
+              - entity: media_player.kitchen_home
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                icon: 'mdi:google-home'
+                type: 'custom:mini-media-player'
+              - entity: media_player.googlehome4940
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                icon: 'mdi:dots-horizontal-circle'
+                type: 'custom:mini-media-player'
+            type: entities
+          conditions:
+            - entity: media_player.home_group
+              state_not: 'off'
+          type: conditional
+        style:
+          background: 'right / cover no-repeat url("#/local/assets/")'
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            entities:
+              - entity: media_player.my_group
+                group: true
+                hide:
+                  power: false
+                  power_state: false
+                  volume: false
+                  artwork_border: false
+                  icon: false
+                icon: 'mdi:animation-play'
+                info: short
+                source: icon
+                artwork: cover
+                type: 'custom:mini-media-player'
+              - entity: media_player.bedroom_speakers
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                type: 'custom:mini-media-player'
+              - entity: media_player.kitchen_home
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                icon: 'mdi:google-home'
+                type: 'custom:mini-media-player'
+              - entity: media_player.googlehome4940
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                type: 'custom:mini-media-player'
+            type: entities
+          conditions:
+            - entity: media_player.my_group
+              state_not: 'off'
+          type: conditional
+        style:
+          background: 'right / cover no-repeat url("#/local/assets/")'
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            entities:
+              - entity: media_player.red_light_district
+                group: true
+                hide:
+                  power: false
+                  power_state: false
+                  volume: false
+                  artwork_border: false
+                  icon: false
+                icon: 'mdi:animation-play'
+                info: short
+                source: icon
+                artwork: cover
+                type: 'custom:mini-media-player'
+              - entity: media_player.living_room_tv
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                type: 'custom:mini-media-player'
+              - entity: media_player.googlehome9988
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                type: 'custom:mini-media-player'
+              - entity: media_player.kitchen_home
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                type: 'custom:mini-media-player'
+              - entity: media_player.googlehome4940
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                type: 'custom:mini-media-player'
+            type: entities
+          conditions:
+            - entity: media_player.red_light_district
+              state_not: 'off'
+          type: conditional
+        style:
+          background: 'right / cover no-repeat url("#/local/assets/")'
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            artwork: cover
+            entity: media_player.living_room_tv
+            hide:
+              icon: false
+              mute: true
+              power_state: false
+            info: short
+            type: 'custom:mini-media-player'
+          conditions:
+            - entity: media_player.living_room_tv
+              state_not: 'off'
+            - entity: media_player.home_group
+              state: 'off'
+            - entity: media_player.red_light_district
+              state: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            artwork: cover
+            entity: media_player.kitchen_home
+            hide:
+              icon: false
+              mute: true
+              power_state: false
+            info: short
+            type: 'custom:mini-media-player'
+          conditions:
+            - entity: media_player.kitchen_home
+              state_not: 'off'
+            - entity: media_player.my_group
+              state: 'off'
+            - entity: media_player.home_group
+              state: 'off'
+            - entity: media_player.red_light_district
+              state: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            artwork: cover
+            entity: media_player.bedroom_speakers
+            hide:
+              icon: false
+              mute: true
+              power_state: false
+            info: short
+            type: 'custom:mini-media-player'
+          conditions:
+            - entity: media_player.bedroom_speakers
+              state_not: 'off'
+            - entity: media_player.my_group
+              state: 'off'
+            - entity: media_player.home_group
+              state: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            artwork: cover
+            entity: media_player.googlehome9988
+            hide:
+              icon: false
+              mute: true
+              power_state: false
+            info: short
+            type: 'custom:mini-media-player'
+          conditions:
+            - entity: media_player.googlehome9988
+              state_not: 'off'
+            - entity: media_player.red_light_district
+              state: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            artwork: cover
+            entity: media_player.googlehome4940
+            hide:
+              icon: false
+              mute: true
+              power_state: false
+            info: short
+            type: 'custom:mini-media-player'
+          conditions:
+            - entity: media_player.googlehome4940
+              state_not: 'off'
+            - entity: media_player.my_group
+              state: 'off'
+            - entity: media_player.home_group
+              state: 'off'
+            - entity: media_player.red_light_district
+              state: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            artwork: cover
+            entity: media_player.playstation_4
+            hide:
+              controls: true
+              power_state: false
+              source: true
+              volume: true
+            type: 'custom:mini-media-player'
+          conditions:
+            - entity: media_player.playstation_4
+              state_not: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            artwork: cover
+            entity: media_player.living_room_home_mini
+            hide:
+              icon: false
+              mute: true
+              power_state: false
+            info: short
+            type: 'custom:mini-media-player'
+          conditions:
+            - entity: media_player.living_room_home_mini
+              state_not: 'off'
           type: conditional
         style:
           border: 'solid 1px rgba(100,100,100,0.3)'
@@ -174,83 +525,6 @@ views:
           height: 90px
           overflow: hidden
         type: 'custom:card-modder'
-      - cards:
-          - card:
-              artwork: cover
-              entity: media_player.living_room_tv
-              hide:
-                icon: false
-                mute: true
-                power_state: false
-              info: short
-              type: 'custom:mini-media-player'
-            style:
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 10px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-          - card:
-              artwork: cover
-              entity: media_player.kitchen_home
-              hide:
-                icon: false
-                mute: true
-                power_state: false
-              info: short
-              type: 'custom:mini-media-player'
-            style:
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 10px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-          - card:
-              artwork: cover
-              entity: media_player.bedroom_speakers
-              hide:
-                icon: false
-                mute: true
-                power_state: false
-              info: short
-              type: 'custom:mini-media-player'
-            style:
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 10px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-          - card:
-              artwork: cover
-              entity: media_player.googlehome4940
-              hide:
-                icon: false
-                mute: true
-                power_state: false
-              info: short
-              type: 'custom:mini-media-player'
-            style:
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 10px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-          - card:
-              artwork: cover
-              entity: media_player.googlehome9988
-              hide:
-                icon: false
-                mute: true
-                power_state: false
-              info: short
-              type: 'custom:mini-media-player'
-            style:
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 10px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-        type: 'custom:swipe-card'
       - card:
           entities:
             - head:
@@ -282,6 +556,7 @@ views:
                   type: 'custom:slider-entity-row'
               type: 'custom:fold-entity-row'
             - entity: light.kitchen
+              icon: 'mdi:silverware-fork-knife'
               name: Kitchen
             - type: divider
             - head:
@@ -298,6 +573,30 @@ views:
               icon: 'mdi:death-star-variant'
               toggle: true
               type: 'custom:slider-entity-row'
+            - cards:
+                - cards:
+                    - card:
+                        entities:
+                          - entity: binary_sensor.hallway_sensor_motion
+                            icon: 'mdi:door-closed'
+                            name: Hallway
+                          - entity: binary_sensor.nodemcu_motion_sensor
+                            icon: 'mdi:silverware-fork-knife'
+                            name: Kitchen
+                          - entity: binary_sensor.living_room_motion_sensor
+                            icon: 'mdi:sofa'
+                            name: Living room
+                        show_icon: true
+                        show_name: false
+                        show_state: true
+                        type: glance
+                      style:
+                        background: 'right / cover no-repeat url("#/local/assets/")'
+                      type: 'custom:card-modder'
+                  type: horizontal-stack
+              type: 'custom:vertical-stack-in-card'
+            - entity: input_number.dyson_fan_speed
+              name: Dyson Fan Speed
           title: Lights
           type: entities
         style:
@@ -307,34 +606,62 @@ views:
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
           overflow: 'hidden#'
         type: 'custom:card-modder'
-      - card:
-          align_state: center
-          animate: false
-          decimals: 1
-          entities:
-            - entity: sensor.living_room_temperature
-              name: Living Room
-            - entity: sensor.hallway_sensor_temperature
-              name: Hallway
-            - entity: sensor.sonoff_th16_temperature
-              name: Bedroom
-            - entity: sensor.aqara_temperature
-              name: Bathroom
-          hours_to_show: 24
-          name: Temperature
-          points_per_hour: 1
-          show:
-            extrema: false
-            fill: fade
-            labels: true
-          type: 'custom:mini-graph-card'
-        style:
-          background: 'right / cover no-repeat url("#/local/assets/")'
-          border: 'solid 1px rgba(100,100,100,0.3)'
-          border-radius: 10px
-          box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: hidden
-        type: 'custom:card-modder'
+      - cards:
+          - card:
+              align_state: center
+              animate: false
+              decimals: 1
+              entities:
+                - entity: sensor.living_room_temperature
+                  name: Living Room
+                - entity: sensor.aqara_temperature
+                  name: Bathroom
+                - entity: sensor.sonoff_th16_temperature
+                  name: Bedroom
+                - entity: sensor.hallway_sensor_temperature
+                  name: Hallway
+              hours_to_show: 24
+              name: Temperature
+              points_per_hour: 1
+              show:
+                extrema: false
+                fill: fade
+                labels: true
+              type: 'custom:mini-graph-card'
+            style:
+              background: 'right / cover no-repeat url("#/local/assets/")'
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 10px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              align_state: center
+              animate: false
+              decimals: 1
+              entities:
+                - entity: sensor.living_room_humidity
+                  name: Living Room
+                - entity: sensor.aqara_humidity
+                  name: Bathroom
+                - entity: sensor.sonoff_th16_humidity
+                  name: Bedroom
+              hours_to_show: 24
+              name: Humidity
+              points_per_hour: 1
+              show:
+                extrema: false
+                fill: fade
+                labels: true
+              type: 'custom:mini-graph-card'
+            style:
+              background: 'right / cover no-repeat url("#/local/assets/")'
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 10px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+        type: 'custom:swipe-card'
       - cards:
           - cards:
               - card:
@@ -665,7 +992,7 @@ views:
               entities:
                 - sensor.hallway_sensor_temperature
               hours_to_show: 24
-              line_color: TURQUOISE
+              line_color: DARKMAGENTA
               name: Hallway Temperature
               points_per_hour: 1
               show:
@@ -685,7 +1012,7 @@ views:
               entities:
                 - sensor.hallway_sensor_light_level
               hours_to_show: 24
-              line_color: dodgerblue
+              line_color: LIGHTSKYBLUE
               name: Hallway Light level
               points_per_hour: 1
               show:
@@ -777,7 +1104,7 @@ views:
                   points_per_hour: 1
                   show:
                     fill: fade
-                    labels: true
+                    labels: false
                   type: 'custom:mini-graph-card'
                 style:
                   background: 'right / cover no-repeat url("#/local/assets/")'
@@ -800,7 +1127,7 @@ views:
                   points_per_hour: 1
                   show:
                     fill: fade
-                    labels: true
+                    labels: false
                   type: 'custom:mini-graph-card'
                 style:
                   background: 'right / cover no-repeat url("#/local/assets/")'
@@ -823,7 +1150,7 @@ views:
               points_per_hour: 1
               show:
                 fill: fade
-                labels: true
+                labels: false
               type: 'custom:mini-graph-card'
             style:
               background: 'right / cover no-repeat url("#/local/assets/")'
@@ -865,9 +1192,12 @@ views:
             - entity: input_boolean.auto
             - entity: input_boolean.fan
             - entity: input_number.dyson_fan_speed
-            - type: divider
             - entity: sensor.living_room_filter_life
               name: Filter life
+            - type: divider
+            - entity: binary_sensor.living_room_motion_sensor
+              name: Motion sensor
+              secondary_info: last-changed
           title: Dyson PureCool™
           type: entities
         style:
@@ -1352,7 +1682,7 @@ views:
           overflow: hidden
         type: 'custom:card-modder'
       - card:
-          artwork: cover
+          artwork: full-cover
           entity: media_player.playstation_4
           hide:
             controls: true
@@ -1363,6 +1693,26 @@ views:
         style:
           border: 'solid 1px rgba(100,100,100,0.3)'
           border-radius: 10px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            artwork: cover
+            entity: media_player.living_room_home_mini
+            hide:
+              icon: false
+              mute: true
+              power_state: false
+            info: short
+            type: 'custom:mini-media-player'
+          conditions:
+            - entity: media_player.living_room_home_mini
+              state_not: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
           overflow: hidden
         type: 'custom:card-modder'
@@ -1397,13 +1747,13 @@ views:
               animate: true
               color_thresholds:
                 - color: '#f39c12'
-                  value: 16
-                - color: '#d35400'
                   value: 18
-                - color: '#c0392b'
+                - color: '#d35400'
                   value: 20
-                - color: '#C61212'
+                - color: '#c0392b'
                   value: 22
+                - color: '#C61212'
+                  value: 24
               decimals: 1
               entities:
                 - sensor.sonoff_th16_temperature
@@ -1870,167 +2220,180 @@ views:
         notifications: overflow
         type: 'custom:compact-custom-header'
         voice: overflow
-      - artwork: cover
-        entity: media_player.living_room_tv
-        hide:
-          power_state: false
-          volume: false
-        type: 'custom:mini-media-player'
-      - artwork: cover
-        entity: media_player.bedroom_speakers
-        icon: 'mdi:speaker-wireless'
-        type: 'custom:mini-media-player'
-      - artwork: cover
-        entity: media_player.kitchen_home
-        icon: 'mdi:google-home'
-        type: 'custom:mini-media-player'
-      - cards:
-          - artwork: cover
-            entity: media_player.bedroom_home_mini
-            hide:
-              icon: false
-              mute: true
-              power_state: false
-            icon: 'mdi:dots-horizontal-circle'
-            info: short
-            name: Master Bedroom
-            type: 'custom:mini-media-player'
-          - artwork: cover
-            entity: media_player.googlehome9988
-            hide:
-              icon: false
-              mute: true
-              power_state: false
-            icon: 'mdi:dots-horizontal-circle'
-            info: short
-            name: Bedroom 2
-            type: 'custom:mini-media-player'
-        type: horizontal-stack
-      - cards:
-          - artwork: cover
-            entity: media_player.living_room_home_mini
-            hide:
-              icon: false
-              mute: true
-              power_state: false
-            icon: 'mdi:dots-horizontal-circle'
-            info: short
-            name: Living room
-            type: 'custom:mini-media-player'
-          - artwork: cover
-            entity: media_player.googlehome4940
-            hide:
-              icon: false
-              mute: true
-              power_state: false
-            icon: 'mdi:dots-horizontal-circle'
-            info: short
-            name: Bathroom
-            type: 'custom:mini-media-player'
-        type: horizontal-stack
-      - artwork: null
-        entity: media_player.playstation_4
-        icon: 'mdi:playstation'
-        type: 'custom:mini-media-player'
-    icon: 'mdi:play-circle'
-    panel: false
-    title: Multiroom
-  - badges: []
-    cards:
-      - main_config: true
-        notifications: overflow
-        type: 'custom:compact-custom-header'
-        voice: overflow
-      - entities:
-          - entity: media_player.home_group
-            group: true
-            hide:
-              power: true
-              volume: false
-            icon: 'mdi:animation-play'
-            info: short
-            source: icon
-            type: 'custom:mini-media-player'
-          - entity: media_player.living_room_tv
-            group: true
-            hide:
-              controls: true
-            type: 'custom:mini-media-player'
-          - entity: media_player.bedroom_speakers
-            group: true
-            hide:
-              controls: true
-            icon: 'mdi:speaker-wireless'
-            type: 'custom:mini-media-player'
-          - entity: media_player.kitchen_home
-            group: true
-            hide:
-              controls: true
-            icon: 'mdi:google-home'
-            type: 'custom:mini-media-player'
-          - entity: media_player.googlehome4940
-            group: true
-            hide:
-              controls: true
-            icon: 'mdi:dots-horizontal-circle'
-            type: 'custom:mini-media-player'
-        type: entities
-      - entities:
-          - entity: media_player.my_group
-            group: true
-            hide:
-              power: true
-              volume: false
-            icon: 'mdi:animation-play'
-            info: short
-            source: icon
-            type: 'custom:mini-media-player'
-          - entity: media_player.bedroom_speakers
-            group: true
-            hide:
-              controls: true
-            icon: 'mdi:speaker-wireless'
-            type: 'custom:mini-media-player'
-          - entity: media_player.kitchen_home
-            group: true
-            hide:
-              controls: true
-            icon: 'mdi:google-home'
-            type: 'custom:mini-media-player'
-          - entity: media_player.googlehome4940
-            group: true
-            hide:
-              controls: true
-            icon: 'mdi:dots-horizontal-circle'
-            type: 'custom:mini-media-player'
-        type: entities
-      - entities:
-          - entity: media_player.red_light_district
-            group: true
-            hide:
-              power: true
-              volume: false
-            icon: 'mdi:animation-play'
-            info: short
-            source: icon
-            type: 'custom:mini-media-player'
-          - entity: media_player.living_room_tv
-            group: true
-            hide:
-              controls: true
-            type: 'custom:mini-media-player'
-          - entity: media_player.kitchen_home
-            group: true
-            hide:
-              controls: true
-            icon: 'mdi:google-home'
-            type: 'custom:mini-media-player'
-          - entity: media_player.googlehome9988
-            group: true
-            hide:
-              controls: true
-            type: 'custom:mini-media-player'
-        type: entities
+      - card:
+          entities:
+            - entity: media_player.home_group
+              group: true
+              hide:
+                power: false
+                power_state: false
+                volume: false
+                artwork_border: false
+                icon: false
+              icon: 'mdi:animation-play'
+              info: short
+              source: icon
+              artwork: full-cover
+              type: 'custom:mini-media-player'
+            - entity: media_player.living_room_tv
+              group: true
+              hide:
+                power: true
+                icon: false
+                controls: true
+                progress: true
+                info: true
+              type: 'custom:mini-media-player'
+            - entity: media_player.bedroom_speakers
+              group: true
+              hide:
+                power: true
+                icon: false
+                controls: true
+                progress: true
+                info: true
+              icon: 'mdi:speaker-wireless'
+              type: 'custom:mini-media-player'
+            - entity: media_player.kitchen_home
+              group: true
+              hide:
+                power: true
+                icon: false
+                controls: true
+                progress: true
+                info: true
+              icon: 'mdi:google-home'
+              type: 'custom:mini-media-player'
+            - entity: media_player.googlehome4940
+              group: true
+              hide:
+                power: true
+                icon: false
+                controls: true
+                progress: true
+                info: true
+              icon: 'mdi:dots-horizontal-circle'
+              type: 'custom:mini-media-player'
+          type: entities
+        style:
+          background: 'right / cover no-repeat url("#/local/assets/")'
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          entities:
+            - entity: media_player.my_group
+              group: true
+              hide:
+                power: false
+                power_state: false
+                volume: false
+                artwork_border: false
+                icon: false
+              icon: 'mdi:animation-play'
+              info: short
+              source: icon
+              artwork: full-cover
+              type: 'custom:mini-media-player'
+            - entity: media_player.bedroom_speakers
+              group: true
+              hide:
+                power: true
+                icon: false
+                controls: true
+                progress: true
+                info: true
+              icon: 'mdi:speaker-wireless'
+              type: 'custom:mini-media-player'
+            - entity: media_player.kitchen_home
+              group: true
+              hide:
+                power: true
+                icon: false
+                controls: true
+                progress: true
+                info: true
+              icon: 'mdi:google-home'
+              type: 'custom:mini-media-player'
+            - entity: media_player.googlehome4940
+              group: true
+              hide:
+                power: true
+                icon: false
+                controls: true
+                progress: true
+                info: true
+              icon: 'mdi:dots-horizontal-circle'
+              type: 'custom:mini-media-player'
+          type: entities
+        style:
+          background: 'right / cover no-repeat url("#/local/assets/")'
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          entities:
+            - entity: media_player.red_light_district
+              group: true
+              hide:
+                power: false
+                power_state: false
+                volume: false
+                artwork_border: false
+                icon: false
+              icon: 'mdi:animation-play'
+              info: short
+              source: icon
+              artwork: full-cover
+              type: 'custom:mini-media-player'
+            - entity: media_player.living_room_tv
+              group: true
+              hide:
+                power: true
+                icon: false
+                controls: true
+                progress: true
+                info: true
+              type: 'custom:mini-media-player'
+            - entity: media_player.kitchen_home
+              group: true
+              hide:
+                power: true
+                icon: false
+                controls: true
+                progress: true
+                info: true
+              type: 'custom:mini-media-player'
+            - entity: media_player.googlehome9988
+              group: true
+              hide:
+                power: true
+                icon: false
+                controls: true
+                progress: true
+                info: true
+              type: 'custom:mini-media-player'
+            - entity: media_player.googlehome4940
+              group: true
+              hide:
+                power: true
+                icon: false
+                controls: true
+                progress: true
+                info: true
+              type: 'custom:mini-media-player'
+          type: entities
+        style:
+          background: 'right / cover no-repeat url("#/local/assets/")'
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
     icon: 'mdi:animation-play'
     title: Multiroom
   - badges: []
@@ -2707,6 +3070,21 @@ views:
                 type: 'custom:card-modder'
             type: horizontal-stack
         type: vertical-stack
+      - card:
+          entities:
+            - binary_sensor.hallway_sensor_motion
+            - binary_sensor.nodemcu_motion_sensor
+            - binary_sensor.living_room_motion_sensor
+          image: /local/assets/motion2.png
+          title: Motion sensors
+          type: picture-glance
+        style:
+          background: 'right / cover no-repeat url("#/local/assets/")'
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 10px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: 'hidden#'
+        type: 'custom:card-modder'
     icon: 'mdi:delete-circle-outline'
     title: Bin
   - badges: []
@@ -2882,5 +3260,43 @@ views:
                 type: 'custom:swipe-card'
             type: horizontal-stack
         type: vertical-stack
+      - card:
+          entities:
+            - type: 'custom:text-divider-row'
+              text: Motion sensors
+            - cards:
+                - cards:
+                    - card:
+                        entities:
+                          - entity: binary_sensor.hallway_sensor_motion
+                            icon: 'mdi:door-closed'
+                            name: Hallway
+                          - entity: binary_sensor.nodemcu_motion_sensor
+                            icon: 'mdi:silverware-fork-knife'
+                            name: Kitchen
+                          - entity: binary_sensor.living_room_motion_sensor
+                            icon: 'mdi:sofa'
+                            name: Living room
+                        show_icon: true
+                        show_name: true
+                        show_state: true
+                        type: glance
+                      style:
+                        background: 'right / cover no-repeat url("#/local/assets/")'
+                      type: 'custom:card-modder'
+                  type: horizontal-stack
+              type: 'custom:vertical-stack-in-card'
+            - type: 'custom:text-divider-row'
+              text: Dyson PureCool™
+            - entity: input_boolean.auto
+            - entity: input_number.dyson_fan_speed
+          type: entities
+        style:
+          background: 'right / cover no-repeat url("#/local/assets/")'
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 10px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: 'hidden#'
+        type: 'custom:card-modder'
     icon: 'mdi:widgets'
     title: TEST

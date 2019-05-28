@@ -14,6 +14,7 @@
 - [X] Bedroom PC's State state-images/wake-on-lan
 - [X] More sliders
 - [X] Make card stacks foldable
+- [X] Replace Media slider with Conditional
 - [ ] Guests conditional card
 - [ ] [Improve Dyson Fan card](https://community.home-assistant.io/t/wifi-dyson-pure-cool-link-full-setup/40332)
 - [ ] Wrap a vertical-stack or horizontal-stack in card-modder - it will mod every card in the stack separately (new feature)

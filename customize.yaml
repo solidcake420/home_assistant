@@ -222,6 +222,7 @@ light.hue_mini:
 media_player.red_light_district:
   icon: mdi:speaker-multiple
 media_player.my_group:
+  friendly_name: My Group
   icon: mdi:speaker-multiple
 media_player.home_group:
   icon: mdi:speaker-multiple
@@ -254,6 +255,7 @@ switch.sonoff_th16_relay:
   friendly_name: Bedroom Fan
   icon: mdi:fan
 binary_sensor.sonoff_th16_status:
+  friendly_name: Sonoff TH16
   icon: mdi:light-switch
 media_player.living_room_tv: {}
 binary_sensor.smart_life_status:
@@ -292,7 +294,7 @@ sensor.home_mini_3:
   friendly_name: Google Home Mini Bedroom 2
   icon: mdi:dots-horizontal-circle
 binary_sensor.hallway_sensor_motion:
-  friendly_name: Hallway motion sensor
+  friendly_name: Hallway Motion Sensor
 binary_sensor.battlestation_pc:
   icon: mdi:desktop-tower
 binary_sensor.flat_phone:
@@ -332,7 +334,7 @@ binary_sensor.nintendo:
 device_tracker.rmmini_16_da_64:
   icon: mdi:alarm-light
 binary_sensor.rmmini:
-  icon: mdi:alarm-light
+  icon: mdi:remote
 switch.stereo:
   icon: mdi:audio-video
 switch.tv:
@@ -397,3 +399,8 @@ sensor.salt_lamp_linkquality:
 sensor.bridge_state:
   friendly_name: Bridge State
   icon: mdi:zigbee
+binary_sensor.nodemcu_status:
+  friendly_name: NodeMCU v2 ESP8266
+  icon: mdi:car-esp
+binary_sensor.nodemcu_motion_sensor:
+  friendly_name: Kitchen Motion Sensor

@@ -75,6 +75,7 @@ OTHER:
 - [Dyson DP01 Pure Cool Link Desk Fan](https://www.dyson.com/purifiers/dyson-dp01-pure-cool-link-desk-white-silver.html)
 - [SONY PlayStation 4](https://www.sony.co.uk/electronics/playstation-systems/playstation-4)
 - [Broadlink RM Mini 3](http://www.ibroadlink.com/rmMini3/)
+- [AM312 PIR Motion Sensor](https://www.aliexpress.com/item/Mini-IR-Pyroelectric-Infrared-PIR-Motion-Human-Sensor-Automatic-Detector-Module-AM312-Sensor-DC-2-7/32855428493.html)
 
 
 ## Components/custom cards used

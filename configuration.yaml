@@ -26,14 +26,15 @@ logbook:
     - switch.stereo_vol_up
     - switch.stereo_vol_down
     - binary_sensor.nodemcu_motion_sensor
+    - binary_sensor.living_room_motion_sensor
 
 http:
 
-  api_password: !secret http_password
-  login_attempts_threshold: 5
-#  base_url: https://#####.duckdns.org:8123
-#  ssl_certificate: /ssl/fullchain.pem
-#  ssl_key: /ssl/privkey.pem
+#  api_password: !secret http_password
+#  login_attempts_threshold: 5
+  base_url: https://###########.duckdns.org:8123
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
@@ -242,14 +243,17 @@ sensor:
 
 binary_sensor:
 
-#  - platform: rpi_gpio
-#    ports:
-#      17: Living Room Motion Sensor
+  - platform: rpi_gpio
+    ports:
+      17: Living Room Motion Sensor
 
   - platform: workday
     country: UK
     add_holidays: 
       - '2019-04-05'
+      - '2019-04-04'
+      - '2019-04-15'
+      - '2019-05-28'
 
   - platform: template
     sensors:
