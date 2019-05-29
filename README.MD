@@ -142,6 +142,7 @@ Custom Lovelace components:
 - [Swipe Card](https://github.com/bramkragten/custom-ui/tree/master/swipe-card)
 - [Lovelace Swipe Navigation](https://github.com/maykar/lovelace-swipe-navigation)
 - [Vertical Stack In Card](https://github.com/custom-cards/vertical-stack-in-card)
+- [Text Divider Row](https://github.com/custom-cards/text-divider-row) (currently not in use)
 
 Other:
 

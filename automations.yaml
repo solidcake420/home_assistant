@@ -616,3 +616,57 @@
   - data:
       entity_id: light.kitchen
     service: light.turn_off
+- id: '1559039028098'
+  alias: 'Horizon: Zero Dawn'
+  trigger:
+  - entity_id: sensor.ps4_game
+    platform: state
+    to: Horizon Zero Dawn\u2122
+  condition: []
+  action:
+  - data:
+      group_name: Living room
+      scene_name: Horizon
+    service: hue.hue_activate_scene
+- id: '1559063348032'
+  alias: Music on speakers when back home
+  trigger:
+  - entity_id: person.flat
+    from: not_home
+    platform: state
+    to: home
+  condition:
+  - condition: state
+    entity_id: media_player.spotify
+    state: playing
+  action:
+  - data:
+      entity_id: media_player.my_group
+    service: media_player.media_play_pause
+- id: '1559150596231'
+  alias: Water Filter
+  trigger:
+  - at: 00:00:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: counter.water_filter
+    service: counter.decrement
+- id: '1559154307329'
+  alias: Laundry Timer
+  trigger:
+  - entity_id: binary_sensor.aqara_door
+    for: 00:01:00
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: sensor.bridge_state
+    state: online
+  action:
+  - data:
+      duration: 01:30:00
+      entity_id: timer.laundry
+    service: timer.start

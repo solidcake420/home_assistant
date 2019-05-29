@@ -13,25 +13,7 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
-logbook:
-  exclude:
-    entities:
-    - switch.kamil_pc
-    - switch.flat_pc
-    - binary_sensor.hallway_sensor_motion
-    - group.garmin
-    - media_player.spotify
-    - switch.tv
-    - switch.stereo
-    - switch.stereo_vol_up
-    - switch.stereo_vol_down
-    - binary_sensor.nodemcu_motion_sensor
-    - binary_sensor.living_room_motion_sensor
-
 http:
-
-#  api_password: !secret http_password
-#  login_attempts_threshold: 5
   base_url: https://###########.duckdns.org:8123
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
@@ -50,12 +32,23 @@ frontend:
 # Enables configuration UI
 config:
 
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
-
 # Discover some devices automatically
 #discovery:
+
+logbook:
+  exclude:
+    entities:
+    - switch.kamil_pc
+    - switch.flat_pc
+    - binary_sensor.hallway_sensor_motion
+    - group.garmin
+    - media_player.spotify
+    - switch.tv
+    - switch.stereo
+    - switch.stereo_vol_up
+    - switch.stereo_vol_down
+    - binary_sensor.nodemcu_motion_sensor
+    - binary_sensor.living_room_motion_sensor
 
 # Text to speech
 tts:
@@ -251,9 +244,6 @@ binary_sensor:
     country: UK
     add_holidays: 
       - '2019-04-05'
-      - '2019-04-04'
-      - '2019-04-15'
-      - '2019-05-28'
 
   - platform: template
     sensors:
@@ -393,6 +383,8 @@ media_player:
   - platform: spotify
     client_id: !secret spotify_id
     client_secret: !secret spotify_api
+  - platform: kodi
+    host: 192.168.1.133
 
 #camera:
 #  - platform: rpi_camera
@@ -411,6 +403,18 @@ timer:
   zigbee_permit_join:
     name: Time remaining
     duration: 600 # Updated this to the number of seconds you wish
+
+  laundry:
+    duration: '01:30:00'
+    icon: mdi:washing-machine
+
+counter:
+  water_filter:
+    initial: 20
+    step: 1
+  cat_litter:
+    initial: 0
+    step: 1
 
 breaking_changes:
 

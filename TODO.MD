@@ -1,5 +1,6 @@
 ## Todo - software
 
+- [X] Counter & timer components
 - [X] [fold-entity-row](https://github.com/thomasloven/lovelace-fold-entity-row)
 - [X] [Compact header](https://github.com/maykar/compact-custom-header)
 - [X] [Zigbee2mqtt](https://www.zigbee2mqtt.io/getting_started/running_zigbee2mqtt.html)
@@ -15,7 +16,11 @@
 - [X] More sliders
 - [X] Make card stacks foldable
 - [X] Replace Media slider with Conditional
-- [ ] Guests conditional card
+- [X] Guests conditional card
+  - [X] Timer conditional card
+  - [ ] Air quality conditional alert
+  - [ ] Water filter conditional card
+- [X] Add timer to washing machine
 - [ ] [Improve Dyson Fan card](https://community.home-assistant.io/t/wifi-dyson-pure-cool-link-full-setup/40332)
 - [ ] Wrap a vertical-stack or horizontal-stack in card-modder - it will mod every card in the stack separately (new feature)
 - [ ] More themes
@@ -33,11 +38,11 @@
   - [ ] MagicLight LED
 - [ ] [USB Camera](https://blog.kalavala.net/camera/diy/webcam/usbcam/homeassistant/motion/jpeg/binary_sensor/mqtt/raspberrypi/2018/01/11/diy-camera.html)
 - [ ] Pi Camera
-- [ ] Addressable LED strips
 - [ ] Android tablet as remote
 
 ## Todo - automations
-
+- [ ] Announcer for washing machine
+- [ ] Play on speakers when back home
 - [ ] [Welcome home automation](https://www.reddit.com/r/homeassistant/comments/bi2klv/playing_specific_song_via_spotify_on_alexa/)
   - [ ] Welcome home themes for guests
 - [ ] Notifications
@@ -58,6 +63,7 @@
 
 
 ## Other / future plans
+- [ ] Update official components in readme
 - [ ] Publish ESPHome configs
 - [ ] [Awesome HA](https://www.awesome-ha.com/)
 - [ ] [Share the love](https://sharethelove.io/) picture-elements, glance cards
