@@ -1,5 +1,7 @@
 ## Todo - software
 
+- [ ] Tidy entity registry
+- [ ] [Remove MQTT sensor](https://github.com/Koenkk/zigbee2mqtt/issues/835#issuecomment-462049621)
 - [X] Counter & timer components
 - [X] [fold-entity-row](https://github.com/thomasloven/lovelace-fold-entity-row)
 - [X] [Compact header](https://github.com/maykar/compact-custom-header)
@@ -63,7 +65,7 @@
 
 
 ## Other / future plans
-- [ ] Update official components in readme
+- [X] Update official components in readme
 - [ ] Publish ESPHome configs
 - [ ] [Awesome HA](https://www.awesome-ha.com/)
 - [ ] [Share the love](https://sharethelove.io/) picture-elements, glance cards

@@ -208,315 +208,355 @@ views:
               overflow: hidden
             type: 'custom:card-modder'
         type: vertical-stack
-      - cards:
-          - card:
-              card:
-                artwork: cover
-                entity: media_player.living_room_tv
+      - card:
+          card:
+            entities:
+              - entity: media_player.home_group
+                group: true
                 hide:
-                  icon: false
-                  mute: true
+                  power: false
                   power_state: false
-                info: short
-                type: 'custom:mini-media-player'
-              conditions:
-                - entity: media_player.living_room_tv
-                  state_not: 'off'
-                - entity: media_player.home_group
-                  state: 'off'
-                - entity: media_player.red_light_district
-                  state: 'off'
-              type: conditional
-            style:
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 20px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-          - card:
-              card:
-                artwork: cover
-                entity: media_player.bedroom_speakers
-                hide:
-                  icon: false
-                  mute: true
-                  power_state: false
-                info: short
-                type: 'custom:mini-media-player'
-              conditions:
-                - entity: media_player.bedroom_speakers
-                  state_not: 'off'
-                - entity: media_player.my_group
-                  state: 'off'
-                - entity: media_player.home_group
-                  state: 'off'
-              type: conditional
-            style:
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 20px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-          - card:
-              card:
-                artwork: cover
-                entity: media_player.kitchen_home
-                hide:
-                  icon: false
-                  mute: true
-                  power_state: false
-                info: short
-                type: 'custom:mini-media-player'
-              conditions:
-                - entity: media_player.kitchen_home
-                  state_not: 'off'
-                - entity: media_player.my_group
-                  state: 'off'
-                - entity: media_player.home_group
-                  state: 'off'
-                - entity: media_player.red_light_district
-                  state: 'off'
-              type: conditional
-            style:
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 20px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-        type: vertical-stack
-      - cards:
-          - card:
-              card:
-                artwork: cover
-                info: scroll
-                entity: media_player.kodi
-                hide:
-                  controls: false
-                  power_state: false
-                  source: false
                   volume: false
-                type: 'custom:mini-media-player'
-              conditions:
-                - entity: media_player.kodi
-                  state_not: 'off'
-              type: conditional
-            style:
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 20px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-          - card:
-              card:
+                  artwork_border: false
+                  icon: false
+                icon: 'mdi:animation-play'
+                info: short
+                source: icon
                 artwork: cover
-                entity: media_player.playstation_4
-                hide:
-                  controls: true
-                  power_state: false
-                  source: true
-                  volume: true
                 type: 'custom:mini-media-player'
-              conditions:
-                - entity: media_player.playstation_4
-                  state_not: 'off'
-              type: conditional
-            style:
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 20px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-        type: vertical-stack
-      - cards:
-          - card:
-              card:
-                entities:
-                  - artwork: cover
-                    entity: media_player.home_group
-                    group: true
-                    hide:
-                      artwork_border: false
-                      icon: false
-                      power: false
-                      power_state: false
-                      volume: false
-                    icon: 'mdi:animation-play'
-                    info: short
-                    source: icon
-                    type: 'custom:mini-media-player'
-                  - entity: media_player.living_room_tv
-                    group: true
-                    hide:
-                      controls: true
-                      icon: true
-                      info: true
-                      power: true
-                      progress: true
-                    type: 'custom:mini-media-player'
-                  - entity: media_player.bedroom_speakers
-                    group: true
-                    hide:
-                      controls: true
-                      icon: true
-                      info: true
-                      power: true
-                      progress: true
-                    icon: 'mdi:speaker-wireless'
-                    type: 'custom:mini-media-player'
-                  - entity: media_player.kitchen_home
-                    group: true
-                    hide:
-                      controls: true
-                      icon: true
-                      info: true
-                      power: true
-                      progress: true
-                    icon: 'mdi:google-home'
-                    type: 'custom:mini-media-player'
-                  - entity: media_player.googlehome4940
-                    group: true
-                    hide:
-                      controls: true
-                      icon: true
-                      info: true
-                      power: true
-                      progress: true
-                    icon: 'mdi:dots-horizontal-circle'
-                    type: 'custom:mini-media-player'
-                type: entities
-              conditions:
-                - entity: media_player.home_group
-                  state_not: 'off'
-              type: conditional
-            style:
-              background: transparent
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 20px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-          - card:
-              card:
-                entities:
-                  - artwork: cover
-                    entity: media_player.my_group
-                    group: true
-                    hide:
-                      artwork_border: false
-                      icon: false
-                      power: false
-                      power_state: false
-                      volume: false
-                    icon: 'mdi:animation-play'
-                    info: short
-                    source: icon
-                    type: 'custom:mini-media-player'
-                  - entity: media_player.bedroom_speakers
-                    group: true
-                    hide:
-                      controls: true
-                      icon: true
-                      info: true
-                      power: true
-                      progress: true
-                    type: 'custom:mini-media-player'
-                  - entity: media_player.kitchen_home
-                    group: true
-                    hide:
-                      controls: true
-                      icon: true
-                      info: true
-                      power: true
-                      progress: true
-                    icon: 'mdi:google-home'
-                    type: 'custom:mini-media-player'
-                  - entity: media_player.googlehome4940
-                    group: true
-                    hide:
-                      controls: true
-                      icon: true
-                      info: true
-                      power: true
-                      progress: true
-                    type: 'custom:mini-media-player'
-                type: entities
-              conditions:
-                - entity: media_player.my_group
-                  state_not: 'off'
-              type: conditional
-            style:
-              background: transparent
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 20px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-          - card:
-              card:
-                entities:
-                  - artwork: cover
-                    entity: media_player.red_light_district
-                    group: true
-                    hide:
-                      artwork_border: false
-                      icon: false
-                      power: false
-                      power_state: false
-                      volume: false
-                    icon: 'mdi:animation-play'
-                    info: short
-                    source: icon
-                    type: 'custom:mini-media-player'
-                  - entity: media_player.living_room_tv
-                    group: true
-                    hide:
-                      controls: true
-                      icon: true
-                      info: true
-                      power: true
-                      progress: true
-                    type: 'custom:mini-media-player'
-                  - entity: media_player.googlehome9988
-                    group: true
-                    hide:
-                      controls: true
-                      icon: true
-                      info: true
-                      power: true
-                      progress: true
-                    type: 'custom:mini-media-player'
-                  - entity: media_player.kitchen_home
-                    group: true
-                    hide:
-                      controls: true
-                      icon: true
-                      info: true
-                      power: true
-                      progress: true
-                    type: 'custom:mini-media-player'
-                  - entity: media_player.googlehome4940
-                    group: true
-                    hide:
-                      controls: true
-                      icon: true
-                      info: true
-                      power: true
-                      progress: true
-                    type: 'custom:mini-media-player'
-                type: entities
-              conditions:
-                - entity: media_player.red_light_district
-                  state_not: 'off'
-              type: conditional
-            style:
-              background: transparent
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 20px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-        type: vertical-stack
-      - cards:
+              - entity: media_player.living_room_tv
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                type: 'custom:mini-media-player'
+              - entity: media_player.bedroom_speakers
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                icon: 'mdi:speaker-wireless'
+                type: 'custom:mini-media-player'
+              - entity: media_player.kitchen_home
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                icon: 'mdi:google-home'
+                type: 'custom:mini-media-player'
+              - entity: media_player.googlehome4940
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                icon: 'mdi:dots-horizontal-circle'
+                type: 'custom:mini-media-player'
+            type: entities
+          conditions:
+            - entity: media_player.home_group
+              state_not: 'off'
+          type: conditional
+        style:
+          background: transparent
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            entities:
+              - entity: media_player.my_group
+                group: true
+                hide:
+                  power: false
+                  power_state: false
+                  volume: false
+                  artwork_border: false
+                  icon: false
+                icon: 'mdi:animation-play'
+                info: short
+                source: icon
+                artwork: cover
+                type: 'custom:mini-media-player'
+              - entity: media_player.bedroom_speakers
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                type: 'custom:mini-media-player'
+              - entity: media_player.kitchen_home
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                icon: 'mdi:google-home'
+                type: 'custom:mini-media-player'
+              - entity: media_player.googlehome4940
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                type: 'custom:mini-media-player'
+            type: entities
+          conditions:
+            - entity: media_player.my_group
+              state_not: 'off'
+          type: conditional
+        style:
+          background: transparent
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            entities:
+              - entity: media_player.red_light_district
+                group: true
+                hide:
+                  power: false
+                  power_state: false
+                  volume: false
+                  artwork_border: false
+                  icon: false
+                icon: 'mdi:animation-play'
+                info: short
+                source: icon
+                artwork: cover
+                type: 'custom:mini-media-player'
+              - entity: media_player.living_room_tv
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                type: 'custom:mini-media-player'
+              - entity: media_player.googlehome9988
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                type: 'custom:mini-media-player'
+              - entity: media_player.kitchen_home
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                type: 'custom:mini-media-player'
+              - entity: media_player.googlehome4940
+                group: true
+                hide:
+                  power: true
+                  icon: true
+                  controls: true
+                  progress: true
+                  info: true
+                type: 'custom:mini-media-player'
+            type: entities
+          conditions:
+            - entity: media_player.red_light_district
+              state_not: 'off'
+          type: conditional
+        style:
+          background: transparent
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            artwork: cover
+            entity: media_player.living_room_tv
+            hide:
+              icon: false
+              mute: true
+              power_state: false
+            info: short
+            type: 'custom:mini-media-player'
+          conditions:
+            - entity: media_player.living_room_tv
+              state_not: 'off'
+            - entity: media_player.home_group
+              state: 'off'
+            - entity: media_player.red_light_district
+              state: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            artwork: cover
+            entity: media_player.kitchen_home
+            hide:
+              icon: false
+              mute: true
+              power_state: false
+            info: short
+            type: 'custom:mini-media-player'
+          conditions:
+            - entity: media_player.kitchen_home
+              state_not: 'off'
+            - entity: media_player.my_group
+              state: 'off'
+            - entity: media_player.home_group
+              state: 'off'
+            - entity: media_player.red_light_district
+              state: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            artwork: cover
+            entity: media_player.bedroom_speakers
+            hide:
+              icon: false
+              mute: true
+              power_state: false
+            info: short
+            type: 'custom:mini-media-player'
+          conditions:
+            - entity: media_player.bedroom_speakers
+              state_not: 'off'
+            - entity: media_player.my_group
+              state: 'off'
+            - entity: media_player.home_group
+              state: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            artwork: cover
+            entity: media_player.googlehome9988
+            hide:
+              icon: false
+              mute: true
+              power_state: false
+            info: short
+            type: 'custom:mini-media-player'
+          conditions:
+            - entity: media_player.googlehome9988
+              state_not: 'off'
+            - entity: media_player.red_light_district
+              state: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            artwork: cover
+            entity: media_player.googlehome4940
+            hide:
+              icon: false
+              mute: true
+              power_state: false
+            info: short
+            type: 'custom:mini-media-player'
+          conditions:
+            - entity: media_player.googlehome4940
+              state_not: 'off'
+            - entity: media_player.my_group
+              state: 'off'
+            - entity: media_player.home_group
+              state: 'off'
+            - entity: media_player.red_light_district
+              state: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            artwork: cover
+            entity: media_player.playstation_4
+            hide:
+              controls: true
+              power_state: false
+              source: true
+              volume: true
+            type: 'custom:mini-media-player'
+          conditions:
+            - entity: media_player.playstation_4
+              state_not: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            artwork: cover
+            entity: media_player.living_room_home_mini
+            hide:
+              icon: false
+              mute: true
+              power_state: false
+            info: short
+            type: 'custom:mini-media-player'
+          conditions:
+            - entity: media_player.living_room_home_mini
+              state_not: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
           - card:
               card:
                 artwork: cover

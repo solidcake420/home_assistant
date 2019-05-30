@@ -51,6 +51,7 @@ logbook:
     - binary_sensor.living_room_motion_sensor
 
 # Text to speech
+
 tts:
   - platform: google_translate
     service_name: google_say
@@ -64,12 +65,14 @@ notify:
      vapid_email: !secret mail_address
 
 # Weather
+
 weather:
   - platform: darksky
     api_key: !secret darksky_api
     mode: daily
 
 # Lights
+
 light:
   - platform: switch
     name: Salt Lamp
@@ -91,6 +94,7 @@ light:
 #    automatic_add: true
 
 # Dyson
+
 dyson:
   username: !secret mail_address
   password: !secret fan_password
@@ -98,28 +102,6 @@ dyson:
   devices:
     - device_id: NC8-UK-JEA1684A
       device_ip: 192.168.1.109
-
-input_number:
-  dyson_fan_speed:
-    icon: mdi:fan
-    name: Speed
-    initial: 1
-    min: 1
-    max: 10
-    step: 1
-
-input_boolean:
-  fan:
-    name: Fan
-    initial: off
-  auto:
-    name: Auto
-    initial: on
-
-  zigbee_permit_join:
-    name: Allow devices to join
-    initial: off
-    icon: mdi:cellphone-wireless
 
 # Tracker
 
@@ -377,8 +359,49 @@ googlehome:
       track_devices: false
       track_alarms: true
 
-# Media
+# Automations
 
+input_number:
+  dyson_fan_speed:
+    icon: mdi:fan
+    name: Speed
+    initial: 1
+    min: 1
+    max: 10
+    step: 1
+
+input_boolean:
+  fan:
+    name: Fan
+    initial: off
+  auto:
+    name: Auto
+    initial: on
+
+  zigbee_permit_join:
+    name: Allow devices to join
+    initial: off
+    icon: mdi:cellphone-wireless
+
+timer:
+  zigbee_permit_join:
+    name: Time remaining
+    duration: 600 # Updated this to the number of seconds you wish
+
+  laundry:
+    duration: '01:30:00'
+    icon: mdi:washing-machine
+
+counter:
+  water_filter:
+    initial: 20
+    step: 1
+  
+  cat_litter:
+    initial: 0
+    step: 1
+
+# Media
 media_player:
   - platform: spotify
     client_id: !secret spotify_id
@@ -398,23 +421,6 @@ speedtestdotnet:
     - ping
     - download
     - upload
-
-timer:
-  zigbee_permit_join:
-    name: Time remaining
-    duration: 600 # Updated this to the number of seconds you wish
-
-  laundry:
-    duration: '01:30:00'
-    icon: mdi:washing-machine
-
-counter:
-  water_filter:
-    initial: 20
-    step: 1
-  cat_litter:
-    initial: 0
-    step: 1
 
 breaking_changes:
 

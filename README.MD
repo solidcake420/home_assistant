@@ -113,12 +113,18 @@ Official components:
 - [DarkSky Weather](https://www.home-assistant.io/components/weather.darksky/)
 - [Dyson Air Purifier](https://www.home-assistant.io/components/dyson/)
 - [BT Smart Hub Device tracker](https://www.home-assistant.io/components/bt_smarthub/)
+- [Google Home](https://www.home-assistant.io/components/googlehome/)
 - [System Monitor](https://www.home-assistant.io/components/openhardwaremonitor/)
 - [World Air Quality Index](https://www.home-assistant.io/components/waqi/)
 - [Workday Binary Sensor](https://www.home-assistant.io/components/workday/)
+- [Wake on LAN](https://www.home-assistant.io/components/wake_on_lan/)
 - [Spotify](https://www.home-assistant.io/components/spotify/)
 - [Broadlink](https://www.home-assistant.io/components/broadlink/)
 - [Speedtest.net](https://www.home-assistant.io/components/speedtestdotnet/)
+- [Timer](https://www.home-assistant.io/components/timer/)
+- [Counter](https://www.home-assistant.io/components/counter/)
+- [Kodi](https://www.home-assistant.io/components/kodi/)
+- [Raspbery Pi GPIO](https://www.home-assistant.io/components/rpi_gpio/)
 
 
 Unofficial/custom components:
