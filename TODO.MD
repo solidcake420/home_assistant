@@ -1,6 +1,5 @@
 ## Todo - software
 
-- [ ] Tidy entity registry
 - [ ] [Remove MQTT sensor](https://github.com/Koenkk/zigbee2mqtt/issues/835#issuecomment-462049621)
 - [X] Counter & timer components
 - [X] [fold-entity-row](https://github.com/thomasloven/lovelace-fold-entity-row)
@@ -33,7 +32,7 @@
   - [X] Flash [ESPHome](https://github.com/arendst/Sonoff-Tasmota/wiki/SWB1-Smart-Power-Strip)
 - [ ] ESP8266 Sensors
   - [X] [Motion/PIR](https://esphome.io/cookbook/pir.html)
-  - [ ] Temperature/humidity
+  - [X] Temperature/humidity
   - [ ] Light level
 - [X] ZigBee Adapter flash
 - [ ] Migrate to ESPHome
