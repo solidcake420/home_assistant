@@ -1,6 +1,6 @@
 ## Todo - software
 
-- [ ] [Remove MQTT sensor](https://github.com/Koenkk/zigbee2mqtt/issues/835#issuecomment-462049621)
+- [X] [Remove MQTT sensor](https://github.com/Koenkk/zigbee2mqtt/issues/835#issuecomment-462049621)
 - [X] Counter & timer components
 - [X] [fold-entity-row](https://github.com/thomasloven/lovelace-fold-entity-row)
 - [X] [Compact header](https://github.com/maykar/compact-custom-header)
@@ -22,6 +22,7 @@
   - [ ] Air quality conditional alert
   - [ ] Water filter conditional card
 - [X] Add timer to washing machine
+  - [X] Water distiller timer
 - [ ] [Improve Dyson Fan card](https://community.home-assistant.io/t/wifi-dyson-pure-cool-link-full-setup/40332)
 - [ ] Wrap a vertical-stack or horizontal-stack in card-modder - it will mod every card in the stack separately (new feature)
 - [ ] More themes
@@ -42,6 +43,7 @@
 - [ ] Android tablet as remote
 
 ## Todo - automations
+
 - [ ] Announcer for washing machine
 - [ ] Play on speakers when back home
 - [ ] [Welcome home automation](https://www.reddit.com/r/homeassistant/comments/bi2klv/playing_specific_song_via_spotify_on_alexa/)

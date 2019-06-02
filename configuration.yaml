@@ -14,9 +14,9 @@ homeassistant:
   customize: !include customize.yaml
 
 http:
-  base_url: https://###########.duckdns.org:8123
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
+#  base_url: https://####.duckdns.org:8123
+#  ssl_certificate: /ssl/fullchain.pem
+#  ssl_key: /ssl/privkey.pem
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
@@ -391,6 +391,10 @@ timer:
   laundry:
     duration: '01:30:00'
     icon: mdi:washing-machine
+
+  water_distiller:
+    duration: '05:00:00'
+    icon: mdi:cup-water
 
 counter:
   water_filter:

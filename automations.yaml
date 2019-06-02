@@ -170,7 +170,6 @@
   - data:
       entity_id: light.table_light
     service: light.turn_on
-  initial_state: true
 - id: '1554486686805'
   alias: Table light Auto-off
   trigger:
@@ -183,7 +182,6 @@
   - data:
       entity_id: light.table_light
     service: light.turn_off
-  initial_state: true
 - id: '1554486821208'
   alias: Turn water destiller on
   trigger:
@@ -244,7 +242,6 @@
   - data:
       entity_id: light.hue_mini
     service: light.turn_on
-  initial_state: true
 - id: '1554544943254'
   alias: Hue Mini Auto-Off
   trigger:
@@ -255,7 +252,6 @@
   - data:
       entity_id: light.hue_mini
     service: light.turn_off
-  initial_state: true
 - id: '1554549575738'
   alias: Salt Lamp Auto-On Workday
   trigger:
@@ -271,7 +267,6 @@
   - data:
       entity_id: light.salt_lamp
     service: light.turn_on
-  initial_state: true
 - id: '1554549680381'
   alias: Salt Lamp Auto-On Weekends
   trigger:
@@ -287,7 +282,6 @@
   - data:
       entity_id: light.salt_lamp
     service: light.turn_on
-  initial_state: true
 - id: '1554549783057'
   alias: Salt Lamp Auto-Off Workday
   trigger:
@@ -303,7 +297,6 @@
   - data:
       entity_id: light.salt_lamp
     service: light.turn_off
-  initial_state: true
 - id: '1554549840529'
   alias: Salt Lamp Auto-Off Weekends
   trigger:
@@ -319,7 +312,6 @@
   - data:
       entity_id: light.salt_lamp
     service: light.turn_off
-  initial_state: true
 - id: '1554597528041'
   alias: Hue Lights off at Sunrise
   trigger:
@@ -355,7 +347,6 @@
   - data:
       entity_id: light.living_room
     service: light.turn_off
-  initial_state: true
 - id: '1554716154642'
   alias: Wake-Up Mike
   trigger:
@@ -669,4 +660,16 @@
   - data:
       duration: 01:30:00
       entity_id: timer.laundry
+    service: timer.start
+- id: '1559476452307'
+  alias: Water Distiller Timer
+  trigger:
+  - entity_id: switch.sonoff_s20_3_relay
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: timer.water_distiller
     service: timer.start

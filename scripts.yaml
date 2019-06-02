@@ -80,3 +80,36 @@ flash_loop:
     service: script.turn_on
     data:
       entity_id: script.flash_room1
+'1559467242473':
+  alias: Cat litter box visit
+  sequence:
+  - data:
+      entity_id: counter.cat_litter
+    service: counter.increment
+'1559467284392':
+  alias: Cat litter box reset
+  sequence:
+  - data:
+      entity_id: counter.cat_litter
+    service: counter.reset
+'1559478533351':
+  alias: Restart water distiller timer
+  sequence:
+  - data:
+      entity_id: timer.water_distiller
+    service: timer.cancel
+  - data:
+      entity_id: timer.water_distiller
+    service: timer.start
+'1559478566474':
+  alias: Cancel water destiler timer
+  sequence:
+  - data:
+      entity_id: timer.water_distiller
+    service: timer.cancel
+'1559479683951':
+  alias: Restart water filter counter
+  sequence:
+  - data:
+      entity_id: counter.water_filter
+    service: counter.reset

@@ -404,3 +404,15 @@ binary_sensor.nodemcu_status:
   icon: mdi:car-esp
 binary_sensor.nodemcu_motion_sensor:
   friendly_name: Kitchen Motion Sensor
+media_player.kodi:
+  icon: mdi:kodi
+counter.water_filter:
+  friendly_name: New water filter in
+  icon: mdi:filter-outline
+  unit_of_measurement: days
+counter.cat_litter:
+  friendly_name: Cat litter box
+  icon: mdi:cat
+  unit_of_measurement: visits
+timer.water_distiller:
+  friendly_name: 'Water distiller ready in:'

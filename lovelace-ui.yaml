@@ -150,6 +150,27 @@ views:
                 state: home
             type: conditional
         type: horizontal-stack
+      - card:
+          card:
+            artwork: cover
+            entity: media_player.kodi
+            hide:
+              controls: false
+              power_state: false
+              source: false
+              volume: false
+            info: scroll
+            type: 'custom:mini-media-player'
+          conditions:
+            - entity: media_player.kodi
+              state_not: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
       - cards:
           - card:
               card:
@@ -640,6 +661,7 @@ views:
             - head:
                 entity: light.living_room
                 icon: 'mdi:sofa'
+                toggle: true
                 type: 'custom:slider-entity-row'
               items:
                 - entity: light.hue_one
@@ -656,6 +678,7 @@ views:
             - head:
                 entity: light.hallway
                 icon: 'mdi:door'
+                toggle: true
                 type: 'custom:slider-entity-row'
               items:
                 - entity: light.hue_hallway_1
@@ -672,6 +695,7 @@ views:
             - head:
                 entity: light.master_bedroom
                 icon: 'mdi:hotel'
+                toggle: true
                 type: 'custom:slider-entity-row'
               items:
                 - entity: light.hue_mike
@@ -1004,6 +1028,22 @@ views:
               overflow: hidden
             type: 'custom:card-modder'
         type: 'custom:swipe-card'
+      - card:
+          card:
+            entities:
+              - timer.water_distiller
+            type: entities
+          conditions:
+            - entity: timer.water_distiller
+              state: active
+          type: conditional
+        style:
+          background: 'right / cover no-repeat url("#/local/assets/megahome_4x1.png")'
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
       - cards:
           - cards:
               - card:
@@ -1347,6 +1387,7 @@ views:
               power_state: false
               source: false
               volume: false
+            info: scroll
             type: 'custom:mini-media-player'
           conditions:
             - entity: media_player.kodi
@@ -1926,6 +1967,7 @@ views:
               power_state: false
               source: false
               volume: false
+            info: scroll
             type: 'custom:mini-media-player'
           conditions:
             - entity: media_player.kodi
@@ -2614,6 +2656,37 @@ views:
         notifications: overflow
         type: 'custom:compact-custom-header'
         voice: overflow
+      - card:
+          entities:
+            - timer.water_distiller
+            - entity: script.1559478533351
+              name: Restart timer
+              icon: 'mdi:restart'
+            - entity: script.1559478566474
+              name: Cancel timer
+              icon: 'mdi:cancel'
+            - type: divider
+            - counter.water_filter
+            - entity: script.1559479683951
+              icon: 'mdi:restart'
+          type: entities
+          title: Water distiller
+          show_header_toggle: false
+        style:
+          background: 'right / cover no-repeat url("#/local/assets/megahome_4x1.png")'
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+    icon: 'mdi:chart-areaspline'
+    title: Data
+  - badges: []
+    cards:
+      - main_config: true
+        notifications: overflow
+        type: 'custom:compact-custom-header'
+        voice: overflow
       - entities:
           - entity: binary_sensor.hassio
           - entity: binary_sensor.remote_ui
@@ -2768,6 +2841,7 @@ views:
           - entity: automation.mike_light_off_when_out
           - entity: automation.turn_lights_off_when_everyone_is_out
           - entity: automation.battlestation_on_when_back_home
+          - entity: automation.music_on_speakers_when_back_home
         show_header_toggle: true
         title: Location Based
         type: entities
@@ -2787,16 +2861,13 @@ views:
         title: Time Based
         type: entities
       - entities:
+          - entity: automation.set_theme_at_startup
           - entity: automation.dyson_420
           - entity: automation.dyson_420_off
-          - entity: automation.set_theme_at_startup
           - entity: automation.rainy_day
           - entity: automation.rain_is_over
           - entity: automation.home_cinema_on_when_casting
           - entity: automation.home_cinema_off_when_casting_is_over
-          - entity: automation.music_on_speakers_when_back_home
-          - entity: automation.water_filter
-          - entity: automation.laundry_timer
         title: Other
         type: entities
       - entities:
@@ -2818,12 +2889,14 @@ views:
           - entity: automation.kitchen_light_motion_off
         title: Motion Based
         type: entities
+      - entities:
+          - entity: automation.water_filter
+          - entity: automation.laundry_timer
+          - entity: automation.water_distiller_timer
+        title: Timers & Counters
+        type: entities
     icon: 'mdi:home-automation'
     title: Automations
-  - badges: []
-    cards: []
-    icon: 'mdi:chart-areaspline'
-    title: Data
   - badges: []
     cards:
       - main_config: true
@@ -3481,12 +3554,10 @@ views:
           overflow: 'hidden#'
         type: 'custom:card-modder'
       - entities:
-          - entity: binary_sensor.0x000d6f000f77de7d_occupancy
-          - entity: sensor.0x000d6f000f77de7d_temperature
           - entity: counter.cat_litter
-          - entity: counter.water_filter
           - entity: timer.laundry
-          - entity: sensor.0x000d6f000f77de7d_linkquality
+          - entity: script.1559467242473
+          - entity: script.1559467284392
         type: entities
       - card:
           entities:
@@ -3497,13 +3568,63 @@ views:
                 icon: false
                 power: false
                 power_state: false
-                volume: false
                 source: true
+                volume: false
               info: scroll
               type: 'custom:mini-media-player'
           type: entities
         style:
           background: transparent
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            entity: counter.cat_litter
+            max: 10
+            min: 0
+            severity:
+              green: 3
+              red: 8
+              yellow: 5
+            type: gauge
+          conditions:
+            - entity: counter.cat_litter
+              state_not: '1'
+            - entity: counter.cat_litter
+              state_not: '2'
+            - entity: counter.cat_litter
+              state_not: '3'
+            - entity: counter.cat_litter
+              state_not: '4'
+            - entity: counter.cat_litter
+              state_not: '5'
+            - entity: counter.cat_litter
+              state_not: '6'
+          type: conditional
+        style:
+          background: right / cover no-repeat url("/local/assets/cat_litter.png")
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            entity: counter.water_filter
+            max: 20
+            min: 0
+            type: gauge
+          conditions:
+            - entity: counter.water_filter
+              state: '15'
+            - entity: counter.water_filter
+              state_not: '20'
+          type: conditional
+        style:
+          background: right / cover no-repeat url("/local/assets/water_filter.png")
           border: 'solid 1px rgba(100,100,100,0.3)'
           border-radius: 20px
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
