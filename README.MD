@@ -10,7 +10,7 @@ I live in the U.K., keep that in mind as some of the integrations/devices might 
 * lovelace-ui.yaml should be copied to Lovelace UI Raw Config Editor
 * screenshots/gifs are in examples folder and don't get updated with every commit
 
-![shield1](https://img.shields.io/badge/Home%20Assistant-0.93.2-green.svg "HA version")
+![shield1](https://img.shields.io/badge/Home%20Assistant-0.94-green.svg "HA version")
 ![shield2](https://img.shields.io/github/commit-activity/m/solidcake420/home_assistant.svg "commit-activity")
 ![shield3](https://img.shields.io/github/last-commit/solidcake420/home_assistant.svg "last-commit")
 ![shield4](https://img.shields.io/github/stars/solidcake420/home_assistant.svg "stars")
@@ -27,7 +27,7 @@ If you want to buy me a coffee, that would be much appreciated. :)
 
 ## Used Hardware
 
-- [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/), running Hass.IO 2.11, Home Assistant 0.93.2
+- [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/), running Hass.IO 2.11, Home Assistant 0.94
  
 Network:
 
@@ -60,6 +60,7 @@ ZigBee2MQTT [ZigBee]
 - [Xiaomi Aqara Single Light Wall Switch](https://xiaomi-mi.com/sockets-and-sensors/aqara-smart-light-wall-switch-zigbee-version-single-key/)
 - [Xiaomi Aqara Window Door Sensor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-aqara-window-door-sensor/)
 - [Xiaomi Aqara Temperature and Humidity Sensor](https://xiaomi-mi.com/sockets-and-sensors/aqara-temperature-and-humidity-sensor/)
+- [Xiaomi MiJia Wireless Switch](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-mi-wireless-switch/)
 - [Ksentry Electronics ZigBee Switch](https://ksentry.manufacturer.globalsources.com/si/6008837134660/pdtl/ZigBee-module/1162731630/zigbee-on-off-controller-modules.htm)
 
 ESP8266: [WiFi, all running ESPHome firmware]
@@ -148,7 +149,8 @@ Custom Lovelace components:
 - [Swipe Card](https://github.com/bramkragten/custom-ui/tree/master/swipe-card)
 - [Lovelace Swipe Navigation](https://github.com/maykar/lovelace-swipe-navigation)
 - [Vertical Stack In Card](https://github.com/custom-cards/vertical-stack-in-card)
-- [Text Divider Row](https://github.com/custom-cards/text-divider-row) (currently not in use)
+- [Text Divider Row](https://github.com/custom-cards/text-divider-row)
+- [Bar Card](https://github.com/custom-cards/bar-card)
 
 Other:
 

@@ -422,7 +422,6 @@
   alias: Notification when Kamil is home
   trigger:
   - entity_id: person.kamil
-    from: not_home
     platform: state
     to: home
   condition: []
@@ -635,7 +634,7 @@
       entity_id: media_player.my_group
     service: media_player.media_play_pause
 - id: '1559150596231'
-  alias: Water Filter
+  alias: Water Filter Counter
   trigger:
   - at: 00:00:00
     platform: time
@@ -658,7 +657,6 @@
     state: online
   action:
   - data:
-      duration: 01:30:00
       entity_id: timer.laundry
     service: timer.start
 - id: '1559476452307'
@@ -673,3 +671,101 @@
   - data:
       entity_id: timer.water_distiller
     service: timer.start
+- id: '1559569495179'
+  alias: Notification when Viv is visiting
+  trigger:
+  - entity_id: device_tracker.viviens_iphone
+    platform: state
+    to: home
+  condition: []
+  action:
+  - data:
+      message: Viv is visiting!
+    service: notify.html5_lg_v30
+- id: '1559570498793'
+  alias: Notification when Dan is visiting
+  trigger:
+  - entity_id: device_tracker.galaxy_s8_2
+    platform: state
+    to: home
+  condition: []
+  action:
+  - data:
+      message: Dan is visiting!
+    service: notify.html5_lg_v30
+- id: '1559570572382'
+  alias: Notification when Greg is visiting
+  trigger:
+  - entity_id: device_tracker.android_fc4fb292b29f3673
+    platform: state
+    to: home
+  condition: []
+  action:
+  - data:
+      message: Grzesiek is visiting!
+    service: notify.html5_lg_v30
+- id: '1559570635189'
+  alias: Notification when Lesiu is visiting
+  trigger:
+  - entity_id: device_tracker.galaxy_s8
+    platform: state
+    to: home
+  condition: []
+  action:
+  - data:
+      message: Lesiu is visiting!
+    service: notify.html5_lg_v30
+- id: '1559636679946'
+  alias: Notification when water filter needs replacement
+  trigger:
+  - entity_id: counter.water_filter
+    platform: state
+    to: '0'
+  condition: []
+  action:
+  - data:
+      message: Time to change the water filter!
+    service: notify.html5_lg_v30
+- id: '1559672156733'
+  alias: MiJia Switch Single
+  trigger:
+  - entity_id: sensor.mijia_switch_buttton
+    platform: state
+    to: single
+  condition: []
+  action:
+  - data:
+      entity_id: counter.cat_litter
+    service: counter.reset
+- id: '1559716865171'
+  alias: MiJia Switch Double
+  trigger:
+  - entity_id: sensor.mijia_switch_buttton
+    platform: state
+    to: double
+  condition: []
+  action: []
+- id: '1559716926569'
+  alias: MiJia Switch Triple
+  trigger:
+  - entity_id: sensor.mijia_switch_buttton
+    from: triple
+    platform: state
+  condition: []
+  action: []
+- id: '1559716964229'
+  alias: MiJia Switch Quadruple
+  trigger:
+  - entity_id: sensor.mijia_switch_buttton
+    platform: state
+    to: quadruple
+  condition: []
+  action: []
+- id: '1559717480808'
+  alias: Cat litter visit
+  trigger: []
+  condition: []
+  action:
+  - data:
+      entity_id: counter.cat_litter
+    service: counter.increment

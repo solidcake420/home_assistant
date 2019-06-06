@@ -113,3 +113,18 @@ flash_loop:
   - data:
       entity_id: counter.water_filter
     service: counter.reset
+'1559727096037':
+  alias: Cancel washing machine timer
+  sequence:
+  - data:
+      entity_id: timer.laundry
+    service: timer.cancel
+'1559727238703':
+  alias: Restart washing machine timer
+  sequence:
+  - data:
+      entity_id: timer.laundry
+    service: timer.cancel
+  - data:
+      entity_id: timer.laundry
+    service: timer.start

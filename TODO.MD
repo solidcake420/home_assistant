@@ -19,8 +19,8 @@
 - [X] Replace Media slider with Conditional
 - [X] Guests conditional card
   - [X] Timer conditional card
-  - [ ] Air quality conditional alert
   - [ ] Water filter conditional card
+  - [ ] Air quality conditional alert
 - [X] Add timer to washing machine
   - [X] Water distiller timer
 - [ ] [Improve Dyson Fan card](https://community.home-assistant.io/t/wifi-dyson-pure-cool-link-full-setup/40332)
@@ -31,12 +31,12 @@
 
 - [X] tuya-convert [LINGANZH Smart Power Strip](https://smile.amazon.co.uk/gp/product/B07FT8TH3W)
   - [X] Flash [ESPHome](https://github.com/arendst/Sonoff-Tasmota/wiki/SWB1-Smart-Power-Strip)
-- [ ] ESP8266 Sensors
+- [X] ESP8266 Sensors
   - [X] [Motion/PIR](https://esphome.io/cookbook/pir.html)
   - [X] Temperature/humidity
   - [ ] Light level
 - [X] ZigBee Adapter flash
-- [ ] Migrate to ESPHome
+- [X] Migrate to ESPHome
   - [ ] MagicLight LED
 - [ ] [USB Camera](https://blog.kalavala.net/camera/diy/webcam/usbcam/homeassistant/motion/jpeg/binary_sensor/mqtt/raspberrypi/2018/01/11/diy-camera.html)
 - [ ] Pi Camera
@@ -44,13 +44,15 @@
 
 ## Todo - automations
 
+- [ ] Dim lights when playing video
 - [ ] Announcer for washing machine
 - [ ] Play on speakers when back home
 - [ ] [Welcome home automation](https://www.reddit.com/r/homeassistant/comments/bi2klv/playing_specific_song_via_spotify_on_alexa/)
   - [ ] Welcome home themes for guests
-- [ ] Notifications
+- [X] Notifications
   - [X] for washing machine
-  - [ ] for guests
+  - [X] for guests
+  - [X] for water filer
   - [ ] for Google Home timers
 - [ ] Lights blink when timer is over
 

@@ -32,6 +32,8 @@ resources:
     url: /local/vertical-stack-in-card.js?v=0.1.2
   - type: module
     url: /local/text-divider-row.js
+  - url: /local/custom-lovelace/bar-card/bar-card.js?v=1.2.1
+    type: js
 title: Home
 views:
   - badges: []
@@ -152,6 +154,60 @@ views:
         type: horizontal-stack
       - card:
           card:
+            entities:
+              - sensor.kitchen_home_timer
+            type: entities
+          conditions:
+            - entity: sensor.kitchen_home_timer
+              state_not: unavailable
+          type: conditional
+        style:
+          background: transparent
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            entities:
+              - entity: timer.laundry
+                name: 'Washing cycle will finish in:'
+            type: entities
+          conditions:
+            - entity: binary_sensor.aqara_door
+              state: 'off'
+          type: conditional
+        style:
+          background: 'right / cover no-repeat url("/#local/assets/washing_machine_2.png")'
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
+            entity: binary_sensor.aqara_door
+            image: /local/assets/washing_machine_2.png
+            show_name: true
+            show_state: true
+            state_image:
+              'off': /local/assets/washing_machine_closed_2.png
+              'on': /local/assets/washing_machine_2.png
+              unavailable: /local/assets/offline.png
+            type: picture-entity
+          conditions:
+            - entity: binary_sensor.aqara_door
+              state: 'off'
+          type: conditional
+        style:
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 20px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
+      - card:
+          card:
             artwork: cover
             entity: media_player.kodi
             hide:
@@ -171,64 +227,45 @@ views:
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
           overflow: hidden
         type: 'custom:card-modder'
-      - cards:
-          - card:
-              card:
-                entities:
-                  - sensor.kitchen_home_timer
-                type: entities
-              conditions:
-                - entity: sensor.kitchen_home_timer
-                  state_not: unavailable
-              type: conditional
-            style:
-              background: transparent
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 20px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-          - card:
-              card:
-                entities:
-                  - entity: timer.laundry
-                    name: 'Washing cycle will finish in:'
-                type: entities
-              conditions:
-                - entity: binary_sensor.aqara_door
-                  state: 'off'
-              type: conditional
-            style:
-              background: >-
-                right / cover no-repeat
-                url("/#local/assets/washing_machine_2.png")
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 20px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-          - card:
-              card:
-                entity: binary_sensor.aqara_door
-                image: /local/assets/washing_machine_2.png
-                show_name: true
-                show_state: true
-                state_image:
-                  'off': /local/assets/washing_machine_closed_2.png
-                  'on': /local/assets/washing_machine_2.png
-                  unavailable: /local/assets/offline.png
-                type: picture-entity
-              conditions:
-                - entity: binary_sensor.aqara_door
-                  state: 'off'
-              type: conditional
-            style:
-              border: 'solid 1px rgba(100,100,100,0.3)'
-              border-radius: 20px
-              box-shadow: '3px 3px rgba(0,0,0,0.4)'
-              overflow: hidden
-            type: 'custom:card-modder'
-        type: vertical-stack
+      - card:
+          card:
+            entity: counter.cat_litter
+            min: 0
+            max: 12
+            icon_position: inside
+            severity:
+              - value: 3
+                color: '#40bf40'
+              - value: 8
+                color: '#bf9540'
+              - value: 12
+                color: '#bf4040'
+            type: 'custom:bar-card'
+          conditions:
+            - entity: counter.cat_litter
+              state_not: '0'
+            - entity: counter.cat_litter
+              state_not: '1'
+            - entity: counter.cat_litter
+              state_not: '2'
+            - entity: counter.cat_litter
+              state_not: '3'
+            - entity: counter.cat_litter
+              state_not: '4'
+            - entity: counter.cat_litter
+              state_not: '5'
+            - entity: counter.cat_litter
+              state_not: '6'
+            - entity: counter.cat_litter
+              state_not: '7'
+          type: conditional
+        style:
+          background: right / cover no-repeat url("/local/assets/cat_litter.png")
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 10px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
       - card:
           card:
             entities:
@@ -1367,6 +1404,26 @@ views:
               overflow: hidden
             type: 'custom:card-modder'
         type: 'custom:swipe-card'
+      - card:
+          entity: counter.cat_litter
+          min: 0
+          max: 12
+          icon_position: inside
+          severity:
+            - value: 3
+              color: '#40bf40'
+            - value: 8
+              color: '#bf9540'
+            - value: 12
+              color: '#bf4040'
+          type: 'custom:bar-card'
+        style:
+          background: 'right / cover no-repeat url("#/local/assets/cat_litter.png")'
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 10px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: hidden
+        type: 'custom:card-modder'
     icon: 'mdi:glassdoor'
     panel: false
     path: ''
@@ -2656,29 +2713,152 @@ views:
         notifications: overflow
         type: 'custom:compact-custom-header'
         voice: overflow
-      - card:
-          entities:
-            - timer.water_distiller
-            - entity: script.1559478533351
-              name: Restart timer
-              icon: 'mdi:restart'
-            - entity: script.1559478566474
-              name: Cancel timer
-              icon: 'mdi:cancel'
-            - type: divider
-            - counter.water_filter
-            - entity: script.1559479683951
-              icon: 'mdi:restart'
-          type: entities
-          title: Water distiller
-          show_header_toggle: false
-        style:
-          background: 'right / cover no-repeat url("#/local/assets/megahome_4x1.png")'
-          border: 'solid 1px rgba(100,100,100,0.3)'
-          border-radius: 20px
-          box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: hidden
-        type: 'custom:card-modder'
+      - cards:
+          - card:
+              hold_action:
+                action: none
+              image: /local/assets/megahome_4x1.png
+              tap_action:
+                action: none
+              type: picture
+            style:
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 15px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              entities:
+                - entity: switch.sonoff_s20_3_relay
+                  secondary_info: last-changed
+                - entity: timer.water_distiller
+                  icon: 'mdi:timer'
+                - entity: script.1559478533351
+                  icon: 'mdi:restart'
+                  name: Restart timer
+                - entity: script.1559478566474
+                  icon: 'mdi:cancel'
+                  name: Cancel timer
+                - entity: counter.water_filter
+                  type: 'custom:bar-card'
+                  min: 0
+                  max: 20
+                  card_style:
+                    background: 'right / cover no-repeat url("#/local/assets/water_4.png")'
+                    border: 'solid 1px rgba(100,100,100,0.3)'
+                    border-radius: 10px
+                    box-shadow: '3px 3px rgba(0,0,0,0.4)'
+                - entity: script.1559479683951
+                  icon: 'mdi:filter-remove'
+                  name: Filter replaced
+                - text: Automations
+                  type: 'custom:text-divider-row'
+                - automation.turn_water_destiller_on
+                - automation.water_filter_counter
+                - automation.water_distiller_timer
+                - automation.notification_when_water_filter_needs_replacement
+              show_header_toggle: false
+              title: null
+              type: entities
+            style:
+              background: 'right / cover no-repeat url("#/local/assets/megahome_4x1.png")'
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 20px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+        type: vertical-stack
+      - cards:
+          - card:
+              hold_action:
+                action: none
+              image: /local/assets/cat_litter.png
+              tap_action:
+                action: none
+              type: picture
+            style:
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 10px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              entities:
+                - entity: counter.cat_litter
+                  type: 'custom:bar-card'
+                  min: 0
+                  max: 12
+                  icon_position: inside
+                  severity:
+                    - value: 3
+                      color: '#40bf40'
+                    - value: 8
+                      color: '#bf9540'
+                    - value: 12
+                      color: '#bf4040'
+                  card_style:
+                    background: transparent
+                    border: 'solid 1px rgba(100,100,100,0.3)'
+                    border-radius: 10px
+                    box-shadow: '3px 3px rgba(0,0,0,0.4)'
+                - entity: script.1559467284392
+                  icon: 'mdi:restart'
+                  name: Reset counter
+              show_header_toggle: false
+              title: null
+              type: entities
+            style:
+              background: transparent
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 10px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+        type: vertical-stack
+      - cards:
+          - card:
+              hold_action:
+                action: none
+              image: /local/assets/washing_machine_2.png
+              tap_action:
+                action: none
+              type: picture
+            style:
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 15px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              entities:
+                - entity: binary_sensor.aqara_door
+                  secondary_info: last-changed
+                - entity: timer.laundry
+                  name: 'Washing cycle will finish in:'
+                  icon: 'mdi:timer'
+                - entity: script.1559727238703
+                  icon: 'mdi:restart'
+                  name: Restart timer
+                - entity: script.1559727096037
+                  icon: 'mdi:cancel'
+                  name: Cancel timer
+                - entity: sensor.aqara_door_signal
+                  name: Sensor signal strengh
+                - text: Automations
+                  type: 'custom:text-divider-row'
+                - automation.laundry_timer
+                - automation.notification_when_laundry_is_ready
+              show_header_toggle: false
+              title: null
+              type: entities
+            style:
+              background: 'right / cover no-repeat url("#/local/assets/megahome_4x1.png")'
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 20px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+        type: vertical-stack
     icon: 'mdi:chart-areaspline'
     title: Data
   - badges: []
@@ -2711,6 +2891,7 @@ views:
               - entity: sensor.aqara_door_signal
               - entity: sensor.aqara_temp_signal
               - entity: sensor.salt_lamp_linkquality
+              - entity: sensor.mijia_switch_signal
             type: 'custom:fold-entity-row'
           - head:
               label: Battery level
@@ -2718,6 +2899,7 @@ views:
             items:
               - entity: sensor.aqara_door_battery
               - entity: sensor.aqara_temp_battery
+              - entity: sensor.mijia_switch_battery
             type: 'custom:fold-entity-row'
         show_header_toggle: false
         title: ZigBee 2 MQTT
@@ -2874,6 +3056,11 @@ views:
           - entity: automation.notification_when_kamil_is_home
           - entity: automation.notification_when_kamil_is_leaving
           - entity: automation.notification_when_laundry_is_ready
+          - entity: automation.notification_when_dan_is_visiting
+          - entity: automation.notification_when_greg_is_visiting
+          - entity: automation.notification_when_lesiu_is_visiting
+          - entity: automation.notification_when_viv_is_visiting
+          - entity: automation.notification_when_water_filter_needs_replacement
         title: Notifications
         type: entities
       - entities:
@@ -2890,11 +3077,19 @@ views:
         title: Motion Based
         type: entities
       - entities:
-          - entity: automation.water_filter
+          - entity: automation.water_filter_counter
           - entity: automation.laundry_timer
           - entity: automation.water_distiller_timer
+          - entity: automation.cat_litter_visit
         title: Timers & Counters
         type: entities
+      - type: entities
+        entities:
+          - entity: automation.mijia_switch_single
+          - entity: automation.mijia_switch_double
+          - entity: automation.mijia_switch_triple
+          - entity: automation.mijia_switch_quadruple
+        title: Buttons
     icon: 'mdi:home-automation'
     title: Automations
   - badges: []
@@ -3340,6 +3535,44 @@ views:
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
           overflow: 'hidden#'
         type: 'custom:card-modder'
+      - card:
+          entities:
+            - text: Motion sensors
+              type: 'custom:text-divider-row'
+            - cards:
+                - cards:
+                    - card:
+                        entities:
+                          - entity: binary_sensor.hallway_sensor_motion
+                            icon: 'mdi:door-closed'
+                            name: Hallway
+                          - entity: binary_sensor.nodemcu_motion_sensor
+                            icon: 'mdi:silverware-fork-knife'
+                            name: Kitchen
+                          - entity: binary_sensor.living_room_motion_sensor
+                            icon: 'mdi:sofa'
+                            name: Living room
+                        show_icon: true
+                        show_name: true
+                        show_state: true
+                        type: glance
+                      style:
+                        background: transparent
+                      type: 'custom:card-modder'
+                  type: horizontal-stack
+              type: 'custom:vertical-stack-in-card'
+            - text: Dyson PureCool™
+              type: 'custom:text-divider-row'
+            - entity: input_boolean.auto
+            - entity: input_number.dyson_fan_speed
+          type: entities
+        style:
+          background: transparent
+          border: 'solid 1px rgba(100,100,100,0.3)'
+          border-radius: 10px
+          box-shadow: '3px 3px rgba(0,0,0,0.4)'
+          overflow: 'hidden#'
+        type: 'custom:card-modder'
     icon: 'mdi:delete-circle-outline'
     title: Bin
   - badges: []
@@ -3515,47 +3748,8 @@ views:
                 type: 'custom:swipe-card'
             type: horizontal-stack
         type: vertical-stack
-      - card:
-          entities:
-            - text: Motion sensors
-              type: 'custom:text-divider-row'
-            - cards:
-                - cards:
-                    - card:
-                        entities:
-                          - entity: binary_sensor.hallway_sensor_motion
-                            icon: 'mdi:door-closed'
-                            name: Hallway
-                          - entity: binary_sensor.nodemcu_motion_sensor
-                            icon: 'mdi:silverware-fork-knife'
-                            name: Kitchen
-                          - entity: binary_sensor.living_room_motion_sensor
-                            icon: 'mdi:sofa'
-                            name: Living room
-                        show_icon: true
-                        show_name: true
-                        show_state: true
-                        type: glance
-                      style:
-                        background: transparent
-                      type: 'custom:card-modder'
-                  type: horizontal-stack
-              type: 'custom:vertical-stack-in-card'
-            - text: Dyson PureCool™
-              type: 'custom:text-divider-row'
-            - entity: input_boolean.auto
-            - entity: input_number.dyson_fan_speed
-          type: entities
-        style:
-          background: transparent
-          border: 'solid 1px rgba(100,100,100,0.3)'
-          border-radius: 10px
-          box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: 'hidden#'
-        type: 'custom:card-modder'
       - entities:
           - entity: counter.cat_litter
-          - entity: timer.laundry
           - entity: script.1559467242473
           - entity: script.1559467284392
         type: entities
@@ -3575,56 +3769,6 @@ views:
           type: entities
         style:
           background: transparent
-          border: 'solid 1px rgba(100,100,100,0.3)'
-          border-radius: 20px
-          box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: hidden
-        type: 'custom:card-modder'
-      - card:
-          card:
-            entity: counter.cat_litter
-            max: 10
-            min: 0
-            severity:
-              green: 3
-              red: 8
-              yellow: 5
-            type: gauge
-          conditions:
-            - entity: counter.cat_litter
-              state_not: '1'
-            - entity: counter.cat_litter
-              state_not: '2'
-            - entity: counter.cat_litter
-              state_not: '3'
-            - entity: counter.cat_litter
-              state_not: '4'
-            - entity: counter.cat_litter
-              state_not: '5'
-            - entity: counter.cat_litter
-              state_not: '6'
-          type: conditional
-        style:
-          background: right / cover no-repeat url("/local/assets/cat_litter.png")
-          border: 'solid 1px rgba(100,100,100,0.3)'
-          border-radius: 20px
-          box-shadow: '3px 3px rgba(0,0,0,0.4)'
-          overflow: hidden
-        type: 'custom:card-modder'
-      - card:
-          card:
-            entity: counter.water_filter
-            max: 20
-            min: 0
-            type: gauge
-          conditions:
-            - entity: counter.water_filter
-              state: '15'
-            - entity: counter.water_filter
-              state_not: '20'
-          type: conditional
-        style:
-          background: right / cover no-repeat url("/local/assets/water_filter.png")
           border: 'solid 1px rgba(100,100,100,0.3)'
           border-radius: 20px
           box-shadow: '3px 3px rgba(0,0,0,0.4)'

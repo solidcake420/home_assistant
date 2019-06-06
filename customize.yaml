@@ -416,3 +416,6 @@ counter.cat_litter:
   unit_of_measurement: visits
 timer.water_distiller:
   friendly_name: 'Water distiller ready in:'
+sensor.mijia_switch_signal:
+  device_class: signal_strength
+  unit_of_measurement: dBm
