@@ -139,7 +139,7 @@
   action:
   - data:
       entity_id: light.master_bedroom, light.hallway, light.salt_lamp, light.hue_mini,
-        light.living_room, light.kichen
+        light.living_room, light.kichen, light.desk_lamp
     service: light.turn_on
 - id: '1554484047407'
   alias: Turn lights off when everyone is out
@@ -154,9 +154,6 @@
   - data:
       entity_id: group.all_lights
     service: light.turn_off
-  - data:
-      entity_id: switch.10001700e8
-    service: switch.turn_off
 - id: '1554486611632'
   alias: Table Light Auto-On
   trigger:
@@ -229,7 +226,7 @@
   condition: []
   action:
   - data:
-      entity_id: light.master_bedroom, light.salt_lamp
+      entity_id: light.master_bedroom, light.salt_lamp, light.desk_lamp
     service: light.turn_off
 - id: '1554544866699'
   alias: Hue Mini Auto-On
@@ -735,8 +732,8 @@
   condition: []
   action:
   - data:
-      entity_id: counter.cat_litter
-    service: counter.reset
+      entity_id: light.table_light
+    service: light.toggle
 - id: '1559716865171'
   alias: MiJia Switch Double
   trigger:
@@ -744,7 +741,10 @@
     platform: state
     to: double
   condition: []
-  action: []
+  action:
+  - data:
+      entity_id: light.entertainment_area
+    service: light.toggle
 - id: '1559716926569'
   alias: MiJia Switch Triple
   trigger:
@@ -752,7 +752,10 @@
     from: triple
     platform: state
   condition: []
-  action: []
+  action:
+  - data:
+      entity_id: light.hue_one
+    service: light.toggle
 - id: '1559716964229'
   alias: MiJia Switch Quadruple
   trigger:
@@ -760,12 +763,40 @@
     platform: state
     to: quadruple
   condition: []
-  action: []
+  action:
+  - data:
+      entity_id: switch.tv_toggle
+    service: switch.toggle
 - id: '1559717480808'
-  alias: Cat litter visit
+  alias: Cat litter motion sensor
   trigger: []
   condition: []
   action:
   - data:
       entity_id: counter.cat_litter
     service: counter.increment
+- id: '1559846680923'
+  alias: Restart ZigBee2MQTT at boot
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition:
+  - after: 00:02:00
+    condition: time
+  action:
+  - data:
+      addon: 7ad98f9c_zigbee2mqtt
+    service: hassio.addon_restart
+- id: '1559898231866'
+  alias: Turn TV off when everyone is out
+  trigger:
+  - entity_id: group.home_members
+    for: 00:06:00
+    from: home
+    platform: state
+    to: not_home
+  condition: []
+  action:
+  - data:
+      entity_id: switch.tv
+    service: switch.turn_off

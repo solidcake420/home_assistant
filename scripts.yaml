@@ -128,3 +128,9 @@ flash_loop:
   - data:
       entity_id: timer.laundry
     service: timer.start
+'1559846563695':
+  alias: Restart ZigBee2MQTT
+  sequence:
+  - data:
+      addon: 7ad98f9c_zigbee2mqtt
+    service: hassio.addon_restart
