@@ -33,6 +33,8 @@ resources:
     url: /local/custom-lovelace/bar-card/bar-card.js?v=1.2.1
   - type: module
     url: /local/custom-lovelace/swipe-card/swipe-card.js
+  - type: module
+    url: /local/plugins/card-mod.js
 title: Home
 views:
   - badges: []
@@ -766,6 +768,7 @@ views:
                             name: Kitchen
                           - entity: binary_sensor.living_room_motion_sensor
                             icon: 'mdi:sofa'
+                          - entity: binary_sensor.mijia_motion
                             name: Living room
                         show_icon: true
                         show_name: false
@@ -1127,7 +1130,8 @@ views:
     panel: false
     path: default_view
     title: Home
-  - cards:
+  - badges: []
+    cards:
       - clock_am_pm: false
         clock_format: '24'
         main_config: true
@@ -1226,8 +1230,9 @@ views:
                 - type: divider
                 - entity: switch.smart_life_relay
                   secondary_info: last-changed
+                - entity: switch.dishwasher
+                  secondary_info: last-changed
                 - entity: sensor.kitchen_home_timer
-                  name: Timer
               show_header_toggle: false
               title: Kitchen
               type: entities
@@ -1447,9 +1452,8 @@ views:
               overflow: hidden
             type: 'custom:card-modder'
         type: vertical-stack
-    badges: []
-    title: 'Hallway, Kitchen, Bathroom'
     icon: 'mdi:glassdoor'
+    title: 'Hallway, Kitchen, Bathroom'
   - badges: []
     cards:
       - main_config: true
@@ -2805,6 +2809,8 @@ views:
             type: 'custom:card-modder'
           - card:
               entities:
+                - entity: binary_sensor.mijia_motion
+                  secondary_info: last-changed
                 - card_style:
                     background: transparent
                     border: 'solid 1px rgba(100,100,100,0.3)'
@@ -2825,6 +2831,8 @@ views:
                 - entity: script.1559467284392
                   icon: 'mdi:restart'
                   name: Reset counter
+                - entity: sensor.mijia_motion_signal
+                  name: Signal strengh
                 - text: Automations
                   type: 'custom:text-divider-row'
                 - automation.cat_litter_motion_sensor
@@ -2883,6 +2891,72 @@ views:
               overflow: hidden
             type: 'custom:card-modder'
         type: vertical-stack
+      - cards:
+          - card:
+              hold_action:
+                action: none
+              image: /local/assets/dishwasher_4x1.png
+              tap_action:
+                action: none
+              type: picture
+            style:
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 15px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              entities:
+                - entity: switch.dishwasher
+                - entity: sensor.salus_plug_power
+                  name: Current Power
+                - entity: timer.dishwasher
+                  icon: 'mdi:timer'
+                  name: 'Dishwasher cycle will finish in:'
+                - entity: script.1560371963979
+                  icon: 'mdi:restart'
+                  name: Restart timer
+                - entity: script.1560371931271
+                  icon: 'mdi:cancel'
+                  name: Cancel timer
+                - entity: sensor.salus_plug_signal
+                  name: Sensor signal strengh
+                - text: Automations
+                  type: 'custom:text-divider-row'
+                - automation.dishwasher_timer
+                - automation.notification_when_dishes_are_cleaned
+              show_header_toggle: false
+              title: null
+              type: entities
+            style:
+              background: 'right / cover no-repeat url("#/local/assets/megahome_4x1.png")'
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 20px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+          - card:
+              type: 'custom:mini-graph-card'
+              entities:
+                - entity: sensor.salus_plug_power
+              name: Energy Consumption
+              align_state: center
+              hours_to_show: 2
+              points_per_hour: 30
+              line_color: GOLD
+              show:
+                graph: bar
+                fill: fade
+                extrema: true
+                labels: true
+            style:
+              background: 'right / cover no-repeat url("#/local/assets/megahome_4x1.png")'
+              border: 'solid 1px rgba(100,100,100,0.3)'
+              border-radius: 20px
+              box-shadow: '3px 3px rgba(0,0,0,0.4)'
+              overflow: hidden
+            type: 'custom:card-modder'
+        type: vertical-stack
     icon: 'mdi:chart-areaspline'
     title: Data
   - badges: []
@@ -2918,6 +2992,8 @@ views:
               - entity: sensor.aqara_temp_signal
               - entity: sensor.salt_lamp_linkquality
               - entity: sensor.mijia_switch_signal
+              - entity: sensor.mijia_motion_signal
+              - entity: sensor.salus_plug_signal
             type: 'custom:fold-entity-row'
           - head:
               label: Battery level
@@ -2926,6 +3002,7 @@ views:
               - entity: sensor.aqara_door_battery
               - entity: sensor.aqara_temp_battery
               - entity: sensor.mijia_switch_battery
+              - entity: sensor.mijia_motion_battery
             type: 'custom:fold-entity-row'
         show_header_toggle: false
         title: ZigBee 2 MQTT
@@ -3040,6 +3117,7 @@ views:
       - entities:
           - entity: automation.hue_lights_on_at_sunset
           - entity: automation.hue_lights_off_at_sunrise
+          - entity: automation.hue_mini_auto_on
         title: Sunrise/Sunset
         type: entities
       - entities:
@@ -3057,7 +3135,6 @@ views:
       - entities:
           - entity: automation.turn_water_destiller_on
           - entity: automation.hue_mini_auto_off
-          - entity: automation.hue_mini_auto_on
           - entity: automation.salt_lamp_auto_off_workday
           - entity: automation.salt_lamp_auto_on_workday
           - entity: automation.salt_lamp_auto_off_weekends
@@ -3802,5 +3879,16 @@ views:
           box-shadow: '3px 3px rgba(0,0,0,0.4)'
           overflow: hidden
         type: 'custom:card-modder'
+      - hold_action:
+          action: none
+        image: /local/assets/battlestation.png
+        style: |
+          ha-card {
+            background: rgba(0,50,0,0.5);
+            border-radius: 25px;
+          }
+        tap_action:
+          action: none
+        type: picture
     icon: 'mdi:widgets'
     title: TEST

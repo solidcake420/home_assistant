@@ -1,5 +1,5 @@
 ## Todo - software
-
+- [ ] Move location data & Assistant cloud data out of configuration.yaml
 - [X] [Remove MQTT sensor](https://github.com/Koenkk/zigbee2mqtt/issues/835#issuecomment-462049621)
 - [X] Counter & timer components
 - [X] [fold-entity-row](https://github.com/thomasloven/lovelace-fold-entity-row)
@@ -19,6 +19,8 @@
 - [X] Replace Media slider with Conditional
 - [X] Guests conditional card
   - [X] Timer conditional card
+    [ ] Dishwasher timer conditional
+	[ ] Cat litter conditional
   - [ ] Water filter conditional card
   - [ ] Air quality conditional alert
 - [X] Add timer to washing machine
@@ -44,6 +46,8 @@
 
 ## Todo - automations
 
+- [ ] Dishwasher timer & notification
+  [ ] Cat litter notification
 - [ ] Dim lights when playing video
 - [ ] Announcer for washing machine
 - [ ] Play on speakers when back home

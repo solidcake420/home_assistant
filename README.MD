@@ -10,7 +10,7 @@ I live in the U.K., keep that in mind as some of the integrations/devices might 
 * lovelace-ui.yaml should be copied to Lovelace UI Raw Config Editor
 * screenshots/gifs are in examples folder and don't get updated with every commit
 
-![shield1](https://img.shields.io/badge/Home%20Assistant-0.94-green.svg "HA version")
+![shield1](https://img.shields.io/badge/Home%20Assistant-0.94.1-green.svg "HA version")
 ![shield2](https://img.shields.io/github/commit-activity/m/solidcake420/home_assistant.svg "commit-activity")
 ![shield3](https://img.shields.io/github/last-commit/solidcake420/home_assistant.svg "last-commit")
 ![shield4](https://img.shields.io/github/stars/solidcake420/home_assistant.svg "stars")
@@ -27,7 +27,7 @@ If you want to buy me a coffee, that would be much appreciated. :)
 
 ## Used Hardware
 
-- [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/), running Hass.IO 2.11, Home Assistant 0.94
+- [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/), running Hass.IO 2.11, Home Assistant 0.94.1
  
 Network:
 
@@ -61,6 +61,8 @@ ZigBee2MQTT [ZigBee]
 - [Xiaomi Aqara Window Door Sensor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-aqara-window-door-sensor/)
 - [Xiaomi Aqara Temperature and Humidity Sensor](https://xiaomi-mi.com/sockets-and-sensors/aqara-temperature-and-humidity-sensor/)
 - [Xiaomi MiJia Wireless Switch](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-mi-wireless-switch/)
+- [Xiaomi MiJia Motion Sensor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-mi-occupancy-sensor/)
+- [Salus SP600 Smart Plug](https://salus-controls.com/uk/product/sp600/) 
 - [Ksentry Electronics ZigBee Switch](https://ksentry.manufacturer.globalsources.com/si/6008837134660/pdtl/ZigBee-module/1162731630/zigbee-on-off-controller-modules.htm)
 
 ESP8266: [WiFi, all running ESPHome firmware]
@@ -68,7 +70,7 @@ ESP8266: [WiFi, all running ESPHome firmware]
 - [NodeMCU v2 ESP8266](https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20190525164833&SearchText=esp8266+nodemcu+v2) + [HC-SR501 PIR Motion Sensor](https://www.aliexpress.com/item/1pcs-HC-SR501-Adjust-IR-Pyroelectric-Infrared-PIR-Motion-Sensor-Detector-Module-for-arduino-for-raspberry/32733268757.html) + [DHT11 Temp. & Humidity Sensor Module](https://www.aliexpress.com/item/Free-Shipping-DHT11-Temperature-and-Relative-Humidity-Sensor-Module-With-Cable-for-Arduino/1941380773.html)
 - 3x [Sonoff S20](https://sonoff.itead.cc/en/products/residential/s20-socket)
 - 1x [Sonoff Basic](https://sonoff.itead.cc/en/products/sonoff/sonoff-basic)
-- 1x [Sonoff TH16](https://sonoff.itead.cc/en/products/sonoff/sonoff-th) + [AM2301 sensor](https://sonoff.itead.cc/en/products/accessories/am2301)
+- 1x [Sonoff TH16](https://sonoff.itead.cc/en/products/sonoff/sonoff-th) + [SI7021 sensor](https://www.itead.cc/wiki/Sonoff_Sensor_Si7021)
 - 1x [Generic GMYLE Tuya plug](https://www.amazon.co.uk/gp/product/B074SXKQRZ)
 - 1x [LINGANZH SWB1 Smart Power Strip](https://amazon.co.uk/gp/product/B07FT8TH3W)
 
@@ -151,7 +153,8 @@ Custom Lovelace components:
 - [Vertical Stack In Card](https://github.com/custom-cards/vertical-stack-in-card)
 - [Text Divider Row](https://github.com/custom-cards/text-divider-row)
 - [Bar Card](https://github.com/custom-cards/bar-card)
-
+- [Card Mod](https://github.com/thomasloven/lovelace-card-mod) (currently not in use)
+ 
 Other:
 
 - [HassIQ](https://github.com/alanfischer/hassiq)

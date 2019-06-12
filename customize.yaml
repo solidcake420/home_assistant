@@ -419,3 +419,13 @@ timer.water_distiller:
 sensor.mijia_switch_signal:
   device_class: signal_strength
   unit_of_measurement: dBm
+binary_sensor.mijia_motion:
+  icon: mdi:cat
+sensor.mijia_motion_signal:
+  device_class: signal_strength
+  unit_of_measurement: dBm
+sensor.salus_plug_signal:
+  device_class: signal_strength
+  unit_of_measurement: dBm
+switch.dishwasher:
+  icon: mdi:dishwasher

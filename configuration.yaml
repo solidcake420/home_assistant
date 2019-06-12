@@ -47,6 +47,7 @@ logbook:
     - switch.stereo
     - switch.stereo_vol_up
     - switch.stereo_vol_down
+    - switch.tv_toggle
     - binary_sensor.nodemcu_motion_sensor
     - binary_sensor.living_room_motion_sensor
 
@@ -214,7 +215,6 @@ sensor:
     name: Bridge state
     state_topic: "zigbee2mqtt/bridge/state"
     icon: mdi:router-wireless
-
 
 binary_sensor:
 
@@ -393,8 +393,12 @@ timer:
     icon: mdi:washing-machine
 
   water_distiller:
-    duration: '05:00:00'
+    duration: '05:30:00'
     icon: mdi:cup-water
+    
+  dishwasher:
+    duration: '02:00:00'
+    icon: mdi:dishwasher
 
 counter:
   water_filter:

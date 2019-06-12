@@ -208,6 +208,7 @@
   alias: Kamil Light off when out
   trigger:
   - entity_id: person.kamil
+    for: 00:05:00
     from: home
     platform: state
     to: not_home
@@ -220,6 +221,7 @@
   alias: Mike Light off when out
   trigger:
   - entity_id: person.flat
+    for: 00:05:00
     from: home
     platform: state
     to: not_home
@@ -374,13 +376,15 @@
     condition: time
   action:
   - data:
-      group_name: Master Bedroom
-      scene_name: Rain
-    service: hue.hue_activate_scene
+      brightness: '100'
+      color_name: ROYALBLUE
+      entity_id: light.extended_color_light_1
+    service: light.turn_on
   - data:
-      group_name: Living room
-      scene_name: Rain
-    service: hue.hue_activate_scene
+      brightness: '100'
+      color_name: ROYALBLUE
+      entity_id: light.wall_lightstrip
+    service: light.turn_on
 - id: '1555250471496'
   alias: Rain is over
   trigger:
@@ -393,13 +397,15 @@
     condition: time
   action:
   - data:
-      group_name: Master Bedroom
-      scene_name: Sunset
-    service: hue.hue_activate_scene
+      brightness: '100'
+      color_name: GOLD
+      entity_id: light.wall_lightstrip
+    service: light.turn_on
   - data:
-      group_name: Living room
-      scene_name: Sunset
-    service: hue.hue_activate_scene
+      brightness: '100'
+      color_name: GOLD
+      entity_id: light.extended_color_light_1
+    service: light.turn_on
 - id: '1555434259111'
   alias: Battlestation On when back home
   trigger:
@@ -591,7 +597,7 @@
   alias: Kitchen Light Motion Off
   trigger:
   - entity_id: binary_sensor.nodemcu_motion_sensor
-    for: 00:03:00
+    for: 00:06:00
     from: 'on'
     platform: state
     to: 'off'
@@ -732,7 +738,9 @@
   condition: []
   action:
   - data:
-      entity_id: light.table_light
+      brightness: '255'
+      color_name: white
+      entity_id: light.hue_one
     service: light.toggle
 - id: '1559716865171'
   alias: MiJia Switch Double
@@ -743,7 +751,7 @@
   condition: []
   action:
   - data:
-      entity_id: light.entertainment_area
+      entity_id: light.table_light
     service: light.toggle
 - id: '1559716926569'
   alias: MiJia Switch Triple
@@ -754,7 +762,7 @@
   condition: []
   action:
   - data:
-      entity_id: light.hue_one
+      entity_id: light.entertainment_area
     service: light.toggle
 - id: '1559716964229'
   alias: MiJia Switch Quadruple
@@ -769,7 +777,12 @@
     service: switch.toggle
 - id: '1559717480808'
   alias: Cat litter motion sensor
-  trigger: []
+  trigger:
+  - entity_id: binary_sensor.mijia_motion
+    for: 00:00:15
+    from: 'off'
+    platform: state
+    to: 'on'
   condition: []
   action:
   - data:
